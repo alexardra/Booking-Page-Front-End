@@ -1,0 +1,130 @@
+data = {
+	"sections": [
+		{
+			"header": "Top beaches around the world",
+			"overviews": [
+				{
+					"name": "Punta Cana",
+					"image_name": "punta-cana.jpg"
+				},
+				{
+					"name": "Playa del Carmen",
+					"image_name": "playa-del-carmen.jpg"
+				},
+				{
+					"name": "Bavaro",
+					"image_name": "bavaro.jpg"
+				},
+				{
+					"name": "Cancun",
+					"image_name": "cancun.jpg"
+				}
+			] 
+		},
+		{
+			"header": "Popular Destinations",
+			"overviews": [
+				{
+					"name": "Sharm El Sheikh",
+					"image_name": "sharm-el-sheikh.jpg"
+				},
+				{
+					"name": "Belek",
+					"image_name": "belek.jpg"
+				},
+				{
+					"name": "Berlin",
+					"image_name": "berlin.jpg"
+				},
+				{
+					"name": "Milan",
+					"image_name": "milan.jpg"
+				}
+			] 
+		},
+		{
+			"header": "Most Romantic Destinations",
+			"overviews": [
+				{
+					"name": "Paris",
+					"image_name": "paris.jpg"
+				},
+				{
+					"name": "Puerto Vallarta",
+					"image_name": "puerto-vallarta.jpg"
+				},
+				{
+					"name": "Venice",
+					"image_name": "venice.jpg"
+				},
+				{
+					"name": "Palm-Eagle Beach",
+					"image_name": "palm-eagle-beach.jpg"
+				}
+			] 
+		},
+		{
+			"header": "Cities with ancient history",
+			"overviews": [
+				{
+					"name": "Punta Cana",
+					"image_name": "punta-cana.jpg"
+				},
+				{
+					"name": "Playa del Carmen",
+					"image_name": "playa-del-carmen.jpg"
+				},
+				{
+					"name": "Bavaro",
+					"image_name": "bavaro.jpg"
+				},
+				{
+					"name": "Cancun",
+					"image_name": "cancun.jpg"
+				}
+			] 
+		},
+		{
+			"header": "Best places to hear bluegrass",
+			"overviews": [
+				{
+					"name": "Punta Cana",
+					"image_name": "punta-cana.jpg"
+				},
+				{
+					"name": "Playa del Carmen",
+					"image_name": "playa-del-carmen.jpg"
+				},
+				{
+					"name": "Bavaro",
+					"image_name": "bavaro.jpg"
+				},
+				{
+					"name": "Cancun",
+					"image_name": "cancun.jpg"
+				}
+			] 
+		},
+		{
+			"header": "Top cities for music lovers",
+			"overviews": [
+				{
+					"name": "Punta Cana",
+					"image_name": "punta-cana.jpg"
+				},
+				{
+					"name": "Playa del Carmen",
+					"image_name": "playa-del-carmen.jpg"
+				},
+				{
+					"name": "Bavaro",
+					"image_name": "bavaro.jpg"
+				},
+				{
+					"name": "Cancun",
+					"image_name": "cancun.jpg"
+				}
+			] 
+		}
+	]
+}
