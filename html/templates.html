@@ -20,3 +20,28 @@
 		</ul>
 	</div>
 </script>
+
+
+<script id="search_bar_template" type="text/html">
+	<div id="search_bar">
+		<button id="location"><i></i></button>
+	    <input type="text" placeholder="Destination" name="search">
+	    <div id="calendar">
+	    	<div>
+		    	<i></i>
+		    	<span class="calendar_date">{{today}}</span>
+		    	<span class="calendar_space"></span>
+		    	<i></i>
+		    	<span class="calendar_date">{{later}}</span>
+	    	</div>
+	    </div>
+	    <div id="other_filter_options">
+	    	<i class="human_icon"></i>
+	    	<span>{{details}}</span>
+	    	<i class="arrow_icon"></i>
+	    </div>
+	    <div id="submit_search">
+	    	<div class="search_button_text">{{find}}</div>
+	    </div>
+	</div>
+</script>

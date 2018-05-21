@@ -5,7 +5,7 @@ $(document).ready(function() {
 	});
 
 	addSeparatorsInList($("#other"));
-	alignSearchBar();
+	// alignSearchBar();
 
 });
 

@@ -17,6 +17,11 @@ app.get("/destinations.json", function(req,res) {
 	res.json(destinations);
 });
 
+const data = require("./js/data/data.json");
+app.get("/data.json", function(req,res) {
+	res.json(data);
+});
+
 app.get("/templates.html", function(req,res) {
 	res.sendFile(__dirname + "/html/templates.html");
 });

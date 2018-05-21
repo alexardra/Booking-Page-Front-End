@@ -1,2 +1,6 @@
-data = '[{"sections" : ["Harry",{"header":\n
-"Top beaches around the world"}], "age" : "32"}]';
+{
+	"today": "May 21",
+	"later": "May 28",
+	"details": "1 room, 2 guests",
+	"find": "Find Hotels"
+}

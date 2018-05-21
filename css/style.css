@@ -170,30 +170,6 @@ section {
 	border-top:1px solid #C8C8C8;
 }
 
-@media screen and (max-width:200px) {
-	#logo,.hamburger,#side-menu {
-		display:none;
-	}
-	#name {
-		width:100%;
-	}
-}
-
-@media screen and (min-width:600px) {
-	header ul {
-		/*display:block;*/
-	}
-	#name {
-		width:80px;
-		text-align:left;
-		margin-left:5px;
-	}
-	.hamburger,#side-menu {
-		display:none;
-	}
-
-}
-
 /***************    cover section styles    ***************/
 
 #cover {
@@ -217,6 +193,7 @@ section {
 	background-color:#FCF3CF;
 	color:#5DADE2;
 	font-size:1.2em;
+	display:none;
 }
 
 #location {
@@ -238,7 +215,7 @@ section {
 }
 
 #search_bar input {
-	width:35%;
+	width:30%;
 	height:48px;
 	border:none;
 	float:left;
@@ -254,9 +231,23 @@ section {
 #calendar {
 	height:48px;
 	float:left;
-	padding-left:1%;
-	padding-right: calc(1% - 5px);
+	width:400px;
+	text-align:right;
+}
+
+#calendar:before {
+	display:inline-block;
+	height:100%;
+	vertical-align:middle;
+}
+
+#calendar div {
+	height:48px;
+	display:inline-block;
+	vertical-align:middle;
+	padding:0 10px;
 	border-left:1px solid grey;
+	border-right:1px solid grey;
 }
 
 #calendar i {
@@ -271,7 +262,12 @@ section {
 	display:inline-block;
 	float:left;
 	line-height:20px;
-	margin:13px 5px 0 5px;
+	margin:13px 0 0 5px;
+	max-width:150px;
+	max-height:20px;
+	white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
 }
 
 .calendar_space {
@@ -279,14 +275,14 @@ section {
 	height:2px;
 	float:left;
 	border:1px solid #5DADE2;
-	margin-top:22px;
-	margin-right:5px;
+	margin:22px 5px 0 5px;
 }
 
 #other_filter_options {
 	height:48px;
 	float:left;
-	border-left:1px solid grey;
+	width:225px;
+	border-right:1px solid grey;
 }
 
 .human_icon {
@@ -301,7 +297,12 @@ section {
 	display:inline-block;
 	float:left;
 	line-height:20px;
+	max-width:130px;
+	max-height:20px;
 	margin:13px 10px 0 5px;
+	white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
 }
 
 .arrow_icon {
@@ -314,14 +315,16 @@ section {
 
 #submit_search {
 	float:left;
+	width:calc(70% - 673px);
 	height:48px;
-	border-left:1px solid grey;
-	line-height:20px;
-	padding-top:13px;	
-	padding-left:1%;
-	/*text-align:middle;*/
+	background-color:#A9CCE3;
+	color:#F0F3F4;
 }
 
+.search_button_text {
+	line-height:20px;
+	margin-top:13px;
+}
 
 /***************    browse section styles    ***************/
 
@@ -386,4 +389,57 @@ section {
 	right:0;
 	margin-right:2%;
 	font-size:1.3em;
+}
+
+
+/***************    break points     ***************/
+
+
+@media screen and (max-width:1220px) {
+	#submit_search {
+		display:none;
+	}
+
+	#other_filter_options {
+		border-right:none;
+	}
+}
+
+@media screen and (max-width:1090px) {
+	#other_filter_options {
+		display:none;
+	}
+	#calendar div{
+		border-right:none;
+	}
+	#calendar {
+		width:60%;
+	}
+}
+
+@media screen and (max-width:200px) {
+	#logo,.hamburger,#side-menu {
+		display:none;
+	}
+	#name {
+		width:100%;
+	}
+}
+
+@media screen and (min-width:600px) {
+	header ul {
+		/*display:block;*/
+	}
+	#name {
+		width:80px;
+		text-align:left;
+		margin-left:5px;
+	}
+	.hamburger,#side-menu {
+		display:none;
+	}
+
+	#search_bar {
+		display:block;
+	}
 }

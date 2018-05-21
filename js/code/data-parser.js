@@ -86,4 +86,13 @@ $.get('templates.html', function(templates) {
 		// }
 		
 	});
+
+	$.when($.getJSON("data.json")).then(function(data,textStatus, jqXHR) {
+		var template = $(templates).filter("#search_bar_template").html();
+		var output = Mustache.render(template,data);
+		$("#cover").append(output);	
+	});
+
 });
+
+
