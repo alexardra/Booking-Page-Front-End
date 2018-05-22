@@ -73,26 +73,29 @@ function parseAndDisplay(data_object) {
 
 parseAndDisplay(data);*/
 
+$(document).ready(function() {
+	$.get('templates.html', function(templates) {
+		$.when($.getJSON("destinations.json")).then(function(data,textStatus, jqXHR) {
+			// if (jqXHR == '200') { // on success
+				var sections = data["sections"];
+				var template = $(templates).filter("#browse_section_template").html();
+				for (var i = 0; i < sections.length; i++) {
+					var output = Mustache.render(template, data["sections"][i]);
+					$("#browse").append(output);
+				}
+			// }
+			
+		});
 
-$.get('templates.html', function(templates) {
-	$.when($.getJSON("destinations.json")).then(function(data,textStatus, jqXHR) {
-		// if (jqXHR == '200') { // on success
-			var sections = data["sections"];
-			var template = $(templates).filter("#browse_section_template").html();
-			for (var i = 0; i < sections.length; i++) {
-				var output = Mustache.render(template, data["sections"][i]);
-				$("#browse").append(output);
-			}
-		// }
-		
-	});
+		$.when($.getJSON("data.json")).then(function(data,textStatus, jqXHR) {
+			var search_bar_template = $(templates).filter("#search_bar_template").html();
+			var output = Mustache.render(search_bar_template,data);
+			$("#cover").append(output);	
 
-	$.when($.getJSON("data.json")).then(function(data,textStatus, jqXHR) {
-		var search_bar_template = $(templates).filter("#search_bar_template").html();
-		var output = Mustache.render(search_bar_template,data);
-		$("#cover").append(output);	
-
-		constructSearchRecentlyViewed(templates,data);
+			constructSearchRecentlyViewed(templates,data);
+			constructCalendarDropdown(templates,data);
+			searchbarEventHandler();
+		});
 	});
 
 });
@@ -116,4 +119,46 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 		$(".dropdown_content").append($("<div></div").addClass("separator"));
 		$(".dropdown_content").append(output);
 	}
+}
+
+
+function constructCalendarDropdown(templates,data) {
+	var calendar_dropdown = $(templates).filter("#calendar_dropdown").html();
+	var output = Mustache.render(calendar_dropdown,data);
+	$("#calendar").append(output);
+}
+
+function searchbarEventHandler() {
+
+	$("#calendar").click(function() {
+		$("#other_filter_options_dropdown").addClass("hidden");
+		toggle(".calendar_dropdown_content");
+	});
+
+	$("#search_bar input").focus(function() {
+		$(".calendar_dropdown_content").addClass("hidden");
+		$("#other_filter_options_dropdown").addClass("hidden");
+		$(".dropdown_content").removeClass("hidden");
+	});
+
+	$("#search_bar input").blur(function() {
+		$(".dropdown_content").addClass("hidden");
+	});
+
+	$("#other_filter_options").click(function() {
+		// console.log("aaa");
+		$(".dropdown_content").addClass("hidden");
+		$(".calendar_dropdown_content").addClass("hidden");
+		toggle("#other_filter_options_dropdown");
+	});
+
+}
+
+/* Toggle between display:none and other display */
+function toggle(elem) {
+	if ($(elem).hasClass("hidden")) {
+		$(elem).removeClass("hidden");
+	} else {
+		$(elem).addClass("hidden");
+	}	
 }

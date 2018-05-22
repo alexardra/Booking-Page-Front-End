@@ -31,18 +31,21 @@
 		</div>	
 
 	    <div id="calendar">
-	    	<div>
+	    	<div id="calendar_div">
 		    	<i></i>
-		    	<span class="calendar_date">{{today}}</span>
+		    	<span class="calendar_date">{{calendar.today}}</span>
 		    	<span class="calendar_space"></span>
 		    	<i></i>
-		    	<span class="calendar_date">{{later}}</span>
+		    	<span class="calendar_date">{{calendar.later}}</span>
 	    	</div>
 	    </div>
 	    <div id="other_filter_options">
-	    	<i class="human_icon"></i>
-	    	<span>{{details}}</span>
-	    	<i class="arrow_icon"></i>
+	    	<div>
+	    		<i class="human_icon"></i>
+	    		<span>{{details}}</span>
+	    		<i class="arrow_icon"></i>
+	    	</div>
+	    	<div id="other_filter_options_dropdown" class="hidden"></div>
 	    </div>
 	    <div id="submit_search">
 	    	<div class="search_button_text">{{find}}</div>
@@ -50,10 +53,9 @@
 	</div>
 </script>
 
-	<!-- <div class="separator"></div> -->
 
 <script id="recently_viewed_dropdown" type="text/html">
-	<div class="dropdown_content">
+	<div class="dropdown_content hidden">
 		<h1>{{recently viewed}}</h1>
 	</div>
 </script>
@@ -62,5 +64,25 @@
 	<div class="search_recently_viewed">
 		<div>{{location}}</div>
 		<div>{{additional info}}</div>	
+	</div>
+</script>
+
+<script id="calendar_dropdown" type="text/html">
+	<div class="calendar_dropdown_content hidden">
+		<h1>{{calendar.header}}</h1>
+		<div id="calendar_content"></div>
+	</div>
+</script>
+
+
+<script id="other_filters_dropdown_elem" type="text/html">
+	<div>
+		<span></span>
+		<button>
+			<i></i>
+		</button>
+		<button>
+			<i></i>
+		</button>
 	</div>
 </script>

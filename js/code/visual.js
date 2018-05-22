@@ -6,16 +6,8 @@ $(document).ready(function() {
 
 	addSeparatorsInList($("#other"));
 	// alignSearchBar();
-
 });
 
-function toggleSideMenu() {
-	if ($("#side-menu").hasClass("hidden")) {
-		$("#side-menu").removeClass("hidden");
-	} else {
-		$("#side-menu").addClass("hidden");
-	}	
-}
 
 var addSeparatorsInList = function(divId) {
 	var listItems = $(divId).find("li");	
