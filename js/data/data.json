@@ -10,5 +10,6 @@
 		"later": "May 28"
 	},
 	"details": "1 room, 2 guests",
+	"dropdown details": ["1 room", "2 adults", "0 children"],
 	"find": "Find Hotels"
 }
