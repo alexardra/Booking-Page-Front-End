@@ -24,8 +24,12 @@
 
 <script id="search_bar_template" type="text/html">
 	<div id="search_bar">
-		<button id="location"><i></i></button>
-	    <input type="text" placeholder="Destination" name="search">
+			
+		<button id="location"><i></i></button>	
+		<div class="dropdown">
+	    	<input type="text" placeholder="Destination" name="search">	
+		</div>	
+
 	    <div id="calendar">
 	    	<div>
 		    	<i></i>
@@ -43,5 +47,20 @@
 	    <div id="submit_search">
 	    	<div class="search_button_text">{{find}}</div>
 	    </div>
+	</div>
+</script>
+
+	<!-- <div class="separator"></div> -->
+
+<script id="recently_viewed_dropdown" type="text/html">
+	<div class="dropdown_content">
+		<h1>{{recently viewed}}</h1>
+	</div>
+</script>
+
+<script id="recently_viewed_elem" type="text/html">
+	<div class="search_recently_viewed">
+		<div>{{location}}</div>
+		<div>{{additional info}}</div>	
 	</div>
 </script>

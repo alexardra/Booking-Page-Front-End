@@ -88,11 +88,32 @@ $.get('templates.html', function(templates) {
 	});
 
 	$.when($.getJSON("data.json")).then(function(data,textStatus, jqXHR) {
-		var template = $(templates).filter("#search_bar_template").html();
-		var output = Mustache.render(template,data);
+		var search_bar_template = $(templates).filter("#search_bar_template").html();
+		var output = Mustache.render(search_bar_template,data);
 		$("#cover").append(output);	
+
+		constructSearchRecentlyViewed(templates,data);
 	});
 
 });
 
+/* Search bar - dropdown recently viewed information */
+function constructSearchRecentlyViewed(templates, data, num_to_show) {
+	if (num_to_show == undefined) num_to_show = 2;
 
+	var recently_viewed_dropdown = $(templates).filter("#recently_viewed_dropdown").html();
+	output = Mustache.render(recently_viewed_dropdown, data);
+	$(".dropdown").append(output);
+
+	var recently_viewed_elem = $(templates).filter("#recently_viewed_elem").html();
+	var recently_viewed_info = data["recently viewed info"];
+	var num_viewed = recently_viewed_info.length;
+	
+	if (num_viewed < num_to_show) num_to_show = num_viewed;
+
+	for (var i = 0; i < num_to_show; i++) {
+		output = Mustache.render(recently_viewed_elem,recently_viewed_info[i]);
+		$(".dropdown_content").append($("<div></div").addClass("separator"));
+		$(".dropdown_content").append(output);
+	}
+}

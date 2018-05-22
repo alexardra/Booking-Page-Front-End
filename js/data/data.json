@@ -1,4 +1,9 @@
 {
+	"recently viewed": "Recently Viewed",
+	"recently viewed info": [
+		{"location": "Tbilisi", "additional info": "Georgia, Europe"},
+		{"location": "United States", "additional info": "North America"}
+	],
 	"today": "May 21",
 	"later": "May 28",
 	"details": "1 room, 2 guests",
