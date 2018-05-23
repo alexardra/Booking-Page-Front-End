@@ -31,7 +31,7 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 
 	var recently_viewed_dropdown = $(templates).filter("#recently_viewed_dropdown").html();
 	output = Mustache.render(recently_viewed_dropdown, data);
-	$(".dropdown").append(output);
+	$("#search_container").append(output);
 
 	var recently_viewed_elem = $(templates).filter("#recently_viewed_elem").html();
 	var recently_viewed_info = data["recently viewed info"];
@@ -41,8 +41,8 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 
 	for (var i = 0; i < num_to_show; i++) {
 		output = Mustache.render(recently_viewed_elem,recently_viewed_info[i]);
-		addSeparatorInMenu(".dropdown_content");
-		$(".dropdown_content").append(output);
+		addSeparatorInMenu("#search_dropdown");
+		$("#search_dropdown").append(output);
 	}
 
 	var dropdown_template = $(templates).filter("#other_filter_dropdown_elem").html();
@@ -53,31 +53,25 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 function constructCalendarDropdown(templates,data) {
 	var calendar_dropdown = $(templates).filter("#calendar_dropdown").html();
 	var output = Mustache.render(calendar_dropdown,data);
-	$("#calendar").append(output);
+	$("#calendar_container").append(output);
 }
 
 function searchbarEventHandler() {
 
-	$("#calendar").click(function() {
-		$("#other_filter_options_dropdown").addClass("hidden");
-		toggle(".calendar_dropdown_content");
+	$("#calendar_content").click(function() {
+		toggleDropdown("#calendar_dropdown");
 	});
 
 	$("#search_bar input").focus(function() {
-		$(".calendar_dropdown_content").addClass("hidden");
-		$("#other_filter_options_dropdown").addClass("hidden");
-		$(".dropdown_content").removeClass("hidden");
+		showOneDropdown("#search_dropdown");
 	});
 
 	$("#search_bar input").blur(function() {
-		$(".dropdown_content").addClass("hidden");
+		$("#search_dropdown").addClass("hidden");
 	});
 
-	$("#other_filters").click(function() {
-		// console.log("aaa");
-		$(".dropdown_content").addClass("hidden");
-		$(".calendar_dropdown_content").addClass("hidden");
-		toggle("#other_filter_options_dropdown");
+	$("#other_content").click(function() {
+		toggleDropdown("#other_dropdown");
 	});
 
 
@@ -90,20 +84,27 @@ function searchbarEventHandler() {
 }
 
 /* Toggle between display:none and other display */
-function toggle(elem) {
+function toggleDropdown(elem) {
 	if ($(elem).hasClass("hidden")) {
-		$(elem).removeClass("hidden");
+		// $(elem).removeClass("hidden");
+		showOneDropdown(elem);
 	} else {
 		$(elem).addClass("hidden");
 	}	
 }
 
+/* When displaying one of dropdown menus in search bar
+   others should not be visible at the same time. */
+function showOneDropdown(dropdown_id) {
+	$(".dropdown").addClass("hidden");
+	$(dropdown_id).removeClass("hidden");
+}
+
 function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
-	// console.log(dropdown_data.length);
 	for (var i = 0; i < dropdown_data.length; i++) {
 		var output = Mustache.render(dropdown_template, dropdown_data[i]);
-		$("#other_filter_options_dropdown").append(output);
-		addSeparatorInMenu("#other_filter_options_dropdown");
+		$("#other_dropdown").append(output);
+		addSeparatorInMenu("#other_dropdown");
 	}
 
 }
@@ -137,7 +138,7 @@ function generateTextInDropdown(button_id, current_text) {
 /* change content of div#other_filters 
    when dropdown content is changed by user */
 function changeTextInSearch(new_text, plus) {
-	var current_text = $("#other_filters span").html();
+	var current_text = $("#other_content span").html();
 	var toChange = new_text.substring(new_text.indexOf(" ") + 1);
 	var index = current_text.indexOf(",");
 	if (toChange == "room") {
@@ -157,10 +158,11 @@ function changeTextInSearch(new_text, plus) {
 		current_text = pre + replaceWith + " guests"
 	}
 
-	$("#other_filters span").text(current_text);
+	$("#other_content span").text(current_text);
 }
 
 /* Useful in meny cases - append after inserting element into menu */
 function addSeparatorInMenu(menu) {
 	$(menu).append($("<div></div>").addClass("separator"));
 }
+

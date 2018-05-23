@@ -177,9 +177,7 @@ section {
 /***************    cover section styles    ***************/
 
 #cover {
-	height:calc(100vh - 50px);
-	/*background: url('../resources/cover.jpg') no-repeat 0 0;*/
-	background-size:cover;
+	height:100%;
 	background-position:center;
 	display:flex;
 	flex-direction:column;
@@ -224,10 +222,9 @@ section {
 	width:100%;
 	height:100%;
 	border:none;
-	/*float:right;	*/
 	outline:none;
 	background-color:inherit;
-	/*cursor:inherit;*/
+	color:#5DADE2;
 }
 
 #search_bar ::placeholder {
@@ -236,7 +233,7 @@ section {
 }
 
 /*******************/
-.dropdown {
+#search_container {
 	width:calc(100% - 653px);
 	height:48px;
 	float:left;
@@ -244,7 +241,7 @@ section {
 	position:relative;
 }
 
-.dropdown_content {
+#search_dropdown {
     position: absolute;
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -253,7 +250,7 @@ section {
     z-index: 1;
 }
 
-.dropdown h1 {
+#search_container h1 {
 	font-size:1em;
 	text-align:left;
 	padding-left:2%;
@@ -278,7 +275,7 @@ section {
 
 /*******************/
 
-#calendar {
+#calendar_container {
 	height:48px;
 	width:230px;
 	border-left:1px solid grey;
@@ -287,7 +284,7 @@ section {
 	float:left;
 }
 
-#calendar i {
+#calendar_container i {
 	background:url('/search_icons.png') no-repeat -50px -5px;
 	width:30px;
 	height:30px;
@@ -317,19 +314,15 @@ section {
 
 /*******************/
 
-.calendar_dropdown_content {
-    /*display: none;*/
-    /*position: absolute;*/
+#calendar_dropdown {
     background-color: #f9f9f9;
-    /*margin-left:-20%;*/
     margin-top:7px;
-    /*width:140%;*/
     width:100%;
     z-index:1;
     border:1px solid blue;
 }
 
-.calendar_dropdown_content h1 {
+#calendar_dropdown h1 {
 	font-size:0.8em;
     text-align:center;
 }
@@ -339,7 +332,7 @@ section {
 	height:200px;
 }
 
-#calendar_container {
+#calendar_content {
 	height:48px;
 	/*width:230px;*/
 	/*float:left;*/
@@ -347,7 +340,7 @@ section {
 
 /*******************/
 
-#other_filter_options {
+#other_container {
 	height:48px;
 	float:left;
 	width:225px;
@@ -362,11 +355,11 @@ section {
 	margin:5px 5px 0 10px;
 }
 
-#other_filters {
+#other_content {
 	height:48px;
 }
 
-#other_filters span {
+#other_content span {
 	display:inline-block;
 	float:left;
 	line-height:20px;
@@ -401,13 +394,12 @@ section {
 
 /**********************/
 
-#other_filter_options_dropdown {
+#other_dropdown {
     position: absolute;
     background-color: #f9f9f9;
     margin-left:-20%;
     margin-top:7px;
     width:140%;
-    /*height:200px;*/
     z-index:1;
     border:1px solid blue;
 }
@@ -454,9 +446,15 @@ section {
 	float:left;
 }
 
+
 /**********************/
 
 /***************    browse section styles    ***************/
+#browse {
+	height:100%;
+	width:100%;
+	border:1px solid red;
+}
 
 .browse_section {
 	width:94%;
@@ -530,19 +528,19 @@ section {
 		display:none;
 	}
 
-	#other_filter_options {
+	#other_container {
 		border-right:none;
 	}
 }
 
 @media screen and (max-width:1090px) {
-	#other_filter_options {
+	#other_container {
 		display:none;
 	}
-	#calendar div{
+	#calendar_container div{
 		border-right:none;
 	}
-	#calendar {
+	#calendar_container {
 		width:60%;
 	}
 }

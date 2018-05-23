@@ -26,12 +26,12 @@
 	<div id="search_bar">
 			
 		<button id="location"><i></i></button>
-		<div class="dropdown">
+		<div id="search_container">
 	    	<input type="text" placeholder="Destination" name="search">	
 		</div>	
 
-			<div id="calendar">
-				<div id="calendar_container">
+			<div id="calendar_container">
+				<div id="calendar_content">
 					<i></i>
 		    		<span class="calendar_date">{{calendar.today}}</span>
 		    		<span class="calendar_space"></span>
@@ -40,13 +40,13 @@
 				</div>
     		</div>	
 
-	    <div id="other_filter_options">
-	    	<div id="other_filters">
+	    <div id="other_container">
+	    	<div id="other_content">
 	    		<i class="human_icon"></i>
 	    		<span>{{details}}</span>
 	    		<i class="arrow_icon"></i>
 	    	</div>
-	    	<div id="other_filter_options_dropdown" class="hidden"></div>
+	    	<div id="other_dropdown" class="dropdown hidden"></div>
 	    </div>
 	    <div id="submit_search">
 	    	<div class="search_button_text">{{find}}</div>
@@ -56,7 +56,7 @@
 
 
 <script id="recently_viewed_dropdown" type="text/html">
-	<div class="dropdown_content hidden">
+	<div id="search_dropdown" class="dropdown hidden">
 		<h1>{{recently viewed}}</h1>
 	</div>
 </script>
@@ -69,7 +69,7 @@
 </script>
 
 <script id="calendar_dropdown" type="text/html">
-	<div class="calendar_dropdown_content hidden">
+	<div id="calendar_dropdown" class="dropdown hidden">
 		<h1>{{calendar.header}}</h1>
 		<div id="calendar_content"></div>
 	</div>
