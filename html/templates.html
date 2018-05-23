@@ -25,22 +25,25 @@
 <script id="search_bar_template" type="text/html">
 	<div id="search_bar">
 			
-		<button id="location"><i></i></button>	
-		<div class="dropdown">
-	    	<input type="text" placeholder="Destination" name="search">	
-		</div>	
+		<button id="location"><i></i></button>
+		<div id="c">
+			<div class="dropdown">
+		    	<input type="text" placeholder="Destination" name="search">	
+			</div>	
 
-	    <div id="calendar">
-	    	<div id="calendar_div">
-		    	<i></i>
-		    	<span class="calendar_date">{{calendar.today}}</span>
-		    	<span class="calendar_space"></span>
-		    	<i></i>
-		    	<span class="calendar_date">{{calendar.later}}</span>
-	    	</div>
-	    </div>
+		    <div id="calendar">
+				<div id="calendar_div">
+			    	<i></i>
+			    	<span class="calendar_date">{{calendar.today}}</span>
+			    	<span class="calendar_space"></span>
+			    	<i></i>
+			    	<span class="calendar_date">{{calendar.later}}</span>
+		    	</div>
+		    </div>		
+		</div>
+
 	    <div id="other_filter_options">
-	    	<div>
+	    	<div id="other_filters">
 	    		<i class="human_icon"></i>
 	    		<span>{{details}}</span>
 	    		<i class="arrow_icon"></i>
@@ -75,14 +78,14 @@
 </script>
 
 
-<script id="other_filters_dropdown_elem" type="text/html">
-	<div>
-		<span></span>
+<script id="other_filter_dropdown_elem" type="text/html">
+	<div class="other_filter_dropdown_elem">
+		<span>{{parameter}}</span>
 		<button>
-			<i></i>
+			<i id="minus_icon"></i>
 		</button>
 		<button>
-			<i></i>
+			<i id="plus_icon"></i>
 		</button>
 	</div>
 </script>

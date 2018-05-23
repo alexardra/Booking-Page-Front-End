@@ -119,6 +119,10 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 		$(".dropdown_content").append($("<div></div").addClass("separator"));
 		$(".dropdown_content").append(output);
 	}
+
+	var dropdown_template = $(templates).filter("#other_filter_dropdown_elem").html();
+	var dropdown_data = data["dropdown details"];
+	generateOtherFiltersDropdown(dropdown_template, dropdown_data);
 }
 
 
@@ -145,11 +149,18 @@ function searchbarEventHandler() {
 		$(".dropdown_content").addClass("hidden");
 	});
 
-	$("#other_filter_options").click(function() {
+	$("#other_filters").click(function() {
 		// console.log("aaa");
 		$(".dropdown_content").addClass("hidden");
 		$(".calendar_dropdown_content").addClass("hidden");
 		toggle("#other_filter_options_dropdown");
+	});
+
+
+	$(".other_filter_dropdown_elem button").click(function() {
+		var button_id = $(this).find($("i")).attr("id");
+		var text = $(this).parent().find($("span")).html();
+		$(this).parent().find($("span")).text(generateTextInDropdown(button_id, text));
 	});
 
 }
@@ -161,4 +172,39 @@ function toggle(elem) {
 	} else {
 		$(elem).addClass("hidden");
 	}	
+}
+
+function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
+	// console.log(dropdown_data.length);
+	for (var i = 0; i < dropdown_data.length; i++) {
+		var output = Mustache.render(dropdown_template, dropdown_data[i]);
+		$("#other_filter_options_dropdown").append(output);
+	}
+
+}
+
+function generateTextInDropdown(button_id, text) {
+	/* constraint on number - max 32 2 chars */
+	var num = parseInt(text.substring(0,2));
+
+	if (button_id == "minus_icon") {
+		if (num == 0) return text;
+		num--;
+		var new_text;
+		if (num >= 9) {
+			new_text = num + text.substring(2);
+		} else {
+			new_text = num + text.substring(1);
+		}
+	} else {
+		num++;
+		var new_text;
+		if (num <= 10) {
+			new_text = num + text.substring(1); 
+		} else {
+			new_text = num + text.substring(2);
+		}
+	}
+
+	return new_text;
 }
