@@ -189,11 +189,6 @@ section {
 }
 
 /***** search bar *****/
-#c {
-	width:calc(100% - 423px);
-	height:48px;
-	float:left;
-}
 
 #search_bar {
 	border:1px solid #5DADE2;
@@ -203,6 +198,7 @@ section {
 	color:#5DADE2;
 	font-size:1.2em;
 	display:none;
+	cursor:pointer;
 }
 
 #location {
@@ -213,6 +209,7 @@ section {
 	border:none;
 	padding:0;
 	outline:inherit;
+	cursor:inherit;
 }
 
 #location i {
@@ -230,6 +227,7 @@ section {
 	/*float:right;	*/
 	outline:none;
 	background-color:inherit;
+	/*cursor:inherit;*/
 }
 
 #search_bar ::placeholder {
@@ -239,9 +237,7 @@ section {
 
 /*******************/
 .dropdown {
-	/*width:calc(30% + 48px);*/
-	/*width:30%;*/
-	min-width:calc(100% - 400px);
+	width:calc(100% - 653px);
 	height:48px;
 	float:left;
 	display:inline-block;
@@ -253,7 +249,7 @@ section {
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top:7px;
-    width:150%;
+    width:100%;
     z-index: 1;
 }
 
@@ -284,27 +280,11 @@ section {
 
 #calendar {
 	height:48px;
-	/*float:right;*/
-	min-width:400px;
-	/*width:400px;*/
-	text-align:right;
-	position:relative;
-	display:inline-block;
-}
-
-#calendar:before {
-	display:inline-block;
-	height:100%;
-	/*vertical-align:middle;*/
-}
-
-#calendar_div {
-	height:48px;
-	display:inline-block;
-	/*vertical-align:middle;*/
-	padding:0 10px;
+	width:230px;
 	border-left:1px solid grey;
 	border-right:1px solid grey;
+	padding:0 5px;
+	float:left;
 }
 
 #calendar i {
@@ -339,11 +319,12 @@ section {
 
 .calendar_dropdown_content {
     /*display: none;*/
-    position: absolute;
+    /*position: absolute;*/
     background-color: #f9f9f9;
-    margin-left:-20%;
+    /*margin-left:-20%;*/
     margin-top:7px;
-    width:140%;
+    /*width:140%;*/
+    width:100%;
     z-index:1;
     border:1px solid blue;
 }
@@ -358,13 +339,18 @@ section {
 	height:200px;
 }
 
+#calendar_container {
+	height:48px;
+	/*width:230px;*/
+	/*float:left;*/
+}
+
 /*******************/
 
 #other_filter_options {
 	height:48px;
 	float:left;
 	width:225px;
-	border-right:1px solid grey;
 	position:relative;
 }
 
@@ -404,7 +390,7 @@ section {
 	float:left;
 	width:150px;
 	height:48px;
-	background-color:#A9CCE3;
+	background-color:#5DADE2;
 	color:#F0F3F4;
 }
 

@@ -1,4 +1,22 @@
 {
+	"page title": "Traveler",
+	"navigation info": [
+		"Hotels", 
+		"Vacation Rentals",
+		"Flights", 
+		"Restaurants",
+		"Things to do"
+	],
+	"welcome message": "Hello, Sign in!",
+	"side menu main list": [
+		"Home",
+		"orders",
+		"lists"
+	],
+	"side menu additional info": [
+		"More",
+		"Help Center"
+	],
 	"recently viewed": "Recently Viewed",
 	"recently viewed info": [
 		{"location": "Tbilisi", "additional info": "Georgia, Europe"},

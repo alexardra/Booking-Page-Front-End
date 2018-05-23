@@ -1,78 +1,3 @@
-/* Asynchronous request to retrieve main page data from server */
-
-// var requestURL = '../js/destinations.json';
-
-// var request = new XMLHttpRequest();
-// request.open('GET', requestURL);
-// request.responseType = 'text';
-// request.send();
-
-// request.onload = function() {
-// 	console.log("request done");
-//	var data = JSON.parse(request.response);
-// }
-
-/* JSON object - on server would be stored as json
- * file(destinations.json) and retrieved with above code */
-
-
-/* Could become necessary */
-
-/*function generateSectionElement(element_details) {
-	var section_element = document.createElement("ul");
-	for (var i = 0; i < 4; i++) {
-		var info = element_details[i];
-		var li = document.createElement("li");
-		var info_container = document.createElement("div");
-		info_container.className = "section_element";
-		var text_container = document.createElement("span");
-		text_container.textContent = info["name"];
-		info_container.appendChild(text_container);
-		li.appendChild(info_container);
-		section_element.appendChild(li);
-	}
-
-	return section_element;
-}
-
-function generateSectionHeader(title) {
-	var browse_header = document.createElement("div");
-	browse_header.className = "browse_header";
-	var header = document.createElement("h3");
-	header.textContent = title;
-	browse_header.appendChild(header);
-	var see_all = document.createElement("button");
-	see_all.textContent = "See All";
-	browse_header.appendChild(see_all);
-
-	return browse_header;	
-}
-
-function generateSection(section_data,parent_section) {
-	var browse_section = document.createElement("div");
-	browse_section.className = "browse_section";
-
-	var browse_header = generateSectionHeader(section_data["header"]);
-	browse_section.appendChild(browse_header);
-
-	var overviews = section_data["overviews"];
-	var section_element = generateSectionElement(overviews);
-	browse_section.appendChild(section_element); 
-
-	parent_section.appendChild(browse_section);
-}
-
-function parseAndDisplay(data_object) {
-	var parent_section = document.querySelector('#browse');
-	console.log(data_object['sections'].length);
-	var sections = data_object["sections"];
-	for (var i = 0; i < sections.length; i++) {
-		generateSection(sections[i],parent_section);
-	}
-}
-
-parseAndDisplay(data);*/
-
 $(document).ready(function() {
 	$.get('templates.html', function(templates) {
 		$.when($.getJSON("destinations.json")).then(function(data,textStatus, jqXHR) {
@@ -116,7 +41,7 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 
 	for (var i = 0; i < num_to_show; i++) {
 		output = Mustache.render(recently_viewed_elem,recently_viewed_info[i]);
-		$(".dropdown_content").append($("<div></div").addClass("separator"));
+		addSeparatorInMenu(".dropdown_content");
 		$(".dropdown_content").append(output);
 	}
 
@@ -124,7 +49,6 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 	var dropdown_data = data["dropdown details"];
 	generateOtherFiltersDropdown(dropdown_template, dropdown_data);
 }
-
 
 function constructCalendarDropdown(templates,data) {
 	var calendar_dropdown = $(templates).filter("#calendar_dropdown").html();
@@ -179,32 +103,64 @@ function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
 	for (var i = 0; i < dropdown_data.length; i++) {
 		var output = Mustache.render(dropdown_template, dropdown_data[i]);
 		$("#other_filter_options_dropdown").append(output);
+		addSeparatorInMenu("#other_filter_options_dropdown");
 	}
 
 }
 
-function generateTextInDropdown(button_id, text) {
+function generateTextInDropdown(button_id, current_text) {
 	/* constraint on number - max 32 2 chars */
-	var num = parseInt(text.substring(0,2));
+	var num = parseInt(current_text.substring(0,2));
 
 	if (button_id == "minus_icon") {
-		if (num == 0) return text;
+		if (num == 0) return current_text;
 		num--;
 		var new_text;
 		if (num >= 9) {
-			new_text = num + text.substring(2);
+			new_text = num + current_text.substring(2);
 		} else {
-			new_text = num + text.substring(1);
+			new_text = num + current_text.substring(1);
 		}
 	} else {
 		num++;
 		var new_text;
 		if (num <= 10) {
-			new_text = num + text.substring(1); 
+			new_text = num + current_text.substring(1); 
 		} else {
-			new_text = num + text.substring(2);
+			new_text = num + current_text.substring(2);
 		}
 	}
-
+	changeTextInSearch(new_text, (button_id == "plus_icon"));
 	return new_text;
+}
+
+/* change content of div#other_filters 
+   when dropdown content is changed by user */
+function changeTextInSearch(new_text, plus) {
+	var current_text = $("#other_filters span").html();
+	var toChange = new_text.substring(new_text.indexOf(" ") + 1);
+	var index = current_text.indexOf(",");
+	if (toChange == "room") {
+		var toReplace = current_text.substring(0, index);
+		current_text = current_text.replace(toReplace, new_text);
+	} else { // adult or children - change number of guests
+		var start_index = current_text.indexOf(",") + 2;
+		var end_index = current_text.indexOf("guests");
+		var replaceWith = parseInt(current_text.substring(start_index, end_index));
+		if (plus) {
+			replaceWith += 1;
+		} else {
+			replaceWith -= 1;
+		}
+		replaceWith.toString();
+		var pre = current_text.substring(0,start_index);
+		current_text = pre + replaceWith + " guests"
+	}
+
+	$("#other_filters span").text(current_text);
+}
+
+/* Useful in meny cases - append after inserting element into menu */
+function addSeparatorInMenu(menu) {
+	$(menu).append($("<div></div>").addClass("separator"));
 }
