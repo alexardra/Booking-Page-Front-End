@@ -71,7 +71,17 @@
 <script id="calendar_dropdown" type="text/html">
 	<div id="calendar_dropdown" class="dropdown hidden">
 		<h1>{{calendar.header}}</h1>
-		<div id="calendar_content"></div>
+		<div id="calendar_dropdown_content">
+			<h2></h2>
+			<button id="left_arrow_icon">
+				<i></i>
+			</button>
+			<div id="calendar_days">
+			</div>
+			<button id="right_arrow_icon">
+				<i></i>
+			</button>
+		</div>
 	</div>
 </script>
 
@@ -79,11 +89,11 @@
 <script id="other_filter_dropdown_elem" type="text/html">
 	<div class="other_filter_dropdown_elem">
 		<span>{{parameter}}</span>
-		<button>
-			<i id="minus_icon"></i>
+		<button id="minus_icon">
+			<i></i>
 		</button>
-		<button>
-			<i id="plus_icon"></i>
+		<button id="plus_icon">
+			<i></i>
 		</button>
 	</div>
 </script>

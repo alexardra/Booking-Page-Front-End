@@ -20,9 +20,11 @@ $(document).ready(function() {
 			constructSearchRecentlyViewed(templates,data);
 			constructCalendarDropdown(templates,data);
 			searchbarEventHandler();
+			$.getScript("calendar.js", function(){
+				construct_calendar();
+			});
 		});
 	});
-
 });
 
 /* Search bar - dropdown recently viewed information */
@@ -76,7 +78,7 @@ function searchbarEventHandler() {
 
 
 	$(".other_filter_dropdown_elem button").click(function() {
-		var button_id = $(this).find($("i")).attr("id");
+		var button_id = $(this).attr("id");
 		var text = $(this).parent().find($("span")).html();
 		$(this).parent().find($("span")).text(generateTextInDropdown(button_id, text));
 	});
@@ -106,11 +108,10 @@ function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
 		$("#other_dropdown").append(output);
 		addSeparatorInMenu("#other_dropdown");
 	}
-
 }
 
 function generateTextInDropdown(button_id, current_text) {
-	/* constraint on number - max 32 2 chars */
+	/* TODO add constraint on number - max 32 - 2 chars */
 	var num = parseInt(current_text.substring(0,2));
 
 	if (button_id == "minus_icon") {
@@ -131,13 +132,13 @@ function generateTextInDropdown(button_id, current_text) {
 			new_text = num + current_text.substring(2);
 		}
 	}
-	changeTextInSearch(new_text, (button_id == "plus_icon"));
+	changeTextInSearchOther(new_text, (button_id == "plus_icon"));
 	return new_text;
 }
 
 /* change content of div#other_filters 
    when dropdown content is changed by user */
-function changeTextInSearch(new_text, plus) {
+function changeTextInSearchOther(new_text, plus) {
 	var current_text = $("#other_content span").html();
 	var toChange = new_text.substring(new_text.indexOf(" ") + 1);
 	var index = current_text.indexOf(",");
@@ -165,4 +166,3 @@ function changeTextInSearch(new_text, plus) {
 function addSeparatorInMenu(menu) {
 	$(menu).append($("<div></div>").addClass("separator"));
 }
-
