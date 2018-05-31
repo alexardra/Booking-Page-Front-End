@@ -114,13 +114,14 @@ function removeClass(element,className) {
 		}
 		result = elements;
 	}
+
 	return result;
 }
 
 function removeClassFromOne(element,className) {
 	if (element.classList) {
 		element.classList.remove(className);
-	} 
+	}
 	return element;	
 }
 
@@ -148,5 +149,3 @@ function createElementWithClass(tagName,className,parent) {
 	}
 	return element;
 }
-
-
