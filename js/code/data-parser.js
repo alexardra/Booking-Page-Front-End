@@ -1,21 +1,21 @@
-$(document).ready(function() {
-	$.get('templates.html', function(templates) {
-		$.when($.getJSON("destinations.json")).then(function(data,textStatus, jqXHR) {
-			// if (jqXHR == '200') { // on success
-				var sections = data["sections"];
-				var template = $(templates).filter("#browse_section_template").html();
-				for (var i = 0; i < sections.length; i++) {
-					var output = Mustache.render(template, data["sections"][i]);
-					$("#browse").append(output);
-				}
-			// }
-			
+ready(function() {
+	get("templates.html", function(templates) {
+		templates = filter(templates);	
+		get("destinations.json", function(rawData) {
+			var data = JSON.parse(rawData);
+			var sections = data["sections"];
+			var template = constructTemplate(templates, "browse_section_template");
+			for (var i = 0; i < sections.length; i++) {
+				var output = Mustache.render(template, data["sections"][i]);
+				append(document.getElementById("browse"),output);
+			}		
 		});
 
-		$.when($.getJSON("data.json")).then(function(data,textStatus, jqXHR) {
-			var search_bar_template = $(templates).filter("#search_bar_template").html();
+		get("data.json", function(rawData) {
+			var data = JSON.parse(rawData);
+			var search_bar_template = constructTemplate(templates,"search_bar_template");
 			var output = Mustache.render(search_bar_template,data);
-			$("#cover").append(output);	
+			append(document.getElementById("cover"),output);	
 
 			constructSearchRecentlyViewed(templates,data);
 			constructCalendarDropdown(templates,data);
@@ -24,7 +24,7 @@ $(document).ready(function() {
 			getScript("calendar.js", function() {
 				var calendar = new Calendar();
 				calendar.construct();
-			})
+			});
 		});
 	});
 });
@@ -33,11 +33,11 @@ $(document).ready(function() {
 function constructSearchRecentlyViewed(templates, data, num_to_show) {
 	if (num_to_show == undefined) num_to_show = 2;
 
-	var recently_viewed_dropdown = $(templates).filter("#recently_viewed_dropdown").html();
+	var recently_viewed_dropdown = constructTemplate(templates,"recently_viewed_dropdown");
 	output = Mustache.render(recently_viewed_dropdown, data);
-	$("#search_container").append(output);
+	append(document.getElementById("search_container"),output);
 
-	var recently_viewed_elem = $(templates).filter("#recently_viewed_elem").html();
+	var recently_viewed_elem = constructTemplate(templates, "recently_viewed_elem");
 	var recently_viewed_info = data["recently viewed info"];
 	var num_viewed = recently_viewed_info.length;
 	
@@ -46,77 +46,85 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 	for (var i = 0; i < num_to_show; i++) {
 		output = Mustache.render(recently_viewed_elem,recently_viewed_info[i]);
 		addSeparatorInMenu("search_dropdown");
-		$("#search_dropdown").append(output);
+		append(document.getElementById("search_dropdown"),output);
 	}
 
-	var dropdown_template = $(templates).filter("#other_filter_dropdown_elem").html();
+	var dropdown_template = constructTemplate(templates, "other_filter_dropdown_elem");
 	var dropdown_data = data["dropdown details"];
 	generateOtherFiltersDropdown(dropdown_template, dropdown_data);
 }
 
 function constructCalendarDropdown(templates,data) {
-	var calendar_dropdown = $(templates).filter("#calendar_dropdown").html();
+	var calendar_dropdown = constructTemplate(templates, "calendar_dropdown");
 	var output = Mustache.render(calendar_dropdown,data);
-	$("#calendar_container").append(output);
+	append(document.getElementById("calendar_container"),output);
 }
 
 function searchbarEventHandler() {
 
-	$("#calendar_content").click(function() {
-		toggleDropdown("#calendar_dropdown");
-	});
+	var search_dropdown = document.getElementById("search_dropdown");
+	var calendar_dropdown = document.getElementById("calendar_dropdown");
+	var search_bar = document.querySelector("#search_bar input");
+	var other_dropdown = document.getElementById("other_dropdown");
 
-	$("#search_bar input").focus(function() {
-		showOneDropdown("#search_dropdown");
-	});
+	document.getElementById("calendar_content").onclick = function() {
+		toggleDropdown(calendar_dropdown);
+	}
 
-	$("#search_bar input").blur(function() {
-		$("#search_dropdown").addClass("hidden");
-	});
+	search_bar.onfocus = function() {
+		showOneDropdown(search_dropdown);
+	}
 
-	$("#other_content").click(function() {
-		toggleDropdown("#other_dropdown");
-	});
+	search_bar.onblur = function() {
+		addClass(search_dropdown,"hidden");
+	}
 
+	document.getElementById("other_content").onclick = function() {
+		toggleDropdown(other_dropdown);		
+	}
 
-	$(".other_filter_dropdown_elem button").click(function() {
-		var button_id = $(this).attr("id");
-		var text = $(this).parent().find($("span")).html();
-		$(this).parent().find($("span")).text(generateTextInDropdown(button_id, text));
-	});
-
+	plusMinusIcons = document.querySelectorAll(".plus_icon, .minus_icon");
+	for (var i = 0; i < plusMinusIcons.length; i++) {
+		plusMinusIcons[i].onclick = function() {
+			var buttonClass = this.className;
+			var textPlaceholder = this.parentNode.querySelector("span");
+			var text = textPlaceholder.innerHTML;
+			changeHtml(textPlaceholder,generateTextInDropdown(buttonClass,text));
+		}
+	}
 }
 
+
 /* Toggle between display:none and other display */
-function toggleDropdown(elem) {
-	if ($(elem).hasClass("hidden")) {
-		showOneDropdown(elem);
+function toggleDropdown(element) {	
+	if (hasClass(element,"hidden")) {
+		showOneDropdown(element);
 	} else {
-		$(elem).addClass("hidden");
-	}	
+		addClass(element,"hidden");
+	}
 }
 
 /* When displaying one of dropdown menus in search bar
    others should not be visible at the same time. */
-function showOneDropdown(dropdown_id) {
-	$(".dropdown").addClass("hidden");
-	$(dropdown_id).removeClass("hidden");
+function showOneDropdown(element) {
+	var allDropdowns = document.getElementsByClassName("dropdown");
+	addClass(allDropdowns, "hidden");
+	removeClass(element,"hidden");
 }
 
 function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
 	for (var i = 0; i < dropdown_data.length; i++) {
 		var output = Mustache.render(dropdown_template, dropdown_data[i]);
-		$("#other_dropdown").append(output);
-		// addSeparatorInMenu("other_dropdown");
+		append(document.getElementById("other_dropdown"),output);
 		createElementWithClass("div","separator", "other_dropdown")
 	}
 }
 
-function generateTextInDropdown(button_id, current_text) {
+function generateTextInDropdown(buttonClass, current_text) {
 	/* TODO add constraint on number - max 32 - 2 chars */
 	var num = parseInt(current_text.substring(0,2));
 
-	if (button_id == "minus_icon") {
+	if (buttonClass == "minus_icon") {
 		if (num == 0) return current_text;
 		num--;
 		var new_text;
@@ -134,14 +142,15 @@ function generateTextInDropdown(button_id, current_text) {
 			new_text = num + current_text.substring(2);
 		}
 	}
-	changeTextInSearchOther(new_text, (button_id == "plus_icon"));
+	changeTextInSearchOther(new_text, (buttonClass == "plus_icon"));
 	return new_text;
 }
 
 /* change content of div#other_filters 
    when dropdown content is changed by user */
 function changeTextInSearchOther(new_text, plus) {
-	var current_text = $("#other_content span").html();
+	var current_element = document.querySelector("#other_content span")
+	var current_text = current_element.innerHTML;
 	var toChange = new_text.substring(new_text.indexOf(" ") + 1);
 	var index = current_text.indexOf(",");
 	if (toChange == "room") {
@@ -160,8 +169,7 @@ function changeTextInSearchOther(new_text, plus) {
 		var pre = current_text.substring(0,start_index);
 		current_text = pre + replaceWith + " guests"
 	}
-
-	$("#other_content span").text(current_text);
+	changeHtml(current_element,current_text);
 }
 
 

@@ -127,9 +127,9 @@ function removeClassFromOne(element,className) {
 
 function hasClass(element,className) {
 	if (element.classList) {
-		element.classList.contains(className);
+		return element.classList.contains(className)
 	} else {
-		new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+		return false;
 	}
 }
 
@@ -148,4 +148,25 @@ function createElementWithClass(tagName,className,parent) {
 		document.getElementById(parent).appendChild(element);
 	}
 	return element;
+}
+
+/* data - html as string */
+function append(element, data) {
+	var child = document.createElement("div");
+	child.innerHTML = data;
+	while (child.firstChild) {
+		element.appendChild(child.firstChild);
+	}
+}
+
+/* convert string to dom element and wrap in container div */
+function filter(text) {
+	var div = document.createElement("div");
+	div.insertAdjacentHTML("afterbegin", text);
+	return div;
+}
+
+function constructTemplate(templates, templateId) {
+	var template = templates.querySelector("#" + templateId).innerHTML;
+	return template;
 }

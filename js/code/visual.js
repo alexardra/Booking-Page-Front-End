@@ -1,18 +1,21 @@
-$(document).ready(function() {
+ready(function() {
 
-	$(".hamburger").click(function() {
+	document.getElementsByClassName("hamburger")[0].onclick = function() {
 		toggleSideMenu();
-	});
+	}
 
-	addSeparatorsInList($("#other"));
-	// alignSearchBar();
+	addSeparatorsInList(document.getElementById("other"));
+
 });
 
 
 var addSeparatorsInList = function(divId) {
-	var listItems = $(divId).find("li");	
+	// var listItems = $(divId).find("li");
+	var listItems = document.getElementById(divId).querySelectorAll("li");
 	for (var i = 0; i < listItems.length-1;i++) {
-		$("<div></div>").addClass("separator").insertAfter(listItems[i]);
+		var div = createElement("div");
+		addClass(div,"separator");
+		div.insertAdjacentHTML('afterend', listItems[i]);
 	}
 }
 

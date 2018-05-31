@@ -127,7 +127,7 @@ var Calendar = function() {
 	}
 
 	/* left arrow event handler - next month generation */
-	$("#left_arrow_icon").click(function() {
+	document.getElementById("left_arrow_icon").onclick = function() {
 		clear_old_calendar();
 		var date = generate_new_date();
 		var month = date[1];
@@ -138,12 +138,11 @@ var Calendar = function() {
 			date[1] -= 1;
 		}
 		highlight_current_day(date);
-		generate_calendar(date);
-
-	});
+		generate_calendar(date);	
+	}
 
 	/* right arrow event handler - previous month generation */
-	$("#right_arrow_icon").click(function() {
+	document.getElementById("right_arrow_icon").onclick = function() {
 		clear_old_calendar();
 		var date = generate_new_date();
 		var month = date[1];
@@ -154,8 +153,8 @@ var Calendar = function() {
 			date[1] += 1;
 		}
 		highlight_current_day(date);
-		generate_calendar(date);
-	});
+		generate_calendar(date);		
+	}
 
 	function clear_old_calendar() {
 		var calendar_days = document.getElementById("calendar_days")
@@ -163,13 +162,11 @@ var Calendar = function() {
 			var index = Math.floor(i/7) + 1;			
 			changeHtml(calendar_days.children[index].children[i%7],"");
 		}
-		console.log(calendar_days.childNodes.length);
-		removeClass(calendar_days.childNodes, "current_day");
-		// $("#calendar_days").find("*").removeClass("current_day");
+		removeClass(calendar_days.getElementsByClassName("current_day"), "current_day");
 	}
 
 	function generate_new_date() {
-		var current = $("#calendar_dropdown_content h2").html();
+		var current = document.getElementById("calendar_dropdown_content").getElementsByTagName("h2")[0].innerHTML;
 		var month_name = current.substring(0, current.indexOf(" "));
 		var month = month_names.indexOf(month_name);
 		var year = parseInt(current.substring(current.indexOf(" ") + 1));
