@@ -20,9 +20,11 @@ $(document).ready(function() {
 			constructSearchRecentlyViewed(templates,data);
 			constructCalendarDropdown(templates,data);
 			searchbarEventHandler();
-			$.getScript("calendar.js", function(){
-				construct_calendar();
-			});
+
+			getScript("calendar.js", function() {
+				var calendar = new Calendar();
+				calendar.construct();
+			})
 		});
 	});
 });
@@ -43,7 +45,7 @@ function constructSearchRecentlyViewed(templates, data, num_to_show) {
 
 	for (var i = 0; i < num_to_show; i++) {
 		output = Mustache.render(recently_viewed_elem,recently_viewed_info[i]);
-		addSeparatorInMenu("#search_dropdown");
+		addSeparatorInMenu("search_dropdown");
 		$("#search_dropdown").append(output);
 	}
 
@@ -88,7 +90,6 @@ function searchbarEventHandler() {
 /* Toggle between display:none and other display */
 function toggleDropdown(elem) {
 	if ($(elem).hasClass("hidden")) {
-		// $(elem).removeClass("hidden");
 		showOneDropdown(elem);
 	} else {
 		$(elem).addClass("hidden");
@@ -106,7 +107,8 @@ function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
 	for (var i = 0; i < dropdown_data.length; i++) {
 		var output = Mustache.render(dropdown_template, dropdown_data[i]);
 		$("#other_dropdown").append(output);
-		addSeparatorInMenu("#other_dropdown");
+		// addSeparatorInMenu("other_dropdown");
+		createElementWithClass("div","separator", "other_dropdown")
 	}
 }
 
@@ -162,7 +164,10 @@ function changeTextInSearchOther(new_text, plus) {
 	$("#other_content span").text(current_text);
 }
 
+
 /* Useful in meny cases - append after inserting element into menu */
 function addSeparatorInMenu(menu) {
-	$(menu).append($("<div></div>").addClass("separator"));
+	var div = document.createElement("div");
+	addClass(div,"separator");
+	document.getElementById(menu).appendChild(div);
 }

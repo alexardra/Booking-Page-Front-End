@@ -25,7 +25,8 @@
 	"calendar": {
 		"header": "Select dates to view details",
 		"today": "May 21",
-		"later": "May 28"
+		"later": "May 28",
+		"calendar legend": ["Start Date", "End Date"] 
 	},
 	"details": "1 room, 2 guests",
 	"dropdown details": [{"parameter":"1 room"}, {"parameter":"2 adults"}, {"parameter":"0 children"}],
