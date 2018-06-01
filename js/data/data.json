@@ -5,7 +5,9 @@
 		"Vacation Rentals",
 		"Flights", 
 		"Restaurants",
-		"Things to do"
+		"Things to do",
+		"More", 
+		"Help"
 	],
 	"welcome message": "Hello, Sign in!",
 	"side menu main list": [

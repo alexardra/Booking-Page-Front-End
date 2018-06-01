@@ -30,6 +30,7 @@ header {
 	width:100%;
 	background-color:#EAFAF1;
 	position:fixed;
+	z-index:1;
 }
 
 #name {
@@ -60,9 +61,28 @@ header {
 	margin:10px 5px 0 0;
 }
 
-header ul {
-	display:none;
+/*******************  NAVIGATION MENU *************************/
+#header-nav-menu {
+	height:50px;
+	max-width:80%;
+	float:left;
+	margin-left:3%;
 }
+
+#header-nav-menu li {
+	display:inline-block;
+	line-height:50px;
+	vertical-align:middle;
+	font-size:1.2em;
+	color:#2874A6;
+	padding:0 10px;
+}
+
+#header-nav-menu li:hover {
+	background-color:#ABEBC6;
+}
+
+/**************************************************************/
 
 #side-menu {
 	width:80%;
@@ -184,6 +204,11 @@ section {
 	justify-content:center;
 	align-items:center;
 	text-align:center;
+	background:url("/background.jpg") no-repeat;
+	background-position:center center;
+	background-attachment:fixed;
+	background-size:100%;
+
 }
 
 /***** search bar *****/
@@ -668,9 +693,6 @@ section {
 }
 
 @media screen and (min-width:600px) {
-	header ul {
-		/*display:block;*/
-	}
 	#name {
 		width:80px;
 		text-align:left;
