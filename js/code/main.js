@@ -15,5 +15,7 @@ ready(function() {
 			var dataParser = new DataParser(templates);
 			dataParser.parse();
 		})
+
+		getScript("routs.js");
 	});
 });
