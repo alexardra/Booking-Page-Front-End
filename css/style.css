@@ -28,7 +28,7 @@ html,body {
 header {
 	height:50px;
 	width:100%;
-	background-color:#EAFAF1;
+	background-color:#F9E79F;
 	position:fixed;
 	z-index:1;
 }
@@ -40,17 +40,18 @@ header {
 	text-align:center;
 	width:calc(100% - 90px);
 	float:left;
-	color:#2874A6;
+	color: #EC7063;
 	font-size:1.2em;
 	font-weight:600;
+	padding-left: 10px;
 }
 
 #logo {
 	float:left;
-	background: url('/header_sprites.png') no-repeat 0 -45px;
+	background: url('/logo1.png');
 	width:40px;
 	height:40px;
-	margin:5px 0 0 5px;
+	margin:5px 0 0 80px;
 }
 
 .hamburger {
@@ -74,12 +75,12 @@ header {
 	line-height:50px;
 	vertical-align:middle;
 	font-size:1.2em;
-	color:#2874A6;
+	color: #EC7063;
 	padding:0 10px;
 }
 
 #header-nav-menu li:hover {
-	background-color:#ABEBC6;
+	background-color:#FCF3CF;
 }
 
 /**************************************************************/
@@ -197,15 +198,16 @@ section {
 /***************    cover section styles    ***************/
 
 #cover {
-	height:100%;
+	/*margin: 1px solid red;*/
+	height: 60%;
 	background-position:center;
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
 	align-items:center;
 	text-align:center;
-	background:url("/background.jpg") no-repeat;
-	background-position:center center;
+	background: url('/crop_sunset') no-repeat;
+	/*background-position:center center;*/
 	background-attachment:fixed;
 	background-size:100%;
 
@@ -214,11 +216,11 @@ section {
 /***** search bar *****/
 
 #search_bar {
-	border:1px solid #5DADE2;
+	/*border:1px solid #EC7063;*/
 	width:90%;
 	height:50px;
-	background-color:#FCF3CF;
-	color:#5DADE2;
+	background-color:#FFFDE7;
+	color: #EC7063 ;
 	font-size:1.2em;
 	display:none;
 	cursor:pointer;
@@ -233,6 +235,7 @@ section {
 	padding:0;
 	outline:inherit;
 	cursor:inherit;
+	border-top-left-radius: 20%;
 }
 
 #location i {
@@ -598,7 +601,7 @@ section {
 	width:94%;
 	margin:3%;
 	height:240px;
-	background-color:#D5F5E3;
+	background-color:#EAF2F8;
 }
 
 .browse_section ul {
@@ -641,7 +644,7 @@ section {
 .section_element {
 	width:100%;
 	height:100%;
-	/*background-image: url('../resources/berlin.jpg');*/
+	background-image: url('/berlin.jpg');
 	background-size:100% 100%;
 	opacity:0.7;
 	color:white;
