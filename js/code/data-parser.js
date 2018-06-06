@@ -5,21 +5,34 @@ var DataParser = function(templates) {
 			var data = JSON.parse(rawData);
 			var search_bar_template = constructTemplate(templates,"search_bar_template");
 			var output = Mustache.render(search_bar_template,data);
-			append(document.getElementById("cover"),output);	
+			append(document.getElementsByClassName("cover")[0],output);	
 
 			constructSearchRecentlyViewed(data);
 			constructCalendarDropdown(data);
 			searchbarEventHandler();
+
+			renderHeader(data);
 
 			getScript("calendar.js", function() {
 				var calendar = new Calendar();
 				calendar.construct();
 			});
 
-			addNavigationMenu(data["navigation info"]);
+
+			getScript("view-renderer.js", function() {
+				var vr = new ViewRenderer(templates, data);
+				vr.init();
+			});
+	
+
 		});
 	}
 
+	function renderHeader(data) {
+		var headerTemplate = constructTemplate(templates,"home-header");
+		var output = Mustache.render(headerTemplate,data);
+		append(document.getElementsByTagName("header")[0],output);
+	}
 
 	/* Search bar - dropdown recently viewed information */
 	function constructSearchRecentlyViewed(data, num_to_show) {
@@ -170,22 +183,6 @@ var DataParser = function(templates) {
 		var div = document.createElement("div");
 		addClass(div,"separator");
 		document.getElementById(menu).appendChild(div);
-	}
-
-	function addNavigationMenu(navigationInfo, numToDisplay) {
-		if (numToDisplay == undefined) numToDisplay = 5;
-		var ul = document.createElement("ul");
-		ul.setAttribute("id","header-nav-menu");
-
-		for (var i = 0; i < numToDisplay; i++) {
-			var li = document.createElement("li");
-			var href = document.createElement("a");
-			href.innerHTML = navigationInfo[i];
-			li.appendChild(href);
-			ul.appendChild(li);
-		}
-
-		document.getElementsByTagName("header")[0].insertBefore(ul,document.getElementById("name").new_textSibling);
 	}
 
 
