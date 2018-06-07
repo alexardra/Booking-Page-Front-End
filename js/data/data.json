@@ -31,6 +31,10 @@
 		"calendar legend": ["Start Date", "End Date"] 
 	},
 	"details": "1 room, 2 guests",
-	"dropdown details": [{"parameter":"1 room"}, {"parameter":"2 adults"}, {"parameter":"0 children"}],
+	"dropdown details": [
+		"1 room",
+		"2 adults",
+		"0 children"
+	],
 	"find": "Find Hotels"
 }

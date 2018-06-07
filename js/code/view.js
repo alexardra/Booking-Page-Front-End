@@ -1,12 +1,11 @@
-var View = function (viewId) {
+var View = function (viewId, parentNode, viewRenderer, numTemplates, dataKey) {
 
-    var id = viewId;
-    var parentNode = null; // could change (?)
     var childViews = [];
+    var content = null;
 
     return {
         getId : function() {
-            return id;
+            return viewId;
         },
         
         getParentNode : function() {
@@ -17,16 +16,37 @@ var View = function (viewId) {
             return childViews;
         },
 
-        addChildView : function() {
-
+        addChildView : function(view) {
+            childViews.push(view);
         },
 
+        setParentNode : function(node) {
+            parentNode = node;
+        },
+        
         removeView : function() {
-            console.log("remove view " + id);
+            console.log("remove view " + viewId);
+
         },
 
         renderView : function() {
-            console.log("render view " + id);
+
+            if (typeof(parentNode) == "string") {
+                parentNode = document.getElementById(parentNode);
+            }
+
+            if (numTemplates == undefined) numTemplates = 1;
+
+            if (content == null) {
+                for (var i = 0; i < numTemplates; i++) {
+                    content = viewRenderer.getViewContent(viewId, dataKey,i);
+                    append(parentNode, content);
+                }
+            }
+
+            for (var i=0; i < childViews.length; i++) {
+                childViews[i].renderView();
+            }
         }
 
     }

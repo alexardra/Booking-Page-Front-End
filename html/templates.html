@@ -13,9 +13,9 @@
 
 <!-- OVERALL NAVIGATION PAGES TEMPLATES -->
 <script id="navigation-page" type="text/html">
-	<section class="cover"></section>
-	<section class="additionals-container"></section>
-	<section class="browse"></section>
+	<section id="cover"></section>
+	<section id="additionals-container"></section>
+	<section id="browse"></section>
 </script>
 
 <!-- HOTELS TEMPLATES -->
@@ -43,15 +43,15 @@
 </script>
 
 
-<script id="search_bar_template" type="text/html">
+<script id="search-bar-template" type="text/html">
 	<div id="search_bar">
 			
 		<button id="location"><i></i></button>
-		<div id="search_container">
+		<div id="search-container">
 	    	<input type="text" placeholder="Destination" name="search">	
 		</div>	
 
-			<div id="calendar_container">
+			<div id="calendar-container">
 				<div id="calendar_content">
 					<i></i>
 		    		<span class="calendar_date">{{calendar.today}}</span>
@@ -67,7 +67,7 @@
 	    		<span>{{details}}</span>
 	    		<i class="arrow_icon"></i>
 	    	</div>
-	    	<div id="other_dropdown" class="dropdown hidden"></div>
+	    	<div id="other-dropdown" class="dropdown hidden"></div>
 	    </div>
 	    <div id="submit_search">
 	    	<div class="search_button_text">{{find}}</div>
@@ -76,21 +76,21 @@
 </script>
 
 
-<script id="recently_viewed_dropdown" type="text/html">
-	<div id="search_dropdown" class="dropdown hidden">
+<script id="recently-viewed-dropdown" type="text/html">
+	<div id="search-dropdown" class="dropdown hidden">
 		<h1>{{recently viewed}}</h1>
 	</div>
 </script>
 
-<script id="recently_viewed_elem" type="text/html">
-	<div class="search_recently_viewed">
+<script id="recently-viewed-elem" type="text/html">
+	<div class="search-recently-viewed">
 		<div>{{location}}</div>
 		<div>{{additional info}}</div>	
 	</div>
 </script>
 
-<script id="calendar_dropdown" type="text/html">
-	<div id="calendar_dropdown" class="dropdown hidden">
+<script id="calendar-dropdown" type="text/html">
+	<div id="calendar-dropdown" class="dropdown hidden">
 		<h1>{{calendar.header}}</h1>
 		<div id="calendar_dropdown_content">
 			<h2></h2>
@@ -117,8 +117,8 @@
 </script>
 
 
-<script id="other_filter_dropdown_elem" type="text/html">
-	<div class="other_filter_dropdown_elem">
+<script id="other-filter-dropdown-elem" type="text/html">
+	<div class="other-filter-dropdown-elem">
 		<span>{{parameter}}</span>
 		<button class="minus_icon">
 			<i></i>

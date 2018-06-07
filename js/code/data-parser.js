@@ -3,35 +3,30 @@ var DataParser = function(templates) {
 	function parse() {
 		get("data.json", function(rawData) {
 			var data = JSON.parse(rawData);
-			var search_bar_template = constructTemplate(templates,"search_bar_template");
-			var output = Mustache.render(search_bar_template,data);
-			append(document.getElementsByClassName("cover")[0],output);	
+			// var search_bar_template = constructTemplate(templates,"search_bar_template");
+			// var output = Mustache.render(search_bar_template,data);
+			// append(document.getElementsByClassName("cover")[0],output);	
 
-			constructSearchRecentlyViewed(data);
-			constructCalendarDropdown(data);
-			searchbarEventHandler();
+			// constructSearchRecentlyViewed(data);
+			// constructCalendarDropdown(data);
 
-			renderHeader(data);
 
-			getScript("calendar.js", function() {
-				var calendar = new Calendar();
-				calendar.construct();
-			});
+			// getScript("calendar.js", function() {
+			// 	var calendar = new Calendar();
+			// 	calendar.construct();
+			// });
 
 
 			getScript("view-renderer.js", function() {
 				var vr = new ViewRenderer(templates, data);
 				vr.init();
+				console.log("enter handlers");
+				searchbarEventHandler();
+
 			});
 	
 
 		});
-	}
-
-	function renderHeader(data) {
-		var headerTemplate = constructTemplate(templates,"home-header");
-		var output = Mustache.render(headerTemplate,data);
-		append(document.getElementsByTagName("header")[0],output);
 	}
 
 	/* Search bar - dropdown recently viewed information */
@@ -59,6 +54,14 @@ var DataParser = function(templates) {
 		generateOtherFiltersDropdown(dropdown_template, dropdown_data);
 	}
 
+	function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
+		for (var i = 0; i < dropdown_data.length; i++) {
+			var output = Mustache.render(dropdown_template, dropdown_data[i]);
+			append(document.getElementById("other_dropdown"),output);
+			createElementWithClass("div","separator", "other_dropdown")
+		}
+	}
+
 	function constructCalendarDropdown(data) {
 		var calendar_dropdown = constructTemplate(templates, "calendar_dropdown");
 		var output = Mustache.render(calendar_dropdown,data);
@@ -67,10 +70,10 @@ var DataParser = function(templates) {
 
 	function searchbarEventHandler() {
 
-		var search_dropdown = document.getElementById("search_dropdown");
-		var calendar_dropdown = document.getElementById("calendar_dropdown");
-		var search_bar = document.querySelector("#search_bar input");
-		var other_dropdown = document.getElementById("other_dropdown");
+		var search_dropdown = document.getElementById("search-dropdown");
+		var calendar_dropdown = document.getElementById("calendar-dropdown");
+		var search_bar = document.querySelector("#search-bar input");
+		var other_dropdown = document.getElementById("other-dropdown");
 
 		document.getElementById("calendar_content").onclick = function() {
 			toggleDropdown(calendar_dropdown);
@@ -115,14 +118,6 @@ var DataParser = function(templates) {
 		var allDropdowns = document.getElementsByClassName("dropdown");
 		addClass(allDropdowns, "hidden");
 		removeClass(element,"hidden");
-	}
-
-	function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
-		for (var i = 0; i < dropdown_data.length; i++) {
-			var output = Mustache.render(dropdown_template, dropdown_data[i]);
-			append(document.getElementById("other_dropdown"),output);
-			createElementWithClass("div","separator", "other_dropdown")
-		}
 	}
 
 	function generateTextInDropdown(buttonClass, current_text) {
