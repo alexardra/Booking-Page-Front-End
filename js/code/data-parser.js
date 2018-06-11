@@ -3,69 +3,17 @@ var DataParser = function(templates) {
 	function parse() {
 		get("data.json", function(rawData) {
 			var data = JSON.parse(rawData);
-			// var search_bar_template = constructTemplate(templates,"search_bar_template");
-			// var output = Mustache.render(search_bar_template,data);
-			// append(document.getElementsByClassName("cover")[0],output);	
-
-			// constructSearchRecentlyViewed(data);
-			// constructCalendarDropdown(data);
-
-
-			// getScript("calendar.js", function() {
-			// 	var calendar = new Calendar();
-			// 	calendar.construct();
-			// });
-
 
 			getScript("view-renderer.js", function() {
 				var vr = new ViewRenderer(templates, data);
 				vr.init();
 				console.log("enter handlers");
-				searchbarEventHandler();
+				// searchbarEventHandler();
 
 			});
 	
 
 		});
-	}
-
-	/* Search bar - dropdown recently viewed information */
-	function constructSearchRecentlyViewed(data, num_to_show) {
-		if (num_to_show == undefined) num_to_show = 2;
-
-		var recently_viewed_dropdown = constructTemplate(templates,"recently_viewed_dropdown");
-		output = Mustache.render(recently_viewed_dropdown, data);
-		append(document.getElementById("search_container"),output);
-
-		var recently_viewed_elem = constructTemplate(templates, "recently_viewed_elem");
-		var recently_viewed_info = data["recently viewed info"];
-		var num_viewed = recently_viewed_info.length;
-		
-		if (num_viewed < num_to_show) num_to_show = num_viewed;
-
-		for (var i = 0; i < num_to_show; i++) {
-			output = Mustache.render(recently_viewed_elem,recently_viewed_info[i]);
-			addSeparatorInMenu("search_dropdown");
-			append(document.getElementById("search_dropdown"),output);
-		}
-
-		var dropdown_template = constructTemplate(templates, "other_filter_dropdown_elem");
-		var dropdown_data = data["dropdown details"];
-		generateOtherFiltersDropdown(dropdown_template, dropdown_data);
-	}
-
-	function generateOtherFiltersDropdown(dropdown_template, dropdown_data) {
-		for (var i = 0; i < dropdown_data.length; i++) {
-			var output = Mustache.render(dropdown_template, dropdown_data[i]);
-			append(document.getElementById("other_dropdown"),output);
-			createElementWithClass("div","separator", "other_dropdown")
-		}
-	}
-
-	function constructCalendarDropdown(data) {
-		var calendar_dropdown = constructTemplate(templates, "calendar_dropdown");
-		var output = Mustache.render(calendar_dropdown,data);
-		append(document.getElementById("calendar_container"),output);
 	}
 
 	function searchbarEventHandler() {

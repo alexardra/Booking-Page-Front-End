@@ -20,13 +20,21 @@ var View = function (viewId, parentNode, viewRenderer, numTemplates, dataKey) {
             childViews.push(view);
         },
 
+        isConstructed : function() {
+            return isConstructed;
+        },
+
         setParentNode : function(node) {
             parentNode = node;
         },
         
         removeView : function() {
             console.log("remove view " + viewId);
+            if (typeof(parentNode) == "string") {
+                parentNode = document.getElementById(parentNode);
+            }
 
+            parentNode.innerHTML = "";
         },
 
         renderView : function() {

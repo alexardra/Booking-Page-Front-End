@@ -5,6 +5,7 @@ var app = express();
 app.use(express.static('js/code'));
 app.use(express.static('css'));
 app.use(express.static('resources'));
+app.use(express.static('dist'));
 
 /* Request main page */
 app.get("/", function(req,res) {

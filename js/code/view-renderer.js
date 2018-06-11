@@ -10,7 +10,7 @@ var ViewRenderer = function(templates, data, startView) {
     }
     
     /* Render default view */
-    function temp(viewRenderer) {
+    function constructHotelsView(viewRenderer) {
         var navigationPage = new View("navigation-page", "app", viewRenderer);
         var searchBar = new View("search-bar-template", "cover", viewRenderer);
         navigationPage.addChildView(searchBar);
@@ -27,7 +27,10 @@ var ViewRenderer = function(templates, data, startView) {
         searchBar.addChildView(calendarDropdown);
 
         navigationPage.renderView();
+
+        currentView = navigationPage;
     }
+
 
     return {
 
@@ -36,14 +39,26 @@ var ViewRenderer = function(templates, data, startView) {
             viewRenderer = this;
             getScript("view.js", function() { // imported 
                 renderHeader(data);
-                temp(viewRenderer);
+                constructHotelsView(viewRenderer);     
+                
                 console.log("all rendered");
+
+                getScript("hotels-view.js", function() {
+                    console.log("hotels");
+                    var hotelsView = new HotelsView("navigation-page", "app", viewRenderer);
+                    hotelsView.construct();
+                });
             });
         },
 
         /* Change current view and render new one */
         changeView : function(currentView, viewToRender) {
+            currentView.removeView();
 
+            if (!viewToRender.isConstructed()) {
+                // constructView();
+            }
+            viewToRender.renderView();
         },
 
         /* if datakey is specified, should search in data for
