@@ -1,12 +1,16 @@
+var lib = require("./library.js");
+var View = require("./view.js");
+var HotelsView = require("./hotels-view.js");
+
 var ViewRenderer = function(templates, data, startView) {
 
     var currentView; // initialize in init 
 
     function renderHeader(data) {
-		var headerTemplate = constructTemplate(templates,"home-header");
+		var headerTemplate = lib.constructTemplate(templates,"home-header");
         var output = Mustache.render(headerTemplate,data);
         console.log("render header");
-		append(document.getElementsByTagName("header")[0],output);
+		lib.append(document.getElementsByTagName("header")[0],output);
     }
     
     /* Render default view */
@@ -37,18 +41,18 @@ var ViewRenderer = function(templates, data, startView) {
         /* Render startView - if startView is undefined render default view */
         init : function() {
             viewRenderer = this;
-            getScript("view.js", function() { // imported 
+            // getScript("view.js", function() { // imported 
                 renderHeader(data);
                 constructHotelsView(viewRenderer);     
                 
                 console.log("all rendered");
 
-                getScript("hotels-view.js", function() {
+                // getScript("hotels-view.js", function() {
                     console.log("hotels");
-                    var hotelsView = new HotelsView("navigation-page", "app", viewRenderer);
-                    hotelsView.construct();
-                });
-            });
+                    // var hotelsView = new HotelsView("navigation-page", "app", viewRenderer);
+                    // hotelsView.construct();
+                // });
+            // });
         },
 
         /* Change current view and render new one */
@@ -64,7 +68,7 @@ var ViewRenderer = function(templates, data, startView) {
         /* if datakey is specified, should search in data for
            specified value, otherwise render from data */
         getViewContent : function(viewId, dataKey, templateIndex) {
-            var template = constructTemplate(templates, viewId);
+            var template = lib.constructTemplate(templates, viewId);
             if (dataKey == undefined) {
                 var output = Mustache.render(template, data);
             } else {
@@ -74,3 +78,5 @@ var ViewRenderer = function(templates, data, startView) {
         }
     }
 }
+
+module.exports = ViewRenderer;

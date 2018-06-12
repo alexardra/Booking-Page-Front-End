@@ -1,6 +1,10 @@
-ready(function() {
-	get("templates.html", function(templates) {
-		templates = filter(templates);	
+var lib = require("./library.js");
+var DataParser = require("./data-parser.js");
+var routs = require("./routs.js");
+
+lib.ready(function() {
+	lib.get("templates.html", function(templates) {
+		templates = lib.filter(templates);	
 		// get("destinations.json", function(rawData) {
 		// 	var data = JSON.parse(rawData);
 		// 	var sections = data["sections"];
@@ -10,13 +14,10 @@ ready(function() {
 		// 		append(document.getElementsByClassName("browse")[0],output);
 		// 	}		
 		// });
+		var dataParser = new DataParser(templates);
+		dataParser.parse();
 
-		getScript("data-parser.js", function() {
-			var dataParser = new DataParser(templates);
-			dataParser.parse();
-		});
-
-		getScript("routs.js");
+		// lib.getScript("routs.js");
 
 	});
 });

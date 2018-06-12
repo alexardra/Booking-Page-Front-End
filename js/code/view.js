@@ -1,3 +1,5 @@
+var lib = require("./library.js");
+
 var View = function (viewId, parentNode, viewRenderer, numTemplates, dataKey) {
 
     var childViews = [];
@@ -48,7 +50,7 @@ var View = function (viewId, parentNode, viewRenderer, numTemplates, dataKey) {
             if (content == null) {
                 for (var i = 0; i < numTemplates; i++) {
                     content = viewRenderer.getViewContent(viewId, dataKey,i);
-                    append(parentNode, content);
+                    lib.append(parentNode, content);
                 }
             }
 
@@ -60,3 +62,5 @@ var View = function (viewId, parentNode, viewRenderer, numTemplates, dataKey) {
     }
 
 }
+
+module.exports = View;

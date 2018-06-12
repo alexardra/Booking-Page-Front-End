@@ -1,17 +1,17 @@
-var DataParser = function(templates) {
+var lib = require("./library.js");
+var ViewRenderer = require("./view-renderer.js");
+
+function DataParser(templates) {
 
 	function parse() {
-		get("data.json", function(rawData) {
+		lib.get("data.json", function(rawData) {
 			var data = JSON.parse(rawData);
 
-			getScript("view-renderer.js", function() {
-				var vr = new ViewRenderer(templates, data);
-				vr.init();
-				console.log("enter handlers");
-				// searchbarEventHandler();
-
-			});
-	
+			var vr = new ViewRenderer(templates, data);
+			console.log("1");
+			vr.init();
+			console.log("enter handlers");
+			// searchbarEventHandler();
 
 		});
 	}
@@ -134,3 +134,4 @@ var DataParser = function(templates) {
 	}
 }
 
+module.exports = DataParser;
