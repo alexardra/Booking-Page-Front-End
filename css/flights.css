@@ -1,0 +1,46 @@
+.flight-destination {
+    border:1px solid red;
+    height:100%;
+    width:20%;
+    float:left;
+}
+
+.calendar-container {
+    width:20%;
+    height:100%;
+    float:left;
+    border:1px solid blue;
+}
+
+.date {
+    width:50%;
+    height:100%;
+    float:left;
+    border:1px solid red;
+}
+
+.date::-webkit-clear-button {
+    display: none;
+}
+
+.other-container {
+    width:20%;
+    height:100%;
+    float:left;
+}
+
+.submit-search {
+    height:100%;
+    width:20%;
+    float:left;
+    background-color:#EC7065;
+}
+
+.submit-search-input {
+    border:0;
+    background:inherit;
+    color:white;
+    line-height:30px;
+    margin-top:10px;
+    font-size:1em;
+}

@@ -1,66 +1,65 @@
 var lib = require("./library.js");
 
-var View = function (viewId, parentNode, viewRenderer, numTemplates, dataKey) {
+class View {
+    
+    constructor(viewRenderer, viewId, parentNode="app", numTemplates, dataKey) {
+        this._viewId = viewId;
+        this._parentNode = parentNode;
 
-    var childViews = [];
-    var content = null;
-
-    return {
-        getId : function() {
-            return viewId;
-        },
+        this._viewRenderer = viewRenderer;
+        this._numTemplates = numTemplates;
+        this._dataKey = dataKey;
         
-        getParentNode : function() {
-            return parentNode;
-        },
+        this._childViews = [];
+        this._content = null;
+    }
 
-        getChildViews : function() {
-            return childViews;
-        },
+    get Id() {
+        return this.viewId;
+    }
 
-        addChildView : function(view) {
-            childViews.push(view);
-        },
+    get parentNode() {
+        return this.parentNode;
+    }
+    
+    get childViews() {
+        return this._childViews;
+    }
 
-        isConstructed : function() {
-            return isConstructed;
-        },
+    set parentNode(node) {
+        this._parentNode = node;
+    } 
 
-        setParentNode : function(node) {
-            parentNode = node;
-        },
-        
-        removeView : function() {
-            console.log("remove view " + viewId);
-            if (typeof(parentNode) == "string") {
-                parentNode = document.getElementById(parentNode);
-            }
+    addChildView(view) {
+        this._childViews.push(view);
+    }
 
-            parentNode.innerHTML = "";
-        },
+    removeView() {
+        if (typeof(this._parentNode) == "string") {
+            this._parentNode = document.getElementById(this._parentNode);
+        }
 
-        renderView : function() {
+        this._parentNode.innerHTML = "";
+    }
 
-            if (typeof(parentNode) == "string") {
-                parentNode = document.getElementById(parentNode);
-            }
+    renderView() {
+        if (typeof(this._parentNode) == "string") {
+            this._parentNode = document.getElementById(this._parentNode);
+        }
 
-            if (numTemplates == undefined) numTemplates = 1;
+        if (this._numTemplates == undefined) this._numTemplates = 1;
 
-            if (content == null) {
-                for (var i = 0; i < numTemplates; i++) {
-                    content = viewRenderer.getViewContent(viewId, dataKey,i);
-                    lib.append(parentNode, content);
-                }
-            }
-
-            for (var i=0; i < childViews.length; i++) {
-                childViews[i].renderView();
+        if (this._content == null) {
+            for (var i = 0; i < this._numTemplates; i++) {
+                this._content = this._viewRenderer.getViewContent(this._viewId, this._dataKey,i);
+                lib.append(this._parentNode, this._content);
             }
         }
 
-    }
-
+        for (var i=0; i < this._childViews.length; i++) {
+            this._childViews[i].renderView();
+        }
+    } 
 }
 
 module.exports = View;

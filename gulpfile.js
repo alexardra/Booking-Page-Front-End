@@ -4,17 +4,12 @@ const browserify = require('browserify');
 const source = require('vinyl-source-stream');
  
 gulp.task('default', () =>
-    gulp.src('src/app.js')
+    gulp.src('dist/app.js')
         .pipe(babel({
             presets: ['env']
         }))
         .pipe(gulp.dest('dist'))
 );
-
-
-// var gulp       = require('gulp'),
-//     browserify = require('browserify'),
-//     source     = require('vinyl-source-stream');
 
 gulp.task('browserify', function() {
     return browserify({ entries: ['js/code/main.js'] })

@@ -2,11 +2,11 @@
 	<a href="#"><i id="logo"></i></a>
 	<div id="name">Traveler</div>
 	<ul id="header-nav-menu">
-		<a href=""><li>{{navigation info.0}}</li></a>
-		<a href=""><li>{{navigation info.1}}</li></a>
+		<a href="#hotels"><li>{{navigation info.0}}</li></a>
+		<a href="#rentals"><li>{{navigation info.1}}</li></a>
 		<a href="#flights"><li>{{navigation info.2}}</li></a>
-		<a href=""><li>{{navigation info.3}}</li></a>
-		<a href=""><li>{{navigation info.4}}</li></a>
+		<a href="#restaurants"><li>{{navigation info.3}}</li></a>
+		<a href="#things-to-do"><li>{{navigation info.4}}</li></a>
 	</ul>
 	<i class="hamburger"></i>
 </script>
@@ -48,7 +48,7 @@
 			
 		<button id="location"><i></i></button>
 		<div id="search-container">
-	    	<input type="text" placeholder="Destination" name="search">	
+	    	<input id="search-input" type="text" placeholder="Destination" name="search">	
 		</div>	
 
 			<div id="calendar-container">
@@ -126,5 +126,29 @@
 		<button class="plus_icon">
 			<i></i>
 		</button>
+	</div>
+</script>
+
+
+
+<!-- FLIGHTS VIEW -->
+<script id="flights-search-bar-template">
+	<div id="search_bar">
+		<div class="flight-destination">
+
+		</div>
+		<div class="flight-destination">
+
+		</div>
+		<div class="calendar-container">
+			<input class="date" type="date"></input>
+			<input class="date" type="date"></input>
+		</div>
+		<div class="other-container">
+
+		</div>
+		<div class="submit-search">
+			<input class="submit-search-input" type="submit" value="Find flights"></input>
+		</div>
 	</div>
 </script>

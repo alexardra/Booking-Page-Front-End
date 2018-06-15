@@ -4,16 +4,16 @@ var ViewRenderer = require("./view-renderer.js");
 function DataParser(templates) {
 
 	function parse() {
-		lib.get("data.json", function(rawData) {
-			var data = JSON.parse(rawData);
+		// lib.get("data.json", function(rawData) {
+			// var data = JSON.parse(rawData);
 
-			var vr = new ViewRenderer(templates, data);
-			console.log("1");
-			vr.init();
-			console.log("enter handlers");
+			// var vr = new ViewRenderer(templates, data);
+			// console.log("1");
+			// vr.init();
+			// console.log("enter handlers");
 			// searchbarEventHandler();
 
-		});
+		// });
 	}
 
 	function searchbarEventHandler() {

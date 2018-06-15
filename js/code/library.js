@@ -53,6 +53,7 @@ module.exports = {
 		};
 		request.send();
 	}, 
+
 	getScript : function(source, callback) {
 		var script = document.createElement('script');
 		var prior = document.getElementsByTagName('script')[0];
