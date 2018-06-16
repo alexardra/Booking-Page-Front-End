@@ -1,3 +1,4 @@
+<!-- HEADER -->
 <script id="home-header" type="text/html">
 	<a href="#"><i id="logo"></i></a>
 	<div id="name">Traveler</div>
@@ -9,6 +10,35 @@
 		<a href="#things-to-do"><li>{{navigation info.4}}</li></a>
 	</ul>
 	<i class="hamburger"></i>
+	<div id="authentication-container">
+		<div id="authentication-content">
+			<i id="user-icon"></i>
+		</div>
+		<div id="authentication-dropdown">
+
+			<div class="authentication-dropdown-element" id="facebook-sign-in">
+				<i></i>
+				<span>FACEBOOK</span>
+			</div>
+
+			<div class="authentication-dropdown-element" id="google-sign-in">
+				<i></i>
+				<span>GOOGLE</span>
+			</div>
+			
+			<div id="authentication-dropdown-sign-in">
+				<div id="already-member">
+					Already a member?
+				</div>
+				<form>
+					<input type="text" name="firstname" value="Mickey">
+					<input type="text" name="lastname" value="Mouse">
+					<input type="submit" value="Submit">
+				  </form>
+			</div>
+		</div>
+
+	</div>
 </script>
 
 <!-- OVERALL NAVIGATION PAGES TEMPLATES -->

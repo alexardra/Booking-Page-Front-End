@@ -67,6 +67,112 @@ header {
 	margin:10px 5px 0 0;
 }
 
+#authentication-container {
+	float:right;
+	height:100%;
+	width:50px;
+	border:1px solid green;
+	margin-right:100px;
+}
+
+#authentication-content {
+	height:100%;
+	width:100%;
+}
+
+#user-icon {
+	background:url('/user_icon.png') no-repeat 0 0; 
+	float:left;
+	width:30px;
+	height:30px;
+	margin-top:10px;
+	margin-left:8px;
+}
+
+#authentication-dropdown {
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	width:400%;
+	margin-left:-250%;
+	height:250px;
+	z-index:1;	
+	border:1px solid blue;
+}
+
+.authentication-dropdown-element {
+	height:30px;
+	width:90%;
+	margin-left:5%;
+	margin-top:5%;
+}
+
+#facebook-sign-in {
+	background-color:#3b5998;
+	color:#f7f7f7;
+	font-family:Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+	font-size:0.8em;
+	font-weight:600;
+}
+
+#facebook-sign-in i {
+	background:url('/logo-sprites.png') no-repeat 0 -1px;
+	float:left;
+	width:16px;
+	height:16px;
+	margin:7px 10px 0 7px;
+}
+
+#facebook-sign-in span {
+	display: inline-block;
+	line-height:14px;
+	margin-top:8px;
+}
+
+#google-sign-in {
+	background-color:white;
+	color: rgba(0,0,0,0.54);
+	font-family:Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+	font-size:0.8em;
+	font-weight:600;
+	border:1px solid grey;
+}
+
+#google-sign-in i {
+	background:url('/logo-sprites.png') no-repeat 0 -18px;
+	float:left;
+	width:18px;
+	height:18px;
+	margin:7px 8px 0 7px;
+}
+
+#google-sign-in span {
+	display: inline-block;
+	line-height:14px;
+	margin-top:8px;
+}
+
+#authentication-dropdown-sign-in {
+
+}
+
+#already-member {
+	border:1px solid red;
+	margin-top:20px;
+	width:90%;
+	margin-left:5%;
+	text-align:center;
+	vertical-align:middle;
+	color:#EC7063;
+}
+
+#authentication-dropdown-sign-in form {
+	border:1px solid red;
+	margin-top:10px;
+	width:90%;
+	height:90px;
+	margin-left:5%;
+}
+
 /*******************  NAVIGATION MENU *************************/
 #header-nav-menu {
 	height:50px;
@@ -129,7 +235,7 @@ header {
 }
 
 .user_icon {
-	/*background:url('../resources/user_icon.png') no-repeat 0 0;*/
+	background:url('../resources/user_icon.png') no-repeat 0 0;
 	width:30px;
 	height:30px;
 	display:block;
