@@ -26,7 +26,7 @@ class ViewRenderer {
     /* Remove current view and render new one */
     changeView(viewToRender) {
         this._currentView.removeView();
-        viewToRender.constructView();
+        viewToRender.constructView(this);
 
         this._currentView = viewToRender;
     }

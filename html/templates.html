@@ -46,7 +46,7 @@
 <script id="search-bar-template" type="text/html">
 	<div id="search_bar">
 			
-		<button id="location"><i></i></button>
+		<button class="location"><i></i></button>
 		<div id="search-container">
 	    	<input id="search-input" type="text" placeholder="Destination" name="search">	
 		</div>	
@@ -132,23 +132,31 @@
 
 
 <!-- FLIGHTS VIEW -->
-<script id="flights-search-bar-template">
+<script id="flights-search-bar-template" type="text/html">
 	<div id="search_bar">
-		<div class="flight-destination">
-
+		<div id="flight-search">
+			<div class="flight-destination">
+					<button class="location"><i></i></button>
+					<input type="text" placeholder="{{flights.search.destinations.0}}"></input>
+				</div>
+				<div class="flight-destination">
+					<button class="location"><i></i></button>
+					<input type="text" placeholder="{{flights.search.destinations.1}}"></input>
+				</div>
 		</div>
-		<div class="flight-destination">
 
-		</div>
 		<div class="calendar-container">
 			<input class="date" type="date"></input>
 			<input class="date" type="date"></input>
 		</div>
-		<div class="other-container">
-
+		<div id="other_container">
+			<div id="other_content">
+				<span>{{flights.search.details}}</span>
+			</div>
+			<div id="other-dropdown" class="dropdown hidden"></div>
 		</div>
 		<div class="submit-search">
-			<input class="submit-search-input" type="submit" value="Find flights"></input>
+			<input class="submit-search-input" type="submit" value="{{flights.search.submit}}"></input>
 		</div>
 	</div>
 </script>

@@ -9,7 +9,7 @@ class FlightsView extends View {
     constructView(viewRenderer) {
         console.log("change to flights view");
 
-        let navigationPage =new View(viewRenderer, "navigation-page", "app");
+        let navigationPage = new View(viewRenderer, "navigation-page", "app");
         let searchBar = new View(viewRenderer, "flights-search-bar-template", "cover");
         navigationPage.addChildView(searchBar);
         

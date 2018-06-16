@@ -17,6 +17,11 @@ html,body {
 	width:100%;
 }
 
+input {
+    border: none;
+    outline:none;
+}
+
 .hidden {
 	display:none;
 }
@@ -208,14 +213,13 @@ section {
 /***************    cover section styles    ***************/
 
 #cover {
-	/*margin: 1px solid red;*/
 	height: 60vh;
 	background-position:center;
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
 	align-items:center;
-	text-align:center;
+	/* text-align:center; */
 	background: url('/crop_sunset') no-repeat;
 	/*background-position:center center;*/
 	background-attachment:fixed;
@@ -236,7 +240,7 @@ section {
 	cursor:pointer;
 }
 
-#location {
+.location {
 	float:left;
 	height:100%;
 	width:48px;
@@ -248,7 +252,7 @@ section {
 	border-top-left-radius: 20%;
 }
 
-#location i {
+.location i {
 	background:url('/search_icons.png') no-repeat -99px -4px;
 	width:22px;
 	height:32px;
@@ -267,7 +271,8 @@ section {
 
 #search_bar ::placeholder {
 	font-size:1.2em;
-	color:#5DADE2;	
+	color:#EC7065;	
+	font-family:page_font;
 }
 
 /*******************/
@@ -502,26 +507,27 @@ section {
 
 #other_content {
 	height:48px;
+	vertical-align: middle;
+	text-align:center;
 }
 
 #other_content span {
 	display:inline-block;
-	float:left;
 	line-height:20px;
-	max-width:130px;
 	max-height:20px;
-	margin:13px 10px 0 5px;
+	margin-top:15px;
 	white-space:nowrap;
     text-overflow:ellipsis;
-    overflow:hidden;
+	overflow:hidden;
 }
 
 .arrow_icon {
 	background:url('/search_icons.png') no-repeat -137px -5px;
 	width:16px;
 	height:10px;
-	float:left;
+	float:right;
 	margin:17px 10px 0 5px;
+
 }
 
 #submit_search {

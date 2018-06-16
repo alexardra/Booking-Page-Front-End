@@ -3,6 +3,8 @@ let lib = require("./library.js");
 let ViewRenderer = require("./view-renderer.js");
 let HotelsView = require("./hotels-view.js");
 let FlightsView = require("./flights-view.js");
+let ViewFactory = require("./view-factory.js");
+
 
 class RoutController {
 
@@ -14,6 +16,8 @@ class RoutController {
         this._templates = templates;
         this._data = data;
         this.constructRouts();
+
+        this._viewFactory = new ViewFactory();
     }
 
     constructRouts() {
@@ -24,6 +28,7 @@ class RoutController {
 
         Router.add("hotels", function() {
             console.log("hotels");  
+            routController._viewRenderer.changeView(routController._viewFactory.createView("hotels"));
         });
         
         Router.add("about", function() {
@@ -31,8 +36,7 @@ class RoutController {
         });
         
         Router.add("flights", function() {
-            let flightsView = new FlightsView(); 
-            routController._viewRenderer.changeView(flightsView);
+            routController._viewRenderer.changeView(routController._viewFactory.createView("flights"));
         });
     }
 

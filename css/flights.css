@@ -1,39 +1,47 @@
-.flight-destination {
-    border:1px solid red;
+#flight-search {
+    width:40%;
     height:100%;
-    width:20%;
     float:left;
 }
+
+.flight-destination {
+    height:100%;
+    width:50%;
+    float:left;
+	border-right:1px solid grey;
+}
+
+.flight-destination input {
+    width:calc(100% - 48px);
+    float:left;
+    line-height:25px;
+    margin-top:12px;
+}
+
 
 .calendar-container {
     width:20%;
     height:100%;
     float:left;
-    border:1px solid blue;
+    border-right:1px solid grey;
 }
 
 .date {
     width:50%;
     height:100%;
     float:left;
-    border:1px solid red;
 }
 
 .date::-webkit-clear-button {
     display: none;
 }
 
-.other-container {
-    width:20%;
-    height:100%;
-    float:left;
-}
-
 .submit-search {
     height:100%;
-    width:20%;
+    width:calc(40% - 225px);
     float:left;
     background-color:#EC7065;
+    text-align:center;
 }
 
 .submit-search-input {
