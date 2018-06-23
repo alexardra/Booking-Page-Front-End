@@ -40,5 +40,17 @@
 			"submit" : "Find flights", 
 			"details" : "1 Person, Economy"
 		}
+	},
+	"rentals" : {
+		"search": {
+			"destinations" : "Choose destination",
+			"submit" : "Find rentals"
+		}
+	}, 
+	"restaurants" : {
+		"search":{
+			"find" : "Find your perfect restaurants", 
+			"submit" : "Find Restaurants"
+		}
 	}
 }

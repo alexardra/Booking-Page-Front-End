@@ -1,0 +1,20 @@
+#rentals-search{
+	width:calc(40% + 225px);
+    height:100%;
+    float:left;
+}
+.rentals-destination {
+    height:100%;
+    width:100%;
+    float:left;
+	border-right:1px solid grey;
+}
+
+.rentals-destination input[type="text"] {
+	width:calc(100% - 48px);
+    float:left;
+    height:100%;
+    background-color:inherit;
+    font-size:0.8em;
+    color:inherit;
+}

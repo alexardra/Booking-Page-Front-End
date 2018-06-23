@@ -4,7 +4,8 @@ let ViewRenderer = require("./view-renderer.js");
 let HotelsView = require("./hotels-view.js");
 let FlightsView = require("./flights-view.js");
 let ViewFactory = require("./view-factory.js");
-
+let RentalsView = require("./rentals-view.js");
+let RestaurantsView = require("./restaurants-view.js");
 
 class RoutController {
 
@@ -38,11 +39,22 @@ class RoutController {
         Router.add("flights", function() {
             routController._viewRenderer.changeView(routController._viewFactory.createView("flights"));
         });
+
+        Router.add("rentals", function() {
+            routController._viewRenderer.changeView(routController._viewFactory.createView("rentals"));
+        });
+
+        Router.add("restaurants", function() {
+            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurants"));
+        });
+
+
     }
 
     constructStartRout() {
         // let startView = new HotelsView(); // starting view
-        let startView = new FlightsView(); 
+        // let startView = new RentalsView(); 
+        let startView = new RestaurantsView(); 
         let viewRenderer = new ViewRenderer(this._templates, this._data, startView);
         this._viewRenderer = viewRenderer;  
     }

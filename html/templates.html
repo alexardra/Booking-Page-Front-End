@@ -47,7 +47,7 @@
 
 <!-- OVERALL NAVIGATION PAGES TEMPLATES -->
 <script id="navigation-page" type="text/html">
-	<section id="cover"></section>
+	<section id="cover" class="hotels-background"></section>
 	<section id="additionals-container"></section>
 	<section id="browse"></section>
 </script>
@@ -191,6 +191,42 @@
 		</div>
 		<div class="submit-search">
 			<input class="submit-search-input" type="submit" value="{{flights.search.submit}}"></input>
+		</div>
+	</div>
+</script>
+
+
+<!-- RENTALS-VIEW -->
+<script id="rentals-search-bar-template" type="text/html">
+	<div id="search_bar">
+		<div id="rentals-search">
+			<div class="rentals-destination">
+					<button class="location"><i></i></button>
+					<input type="text" placeholder="{{rentals.search.destinations}}"></input>
+				</div>
+		</div>
+
+		<div class="calendar-container">
+			<input class="date" type="date"></input>
+			<input class="date" type="date"></input>
+		</div>
+		<div class="submit-search">
+			<input class="submit-search-input" type="submit" value="{{rentals.search.submit}}"></input>
+		</div>
+	</div>
+</script>
+
+<!-- RESTAURANTS-VIEW -->
+<script id="restaurants-search-bar-template" type="text/html">
+	<div id="search_bar">
+		<div id="restaurants-search">
+			<div class="restaurants-placeholder">
+					<button class="location"><i></i></button>
+					<input type="text" placeholder="{{restaurants.search.find}}"></input>
+				</div>
+		</div>
+		<div class="submit-search">
+			<input class="submit-search-input" type="submit" placeholder="{{restaurants.search.submit}}"></input>
 		</div>
 	</div>
 </script>

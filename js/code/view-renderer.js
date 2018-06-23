@@ -9,7 +9,6 @@ class ViewRenderer {
         this._data = data;
         this._startView = startView;
 
-
         this.renderHeader();
 
         // render start view
@@ -27,7 +26,6 @@ class ViewRenderer {
     changeView(viewToRender) {
         this._currentView.removeView();
         viewToRender.constructView(this);
-
         this._currentView = viewToRender;
     }
 

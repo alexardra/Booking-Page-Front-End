@@ -356,11 +356,17 @@ section {
 	justify-content:center;
 	align-items:center;
 	/* text-align:center; */
-	background: url('/crop_sunset') no-repeat;
 	/*background-position:center center;*/
 	background-attachment:fixed;
 	background-size:100%;
 
+}
+.rentals-background{
+	background: url('/beach-house.jpg') no-repeat;
+	
+}
+.hotels-background{
+	background: url('/crop_sunset') no-repeat;
 }
 
 /***** search bar *****/

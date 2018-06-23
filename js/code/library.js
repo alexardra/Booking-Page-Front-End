@@ -100,20 +100,6 @@ module.exports = {
 		element.innerHTML = data;
 	}, 
 
-	addClass : function(element, className) {
-		var result;
-		var len = element.length;
-		if (element.length == undefined) { // one element
-			result = addClassToOne(element,className)
-		} else { // htmlCollection
-			var elements = []
-			for (var i = 0; i < len; i++) {
-				elements.push(addClassToOne(element[i],className));
-			}
-			result = elements;
-		}
-		return result;
-	}, 
 
 	addClassToOne : function(element,className) {
 		if (element.classList) {
@@ -124,8 +110,28 @@ module.exports = {
 		return element;
 	}, 
 
+	addClass : function(element, className) {
+		var result;
+		var len = element.length;
+		if (element.length == undefined) { // one element
+			result = this.addClassToOne(element,className)
+		} else { // htmlCollection
+			var elements = []
+			for (var i = 0; i < len; i++) {
+				elements.push(this.addClassToOne(element[i],className));
+			}
+			result = elements;
+		}
+		return result;
+	}, 
+
+
 	removeClass : function(element,className) {
 		var result;
+		if (className == undefined){
+			element.className = '';
+			return element;
+		}
 		var len = element.length;
 		if (element.length == undefined) {
 			result = removeClassFromOne(element,className);
