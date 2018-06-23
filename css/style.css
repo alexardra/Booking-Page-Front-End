@@ -100,10 +100,20 @@ header {
 }
 
 .authentication-dropdown-element {
+	/* height:30px;
+	width:90%; */
+	height:100%;
+	width:100%;
+
+}
+
+#authentication-dropdown button {
 	height:30px;
 	width:90%;
 	margin-left:5%;
 	margin-top:5%;
+	border:none;
+	outline:none;
 }
 
 #facebook-sign-in {
@@ -152,25 +162,45 @@ header {
 }
 
 #authentication-dropdown-sign-in {
-
+	
 }
 
 #already-member {
-	border:1px solid red;
 	margin-top:20px;
 	width:90%;
 	margin-left:5%;
 	text-align:center;
 	vertical-align:middle;
-	color:#EC7063;
+	color: rgba(0,0,0,0.70);
 }
 
 #authentication-dropdown-sign-in form {
-	border:1px solid red;
 	margin-top:10px;
-	width:90%;
-	height:90px;
-	margin-left:5%;
+	width:100%;
+	height:110px;
+	/* margin-left:5%; */
+}
+#authentication-dropdown-sign-in form input {
+	border:1px solid rgba(0,0,0,0.70);;
+	width:95%;
+	margin-left:2.5%;
+	height:30px;
+	margin-bottom:10px;
+	padding-left:5px;
+}
+
+#authentication-dropdown-sign-in form input[type="submit"] {
+	background-color:#EC7065;
+	color:white;
+	font-size:1.1em;
+	font-family:page_font;	
+	width:95%;
+	margin-left:2.5%;
+	height:30px;
+	margin-bottom:10px;
+}
+
+#authentication-dropdown-sign-in form input::placeholder {
 }
 
 /*******************  NAVIGATION MENU *************************/

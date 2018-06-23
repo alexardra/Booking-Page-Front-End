@@ -6,9 +6,7 @@ lib.ready(function() {
 
 	lib.get("templates.html", function(templates) {
 		templates = lib.filter(templates);
-		lib.get("data.json", function(rawData) {
-			let data = JSON.parse(rawData);
-	
+		lib.getJsonWithFetch("data.json", function(data) {
 			let routController = new RoutController(templates, data);
 		});
 	})
