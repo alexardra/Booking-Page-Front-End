@@ -1,4 +1,5 @@
 let View = require("./view.js");
+let lib = require("./library.js");
 
 class HotelsView extends View {
 
@@ -27,7 +28,29 @@ class HotelsView extends View {
         let calendarDropdown = new View(viewRenderer, "calendar-dropdown", "calendar-container");
         searchBar.addChildView(calendarDropdown);
 
-        navigationPage.renderView();
+
+        let additionalsContainer = new View(viewRenderer, "additionals-template", "additionals-container");
+
+        let servicesList = new View(viewRenderer, "service-template", "services-container", 4, "services");
+        additionalsContainer.addChildView(servicesList);
+
+        navigationPage.addChildView(additionalsContainer);
+
+
+        lib.getJsonWithFetch("destinations.json", function(data) {
+            viewRenderer.addData(data);
+            let browse = new View(viewRenderer, "browse-template", "browse", 5, "sections");
+            navigationPage.addChildView(browse);
+    
+            navigationPage.renderView();
+
+            let elements = document.getElementsByClassName("service-container");
+            lib.addClass(elements[0].children[0],"service-discover-icon");
+            lib.addClass(elements[1].children[0],"service-reviews-icon");
+            lib.addClass(elements[2].children[0],"service-money-icon");
+            lib.addClass(elements[3].children[0],"service-booking-icon");
+        });
+
     }
 }
 

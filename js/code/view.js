@@ -2,6 +2,10 @@ var lib = require("./library.js");
 
 class View {
     
+    // numTemplates, dataKey - optional parameters for flexible rendering options 
+    // numTemplates - render same template several times
+    // datakey - for searching in data.json for specific key 
+    
     constructor(viewRenderer, viewId, parentNode="app", numTemplates, dataKey) {
         this._viewId = viewId;
         this._parentNode = parentNode;

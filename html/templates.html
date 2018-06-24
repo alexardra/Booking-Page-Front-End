@@ -45,43 +45,24 @@
 	</div>
 </script>
 
+
 <!-- OVERALL NAVIGATION PAGES TEMPLATES -->
 <script id="navigation-page" type="text/html">
 	<section id="cover" class="hotels-background"></section>
 	<section id="additionals-container"></section>
-	<section id="browse"></section>
+	<section id="browse">
+		<div class="filler">
+
+		</div>
+	</section>
 </script>
 
 <!-- HOTELS TEMPLATES -->
-<script id="browse_section_template" type="text/html">
-	<div class="browse_section">
-		<div class="browse_header">
-			<h3>{{header}}</h3>
-			<button>See All</button>
-		</div>
-		<ul>
-			<li>
-				<div class="section_element"><span>{{overviews.0.name}}</span></div>
-			</li>
-			<li>
-				<div class="section_element"><span>{{overviews.1.name}}</span></div>
-			</li>
-			<li>
-				<div class="section_element"><span>{{overviews.2.name}}</span></div>
-			</li>
-			<li>
-				<div class="section_element"><span>{{overviews.3.name}}</span></div>
-			</li>
-		</ul>
-	</div>
-</script>
-
-
 <script id="search-bar-template" type="text/html">
 	<div id="search_bar">
 			
-		<button class="location"><i></i></button>
 		<div id="search-container">
+			<button class="location"><i></i></button>
 	    	<input id="search-input" type="text" placeholder="Destination" name="search">	
 		</div>	
 
@@ -103,9 +84,9 @@
 	    	</div>
 	    	<div id="other-dropdown" class="dropdown hidden"></div>
 	    </div>
-	    <div id="submit_search">
-	    	<div class="search_button_text">{{find}}</div>
-	    </div>
+		<div class="submit-search">
+				<input class="submit-search-input" type="submit" value="{{find}}"></input>
+		</div>
 	</div>
 </script>
 
@@ -229,4 +210,105 @@
 			<input class="submit-search-input" type="submit" placeholder="{{restaurants.search.submit}}"></input>
 		</div>
 	</div>
+</script>
+
+/************************** TEMPORARILY HERE **************************/
+
+<script id="additionals-template" type="text/html">
+
+    <div id="services-heading">
+        <h2>Our Services</h2>
+    </div>
+	
+	<div id="services-container">
+
+	</div>
+</script>
+
+<script id="service-template">
+	<div class="service-container">
+		<i></i>
+		<h4>{{heading}}</h4>
+		<p>{{content}}</p>
+	</div>
+</script>
+
+<script id="browse-template" type="text/html">
+	<div class="browse-section">
+		<div class="browse-header">
+			<h3>{{header}}</h3>
+			<button>See All</button>
+		</div>
+		<ul>
+			<li>
+				<div class="section-element">
+					<img src="{{overviews.0.url}}">
+					<div class="section-element-description">
+						<span>{{overviews.0.name}}</span>
+						<span>{{overviews.0.reviews}}</span>
+						<span>{{overviews.0.place}}</span>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="section-element">
+					<img src="{{overviews.1.url}}">
+					<div class="section-element-description">
+						<span>{{overviews.1.name}}</span>
+						<span>{{overviews.1.reviews}}</span>
+						<span>{{overviews.1.place}}</span>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="section-element">
+					<img src="{{overviews.2.url}}">
+					<div class="section-element-description">
+						<span>{{overviews.2.name}}</span>
+						<span>{{overviews.2.reviews}}</span>
+						<span>{{overviews.2.place}}</span>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="section-element">
+					<img src="{{overviews.3.url}}">
+					<div class="section-element-description">
+						<span>{{overviews.3.name}}</span>
+						<span>{{overviews.3.reviews}}</span>
+						<span>{{overviews.3.place}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</script>
+
+
+<script id="home-footer" type="text/html">
+
+	<ul id="socials">
+		<li>
+			<a href="">
+				<i class="socials-facebook-icon"></i>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<i class="socials-twitter-icon"></i>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<i class="socials-gmail-icon"></i>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<i class="socials-youtube-icon"></i>
+			</a>
+		</li>
+	</ul>
+
+	<div id="copyright">{{copyright}}</div>
 </script>

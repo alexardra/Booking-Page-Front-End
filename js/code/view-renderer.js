@@ -14,12 +14,20 @@ class ViewRenderer {
         // render start view
         startView.constructView(this);
         this._currentView = startView;
+        
+        this.renderFooter();
     }
 
     renderHeader() {
 		var headerTemplate = lib.constructTemplate(this._templates,"home-header");
         var output = Mustache.render(headerTemplate,this._data);
 		lib.append(document.getElementsByTagName("header")[0],output);
+    }
+
+    renderFooter() {
+        let footerTemplate = lib.constructTemplate(this._templates,"home-footer");
+        let output = Mustache.render(footerTemplate,this._data);
+        lib.append(document.getElementsByTagName("footer")[0],output);
     }
 
     /* Remove current view and render new one */
@@ -42,6 +50,9 @@ class ViewRenderer {
         return output;
     }
 
+    addData(newData) {
+        Object.assign(this._data,newData);
+    }
 }
 
 
