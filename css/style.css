@@ -33,7 +33,7 @@ input {
 header {
 	height:50px;
 	width:100%;
-	background-color:#F9E79F;
+	background-color:#FEF9E7;
 	position:fixed;
 	z-index:1;
 }
@@ -45,10 +45,12 @@ header {
 	text-align:center;
 	width:calc(100% - 90px);
 	float:left;
-	color: #EC7063;
+	color: #515A5A;
 	font-size:1.2em;
 	font-weight:600;
 	padding-left: 10px;
+	/*font: "Lato";*/
+	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
 }
 
 #logo {
@@ -216,8 +218,9 @@ header {
 	line-height:50px;
 	vertical-align:middle;
 	font-size:1.2em;
-	color: #EC7063;
+	color: #515A5A;
 	padding:0 10px;
+	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
 }
 
 #header-nav-menu li:hover {
@@ -376,10 +379,11 @@ section {
 	width:90%;
 	height:50px;
 	background-color:#FFFDE7;
-	color: #EC7063 ;
+	color: #515A5A ;
 	font-size:1.2em;
 	display:none;
 	cursor:pointer;
+	border-radius: 25px;
 }
 
 .location {
@@ -415,6 +419,25 @@ section {
 	font-size:1.2em;
 	color:#EC7065;	
 	font-family:page_font;
+}
+.submit-search {
+    height:100%;
+    width:calc(40% - 225px);
+    float:left;
+    background-color:#EC7065;
+    text-align:center;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.submit-search-input {
+    border:0;
+    background:inherit;
+    color:white;
+    line-height:30px;
+    margin-top:10px;
+    font-size:1em;
+    font-family: "Lato", "Helvetica", Helvetica, sans-serif;
 }
 
 /*******************/
