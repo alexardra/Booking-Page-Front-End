@@ -52,5 +52,24 @@
 			"find" : "Find your perfect restaurants", 
 			"submit" : "Find Restaurants"
 		}
-	}
+	}, 
+	"services": [
+		{
+			"heading":"Discover things to do",
+			"content": "Choose from 760,000 attractions, tours & activities"
+		}, 
+		{
+			"heading":"See the latest reviews",
+			"content": "Read reviews and opinions from our global travel community"
+		}, 
+		{
+			"heading":"Save Money",
+			"content": "We compare prices from 200+ booking sites to help you find the lowest price on the right hotel for you."
+		}, 
+		{
+			"heading":"Book Right",
+			"content": "Skip the line and pre-book things to do — at home or while you travel"
+		}		
+	],
+	"copyright": "© 2018 Traveler - All rights reserved. Designed by us."
 }

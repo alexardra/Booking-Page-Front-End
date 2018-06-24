@@ -1,0 +1,73 @@
+#browse {
+	min-height:100%;
+    width:100%;
+    background-color:#FEF9E7;
+}
+
+.filler {
+    width:100%;
+    height:80px;
+}
+
+.browse-section {
+    width:90%;
+    height:300px;
+    margin:0 0 5% 5%;
+    background-color:rgb(247, 231, 174);
+
+}
+
+.browse-section ul {
+	width:100%;
+	height:70%;
+}
+
+.browse-section li {
+	list-style:none;
+	width:23%;
+	height:100%;
+	float:left;
+	margin:0 1%;
+}
+
+.browse_header {
+	width:100%;
+	height:25%;
+}
+
+.browse_header h3 {
+	display:inline-block;
+	font-family:page_font;
+	line-height:20px;
+	margin-top:15px;
+	margin-left:1%;
+}
+
+.browse_header button {
+	background:none;
+	border:none;
+	padding:0;
+	float:right;
+	width:48px;
+	height:48px;
+	margin-right:1%;
+}
+
+.section_element {
+	width:100%;
+	height:100%;
+	background-image: url('/berlin.jpg');
+	background-size:100% 100%;
+	opacity:0.7;
+	color:white;
+	position:relative;
+	border-radius:1%;
+}
+
+.section_element span {
+	position:absolute;
+	bottom:0;
+	right:0;
+	margin-right:2%;
+	font-size:1.3em;
+}
