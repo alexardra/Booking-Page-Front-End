@@ -1,0 +1,61 @@
+<!-- HEADER -->
+<script id="home-header" type="text/html">
+	<i id="logo"><a href="#hotels"></a></i>
+	<div id="name">Traveler</div>
+	<ul id="header-nav-menu">
+		<a href="#hotels"><li>{{navigation info.0}}</li></a>
+		<a href="#rentals"><li>{{navigation info.1}}</li></a>
+		<a href="#flights"><li>{{navigation info.2}}</li></a>
+		<a href="#restaurants"><li>{{navigation info.3}}</li></a>
+		<a href="#things-to-do"><li>{{navigation info.4}}</li></a>
+	</ul>
+	<i class="hamburger"></i>
+</script>
+
+<script id="header-authentication" type="text/html">
+	<div id="authentication-container">
+		<div id="authentication-content">
+			<a href="#" id="username"></a>
+			<i id="user-icon"></i>
+		</div>
+		<div id="authentication-dropdown">
+			<button>
+				<div class="authentication-dropdown-element" id="facebook-sign-in">
+					<i></i>
+					<span>FACEBOOK</span>
+				</div>	
+			</button>
+
+			<button>
+				<div class="authentication-dropdown-element" id="google-sign-in">
+						<i></i>
+						<span>GOOGLE</span>
+				</div>
+			</button>
+			
+			<div id="authentication-dropdown-sign-in">
+				<div id="already-member">
+					Already a member?
+				</div>
+				<form id="login" method="post">
+					<input type="text" name="email" placeholder="Email">
+					<input type="password" name="password">
+					<input type="submit" value="Sign In">
+				</form>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- USER DROPDOWN PAGE -->
+<script id="user-settings" type="text/html">
+	<section id="user-pages">
+		<ul>
+			<a href="#bookings"><li>My Bookings</li></a>
+			<a href="#favourites"><li>Favourites</li></a>
+			<a href="#settings"><li>Settings</li></a>
+			<a href="#Week_Deals"><li>Week Deals</li></a>
+		</ul>		
+		<button id="logout">Log out</button>
+	</section>
+</script>

@@ -1,0 +1,85 @@
+<script id="search-bar-template" type="text/html">
+	<div id="search_bar">
+			
+		<div id="search-container">
+			<button class="location"><i></i></button>
+	    	<input id="search-input" type="text" placeholder="Destination" name="search">	
+		</div>	
+
+			<div id="calendar-container">
+				<div id="calendar_content">
+					<i></i>
+		    		<span class="calendar_date">{{calendar.today}}</span>
+		    		<span class="calendar_space"></span>
+		    		<i></i>
+		    		<span class="calendar_date">{{calendar.later}}</span>
+				</div>
+    		</div>	
+
+	    <div id="other_container">
+	    	<div id="other_content">
+	    		<i class="human_icon"></i>
+	    		<span>{{details}}</span>
+	    		<i class="arrow_icon"></i>
+	    	</div>
+	    	<div id="other-dropdown" class="dropdown hidden"></div>
+	    </div>
+		<div class="submit-search">
+				<input class="submit-search-input" type="submit" value="{{find}}"></input>
+		</div>
+	</div>
+</script>
+
+
+<script id="recently-viewed-dropdown" type="text/html">
+	<div id="search-dropdown" class="dropdown hidden">
+		<h1>{{recently viewed}}</h1>
+	</div>
+</script>
+
+<script id="recently-viewed-elem" type="text/html">
+	<div class="search-recently-viewed">
+		<div>{{location}}</div>
+		<div>{{additional info}}</div>	
+	</div>
+</script>
+
+<script id="calendar-dropdown" type="text/html">
+	<div id="calendar-dropdown" class="dropdown hidden">
+		<h1>{{calendar.header}}</h1>
+		<div id="calendar_dropdown_content">
+			<h2></h2>
+			<button id="left_arrow_icon">
+				<i></i>
+			</button>
+			<div id="calendar_days">
+			</div>
+			<button id="right_arrow_icon">
+				<i></i>
+			</button>
+			<div id="calendar_legend">
+				<div class="legend_elem">
+					<div></div>
+					<span>{{calendar.calendar legend.0}}</span>
+				</div>
+				<div class="legend_elem">
+					<div></div>
+					<span>{{calendar.calendar legend.1}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<script id="other-filter-dropdown-elem" type="text/html">
+	<div class="other-filter-dropdown-elem">
+		<span>{{parameter}}</span>
+		<button class="minus_icon">
+			<i></i>
+		</button>
+		<button class="plus_icon">
+			<i></i>
+		</button>
+	</div>
+</script>
