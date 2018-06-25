@@ -19,9 +19,12 @@ class ViewRenderer {
     }
 
     renderHeader() {
-		var headerTemplate = lib.constructTemplate(this._templates,"home-header");
-        var output = Mustache.render(headerTemplate,this._data);
-		lib.append(document.getElementsByTagName("header")[0],output);
+        let headerTemplate = lib.constructTemplate(this._templates,"home-header");
+        let header = document.getElementsByTagName("header")[0];
+        let authentication = new View(this,"header-authentication",header);
+        authentication.renderView();
+        let output = Mustache.render(headerTemplate,this._data);
+		lib.append(header,output);
     }
 
     renderFooter() {

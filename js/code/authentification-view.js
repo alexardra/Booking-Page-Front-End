@@ -47,7 +47,7 @@ function listenUserContainer(viewRenderer) {
 	});
 	let button = document.getElementById('login').getElementsByTagName("input")[2];
 	button.addEventListener("click", function () {
-		event.preventDefault()
+		event.preventDefault();
 		sendRequest("users.json", usernameLoggedIn, viewRenderer);
 	});
 

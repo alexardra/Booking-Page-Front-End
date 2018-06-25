@@ -4,3 +4,4 @@ node_modules/
 package-lock.json
 dist/
 css/bundle.css
+html/templates.html

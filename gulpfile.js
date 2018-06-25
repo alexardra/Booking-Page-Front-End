@@ -3,6 +3,8 @@ const babel = require('gulp-babel');
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const concatCss = require('gulp-concat-css');
+const concat = require('gulp-concat');
+
 
 gulp.task('babel', () =>
     gulp.src('dist/app.js')
@@ -25,6 +27,11 @@ gulp.task('combineStyles', function () {
       .pipe(gulp.dest('css/')); 
 });
 
-gulp.task('default', ['combineStyles','browserify','babel'],function() {
-
+gulp.task('combineHtmls', function() {
+    return gulp.src('views/*.html')
+      .pipe(concat('templates.html')) 
+      .pipe(gulp.dest('html/'));
 });
+
+gulp.task('default', ['combineHtmls', 'combineStyles', 'browserify', 'babel']);
+

@@ -60,8 +60,10 @@ class View {
             }
         }
 
-        for (var i=0; i < this._childViews.length; i++) {
-            this._childViews[i].renderView();
+        if (this.childViews != undefined) {
+            for (var i=0; i < this._childViews.length; i++) {
+                this._childViews[i].renderView();
+            }
         }
     } 
 }
