@@ -14,7 +14,6 @@ class RentalsView extends View {
         navigationPage.renderView();
         let cover = document.getElementById("cover");
         lib.addClass(lib.removeClass(cover), "rentals-background");
-
     }
 }
 

@@ -101,6 +101,7 @@ header {
 	float: left;
 	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
 }
+
 #authentication-dropdown {
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -109,7 +110,8 @@ header {
 	height:300px;
 	z-index:1;	
 	border:1px solid blue;
-	display: none;
+	display:none;
+	background-color: #FEF9E7;
 }
 
 .authentication-dropdown-element {
@@ -119,6 +121,7 @@ header {
 	width:100%;
 
 }
+
 
 #authentication-dropdown button {
 	height:30px;
@@ -214,6 +217,13 @@ header {
 }
 
 #authentication-dropdown-sign-in form input::placeholder {
+}
+
+
+#user-pages li{
+	color: #515A5A;
+	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
+	margin-left: 10%;
 }
 
 /*******************  NAVIGATION MENU *************************/

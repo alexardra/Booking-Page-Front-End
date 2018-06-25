@@ -58,7 +58,7 @@ class RoutController {
         let startView = new RestaurantsView(); 
         let viewRenderer = new ViewRenderer(this._templates, this._data, startView);
         this._viewRenderer = viewRenderer;
-        AuthentificationView();
+        AuthentificationView(viewRenderer);
 
     }
 
