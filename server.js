@@ -27,6 +27,12 @@ app.get("/templates.html", function(req,res) {
 	res.sendFile(__dirname + "/html/templates.html");
 });
 
+const users = require("./js/data/users.json");
+app.post("/users.json", function(req,res) {
+	res.json(users);
+});
+
+
 app.listen(8000, function() {
 	// visualize running server 
 	console.log("listening on port 8000");

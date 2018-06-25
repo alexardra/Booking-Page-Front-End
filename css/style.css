@@ -74,14 +74,15 @@ header {
 #authentication-container {
 	float:right;
 	height:100%;
-	width:50px;
-	border:1px solid green;
+	width:7%;
+	/*border:2px solid green;*/
 	margin-right:100px;
 }
 
 #authentication-content {
 	height:100%;
 	width:100%;
+	/*border: 1px solid red;*/
 }
 
 #user-icon {
@@ -92,15 +93,23 @@ header {
 	margin-top:10px;
 	margin-left:8px;
 }
-
+#username{
+	line-height:50px;
+	font-size:1.2em;
+	color: #515A5A;
+	/*padding:0 10px;*/
+	float: left;
+	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
+}
 #authentication-dropdown {
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	width:400%;
-	margin-left:-250%;
-	height:250px;
+	width:300%;
+	margin-left:-200%;
+	height:300px;
 	z-index:1;	
 	border:1px solid blue;
+	display: none;
 }
 
 .authentication-dropdown-element {

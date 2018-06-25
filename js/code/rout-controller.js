@@ -6,6 +6,7 @@ let FlightsView = require("./flights-view.js");
 let ViewFactory = require("./view-factory.js");
 let RentalsView = require("./rentals-view.js");
 let RestaurantsView = require("./restaurants-view.js");
+let AuthentificationView = require("./authentification-view.js");
 
 class RoutController {
 
@@ -56,7 +57,9 @@ class RoutController {
         // let startView = new RentalsView(); 
         let startView = new RestaurantsView(); 
         let viewRenderer = new ViewRenderer(this._templates, this._data, startView);
-        this._viewRenderer = viewRenderer;  
+        this._viewRenderer = viewRenderer;
+        AuthentificationView();
+
     }
 
 }

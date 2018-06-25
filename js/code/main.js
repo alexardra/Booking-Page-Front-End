@@ -1,6 +1,6 @@
 let lib = require("./library.js");
 let DataParser = require("./data-parser.js");
-let RoutController = require("./rout-controller");
+let RoutController = require("./rout-controller.js");
 
 lib.ready(function() {
 	lib.get("templates.html", function(templates) {
