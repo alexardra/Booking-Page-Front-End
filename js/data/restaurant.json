@@ -1,3 +1,165 @@
 {
-    "name" : "Kapari Wine Restaurant"
+    "headings": [
+        "Overview",
+        "Reviews",
+        "Details",
+        "Nearby",
+        "Q&A"  
+    ],
+    "name" : "Kapari Wine Restaurant", 
+    "details" : {
+        "rank" : "2 of 38 Restaurants in Imerovigli", 
+        "tags" : "Mediterranean, European, Greek",
+        "contact information" : {
+            "address" : "Imerovigli 847 00, Greece",
+            "phone" : "+30 2286 021120", 
+            "website" : "kaparisantorini.gr",
+            "email" : "kapariwine@gmail.com"
+        },
+        "description" : "At Kapari Wine Restaurant, we use the finest ingredients and follow the strictest standards to create healthy and appetizing meals.",
+        "open hours" : {
+            "Sunday" : "12:00 PM - 11:00 PM",
+            "Monday" : "12:00 PM - 11:00 PM",
+            "Tuesday" : "12:00 PM - 11:00 PM",
+            "Wednesday" : "12:00 PM - 11:00 PM",
+            "Thursday" : "12:00 PM - 11:00 PM",
+            "Friday" : "12:00 PM - 11:00 PM",
+            "Saturday" : "12:00 PM - 11:00 PM"
+        }, 
+        "average prices" : "GEL 106 - GEL 178", 
+        "restaurant features" : [
+            "Reservations",
+            "Outdoor Seating",
+            "Serves Alcohol",
+            "Accepts American Express",
+            "Accepts Mastercard",
+            "Accepts Visa",
+            "Digital Payments",
+            "Free Wifi"
+        ]
+    },
+    "overview" : {
+        "reviews": {
+            "number" : "576",
+            "types" : {
+                "excellent" : "79%", 
+                "very good" : "15%", 
+                "average" : "3%", 
+                "poor" : "2%", 
+                "terrible" : "1%"
+            }, 
+            "rating": {
+                "food" : "4",
+                "service" : "4",
+                "value" : "4",
+                "atmosphere" : "5"
+            },
+            "comments": [
+                {
+                    "user name" : "OneBlondie", 
+                    "user details" : "London, United Kingdom", 
+                    "review heading" : "Good food, good service", 
+                    "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
+                    "review date" : "25.06.2018", 
+                    "review response" : "3 Likes" 
+                },
+                {
+                    "user name" : "OneBlondie", 
+                    "user details" : "London, United Kingdom", 
+                    "review heading" : "Good food, good service", 
+                    "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
+                    "review date" : "25.06.2018", 
+                    "review response" : "3 Likes" 
+                },
+                {
+                    "user name" : "OneBlondie", 
+                    "user details" : "London, United Kingdom", 
+                    "review heading" : "Good food, good service", 
+                    "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
+                    "review date" : "25.06.2018", 
+                    "review response" : "3 Likes" 
+                }
+            ]
+        }
+    },
+    "nearby restaurants": [
+        {
+            "name" : "The Athenian House",
+            "distance" : "0.7 miles",
+            "reviews" : "616",
+            "image" : "--"
+        },
+        {
+            "name" : "Artemis Villas",
+            "distance" : "0.2 miles",
+            "reviews" : "603",
+            "image" : "--"
+        },
+        {
+            "name" : "Kapari Natural Resort",
+            "distance" : "0.1 miles",
+            "reviews" : "525",
+            "image" : "--"
+        }
+    ], 
+    "nearby hotels" : [
+        {
+            "name" : "Iliovasilema Suites",
+            "distance" : "0.1 miles",
+            "reviews" : "482",
+            "image" : "--"
+        },
+        {
+            "name" : "La Maison",
+            "distance" : "0.3 miles",
+            "reviews" : "1.953",
+            "image" : "--"
+        },
+        {
+            "name" : "Avocado Restaurant",
+            "distance" : "0.5 miles",
+            "reviews" : "2.862",
+            "image" : "--"
+        }
+    ],
+    "nearby attractions" : [
+        {
+            "name" : "Renieris Santorini Sailing Center",
+            "distance" : "0.25 miles",
+            "reviews" : "172",
+            "image" : "--"
+        },
+        {
+            "name" : "Santorini Sailing",
+            "distance" : "0.7 miles",
+            "reviews" : "1.927",
+            "image" : "--"
+        },
+        {
+            "name" : "Skaros rock",
+            "distance" : "0.16 miles",
+            "reviews" : "1.278",
+            "image" : "--"
+        }
+    ],
+    "q&n" : [
+        {
+            "question" : "Hi, Is there a dress code in place?",
+            "author" : "Jeffrey H",
+            "author avatar" : "--",
+            "top response" : "We went smart causal - chinos and a dress",
+            "top response author" : "Emma S",
+            "votes" : "1",
+            "total responses" : "3"
+        },
+        {
+            "question" : "Do they have good veg options ?",
+            "author" : "Jeffrey H",
+            "author avatar" : "--",
+            "top response" : "I didn’t look at the menu but they had a full vegetarian menu",
+            "top response author" : "Emma S",
+            "votes" : "3",
+            "total responses" : "23"
+        }
+    ]
 }
