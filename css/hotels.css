@@ -318,6 +318,7 @@
 
     /** global **/
     .submit-search {
+    	color: red;
         width:170px;
     }
 

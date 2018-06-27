@@ -19,6 +19,8 @@ class ViewFactory {
                 return new RestaurantsView();
             case "restaurant":
                 return new RestaurantView(args[0]);
+            case "hotel":
+                return new RestaurantView(args[0]);
         }
     }
 }
