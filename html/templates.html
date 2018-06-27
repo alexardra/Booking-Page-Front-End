@@ -1,6 +1,35 @@
+<script id="flights-search-bar-template" type="text/html">
+	<div id="search_bar">
+		<div id="flight-search">
+			<div class="flight-destination">
+					<button class="location"><i></i></button>
+					<input type="text" placeholder="{{flights.search.destinations.0}}"></input>
+				</div>
+				<div class="flight-destination">
+					<button class="location"><i></i></button>
+					<input type="text" placeholder="{{flights.search.destinations.1}}"></input>
+				</div>
+		</div>
+
+		<div class="calendar-container">
+			<input class="date" type="date"></input>
+			<input class="date" type="date"></input>
+		</div>
+		<div id="other_container">
+			<div id="other_content">
+				<span>{{flights.search.details}}</span>
+			</div>
+			<div id="other-dropdown" class="dropdown hidden"></div>
+		</div>
+		<div class="submit-search">
+			<input class="submit-search-input" type="submit" value="{{flights.search.submit}}"></input>
+		</div>
+	</div>
+</script>
+
 <!-- HEADER -->
 <script id="home-header" type="text/html">
-	<a href="#"><i id="logo"></i></a>
+	<i id="logo"><a href="#hotels"></a></i>
 	<div id="name">Traveler</div>
 	<ul id="header-nav-menu">
 		<a href="#hotels"><li>{{navigation info.0}}</li></a>
@@ -10,6 +39,9 @@
 		<a href="#things-to-do"><li>{{navigation info.4}}</li></a>
 	</ul>
 	<i class="hamburger"></i>
+</script>
+
+<script id="header-authentication" type="text/html">
 	<div id="authentication-container">
 		<div id="authentication-content">
 			<a href="#" id="username"></a>
@@ -41,7 +73,6 @@
 				</form>
 			</div>
 		</div>
-
 	</div>
 </script>
 
@@ -57,19 +88,6 @@
 		<button id="logout">Log out</button>
 	</section>
 </script>
-	
-<!-- OVERALL NAVIGATION PAGES TEMPLATES -->
-<script id="navigation-page" type="text/html">
-	<section id="cover" class="hotels-background"></section>
-	<section id="additionals-container"></section>
-	<section id="browse">
-		<div class="filler">
-
-		</div>
-	</section>
-</script>
-
-<!-- HOTELS TEMPLATES -->
 <script id="search-bar-template" type="text/html">
 	<div id="search_bar">
 			
@@ -156,76 +174,18 @@
 	</div>
 </script>
 
+<!-- OVERALL NAVIGATION PAGES TEMPLATES -->
+<script id="navigation-page" type="text/html">
+	<section id="cover" class="hotels-background"></section>
+	<section id="additionals-container"></section>
+	<section id="browse">
+		<div class="filler">
 
-
-<!-- FLIGHTS VIEW -->
-<script id="flights-search-bar-template" type="text/html">
-	<div id="search_bar">
-		<div id="flight-search">
-			<div class="flight-destination">
-					<button class="location"><i></i></button>
-					<input type="text" placeholder="{{flights.search.destinations.0}}"></input>
-				</div>
-				<div class="flight-destination">
-					<button class="location"><i></i></button>
-					<input type="text" placeholder="{{flights.search.destinations.1}}"></input>
-				</div>
 		</div>
-
-		<div class="calendar-container">
-			<input class="date" type="date"></input>
-			<input class="date" type="date"></input>
-		</div>
-		<div id="other_container">
-			<div id="other_content">
-				<span>{{flights.search.details}}</span>
-			</div>
-			<div id="other-dropdown" class="dropdown hidden"></div>
-		</div>
-		<div class="submit-search">
-			<input class="submit-search-input" type="submit" value="{{flights.search.submit}}"></input>
-		</div>
-	</div>
+	</section>
 </script>
 
-
-<!-- RENTALS-VIEW -->
-<script id="rentals-search-bar-template" type="text/html">
-	<div id="search_bar">
-		<div id="rentals-search">
-			<div class="rentals-destination">
-					<button class="location"><i></i></button>
-					<input type="text" placeholder="{{rentals.search.destinations}}"></input>
-				</div>
-		</div>
-
-		<div class="calendar-container">
-			<input class="date" type="date"></input>
-			<input class="date" type="date"></input>
-		</div>
-		<div class="submit-search">
-			<input class="submit-search-input" type="submit" value="{{rentals.search.submit}}"></input>
-		</div>
-	</div>
-</script>
-
-<!-- RESTAURANTS-VIEW -->
-<script id="restaurants-search-bar-template" type="text/html">
-	<div id="search_bar">
-		<div id="restaurants-search">
-			<div class="restaurants-placeholder">
-					<button class="location"><i></i></button>
-					<input type="text" placeholder="{{restaurants.search.find}}"></input>
-				</div>
-		</div>
-		<div class="submit-search">
-			<input class="submit-search-input" type="submit" placeholder="{{restaurants.search.submit}}"></input>
-		</div>
-	</div>
-</script>
-
-/************************** TEMPORARILY HERE **************************/
-
+<!-- ADDITIONALS SECTION -->
 <script id="additionals-template" type="text/html">
 
     <div id="services-heading">
@@ -245,11 +205,14 @@
 	</div>
 </script>
 
+<!-- BROWSE SECTION -->
 <script id="browse-template" type="text/html">
 	<div class="browse-section">
 		<div class="browse-header">
 			<h3>{{header}}</h3>
-			<button>See All</button>
+			<a href="#">
+				<button>See All</button>
+			</a>	
 		</div>
 		<ul>
 			<li>
@@ -296,7 +259,7 @@
 	</div>
 </script>
 
-
+<!-- FOOTER -->
 <script id="home-footer" type="text/html">
 
 	<ul id="socials">
@@ -323,4 +286,33 @@
 	</ul>
 
 	<div id="copyright">{{copyright}}</div>
+</script>
+<script id="rentals-search-bar-template" type="text/html">
+	<div id="search_bar">
+		<div id="rentals-search">
+			<div class="rentals-destination">
+					<button class="location"><i></i></button>
+					<input type="text" placeholder="{{rentals.search.destinations}}"></input>
+				</div>
+		</div>
+
+		<div class="calendar-container">
+			<input class="date" type="date"></input>
+			<input class="date" type="date"></input>
+		</div>
+		<div class="submit-search">
+			<input class="submit-search-input" type="submit" value="{{rentals.search.submit}}"></input>
+		</div>
+	</div>
+</script>
+<script id="restaurants-search-bar-template" type="text/html">
+
+	<form id="search_bar" onsubmit="return false;">
+
+		<div id="restaurants-search">
+			<button class="location"><i></i></button>	
+			<input type="text" placeholder="{{restaurants.search.find}}"></input>
+		</div>
+		<input id="submit-search" type="submit" placeholder="{{restaurants.search.submit}}"></input>
+	</form>
 </script>

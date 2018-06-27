@@ -1,5 +1,8 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var app = express();
+
+app.use(bodyParser.json());
 
 /* Static resources - styles, images, etc. */
 app.use(express.static('js/code'));
@@ -32,6 +35,14 @@ app.post("/users.json", function(req,res) {
 	res.json(users);
 });
 
+const restaurant = require("./js/data/restaurant.json");
+app.post("/searchjson.json", function(req, res) {
+	let searchJson = req.body; // json object
+
+	if (searchJson["search type"] == "restaurants") {
+		res.json(restaurant);
+	}
+});
 
 app.listen(8000, function() {
 	// visualize running server 

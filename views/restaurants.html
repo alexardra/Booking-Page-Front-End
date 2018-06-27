@@ -1,13 +1,11 @@
 <script id="restaurants-search-bar-template" type="text/html">
-	<div id="search_bar">
+
+	<form id="search_bar" onsubmit="return false;">
+
 		<div id="restaurants-search">
-			<div class="restaurants-placeholder">
-					<button class="location"><i></i></button>
-					<input type="text" placeholder="{{restaurants.search.find}}"></input>
-				</div>
+			<button class="location"><i></i></button>	
+			<input type="text" placeholder="{{restaurants.search.find}}"></input>
 		</div>
-		<div class="submit-search">
-			<input class="submit-search-input" type="submit" placeholder="{{restaurants.search.submit}}"></input>
-		</div>
-	</div>
+		<input id="submit-search" type="submit" placeholder="{{restaurants.search.submit}}"></input>
+	</form>
 </script>

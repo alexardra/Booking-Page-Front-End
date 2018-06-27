@@ -8,6 +8,8 @@ let RentalsView = require("./rentals-view.js");
 let RestaurantsView = require("./restaurants-view.js");
 let AuthentificationView = require("./authentification-view.js");
 
+let RestaurantView = require("./restaurant-view.js");
+
 class RoutController {
 
     constructor(templates, data) {
@@ -20,6 +22,7 @@ class RoutController {
         this.constructRouts();
 
         this._viewFactory = new ViewFactory();
+        this._currentRout = null;
     }
 
     constructRouts() {
@@ -30,7 +33,9 @@ class RoutController {
 
         Router.add("hotels", function() {
             console.log("hotels");  
-            routController._viewRenderer.changeView(routController._viewFactory.createView("hotels"));
+            let hotelsView = routController._viewFactory.createView("hotels");
+            routController._viewRenderer.changeView(hotelsView);
+            routController._currentRout = hotelsView;
         });
         
         Router.add("about", function() {
@@ -38,6 +43,7 @@ class RoutController {
         });
         
         Router.add("flights", function() {
+            console.log(routController._currentRout);
             routController._viewRenderer.changeView(routController._viewFactory.createView("flights"));
         });
 
@@ -46,16 +52,25 @@ class RoutController {
         });
 
         Router.add("restaurants", function() {
-            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurants"));
+            let restaurantsView = routController._viewFactory.createView("restaurants");
+            routController._viewRenderer.changeView(restaurantsView);
+            routController._currentRout = restaurantsView;
+            // console.log(routController._currentRout instanceof RestaurantsView);
         });
 
-
+        Router.add("restaurant", function() {
+            let infoJson = routController._currentRout._searchResultJson;
+            let restaurant = routController._viewFactory.createView("restaurant",[infoJson]);
+            // console.log(restaurant);
+            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[infoJson]));
+        });
     }
 
     constructStartRout() {
         // let startView = new HotelsView(); // starting view
         // let startView = new RentalsView(); 
         let startView = new RestaurantsView(); 
+        Router.navigate("restaurants");
         let viewRenderer = new ViewRenderer(this._templates, this._data, startView);
         this._viewRenderer = viewRenderer;
         AuthentificationView(viewRenderer);

@@ -79,6 +79,10 @@ var Router = {
             window.location.href = window.location.href.replace(/#(.*)$/, '') + '#' + path;
         }
         return this;
+    }, 
+    getValueAfterHash : function() {
+        let url =  window.location.href;
+        return url.substring(url.indexOf("#") + 1);
     }
 }
 

@@ -4,15 +4,7 @@
     float:left;
 }
 
-.restaurants-placeholder{
- 	height:100%;
-    width:100%;
-    float:left;
-	border-right:1px solid grey;
-
-}
-
-.restaurants-placeholder input[type="text"] {
+#restaurants-search input[type="text"] {
 	width:calc(100% - 48px);
     float:left;
     height:100%;

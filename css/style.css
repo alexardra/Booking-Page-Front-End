@@ -439,22 +439,17 @@ section {
 	color:#EC7065;	
 	font-family:page_font;
 }
-.submit-search {
+
+#submit-search {
     height:100%;
     width:calc(40% - 225px);
     float:left;
     background-color:#EC7065;
 	text-align:center;
     border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
-
-.submit-search-input {
-    border:0;
-    background:inherit;
-    color:white;
-    line-height:30px;
-    margin-top:10px;
+	border-bottom-right-radius: 25px;
+	color:white;
+	line-height:30px;
     font-size:1em;
     font-family: "Lato", "Helvetica", Helvetica, sans-serif;
 }
