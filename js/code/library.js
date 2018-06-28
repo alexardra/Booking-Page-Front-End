@@ -54,7 +54,7 @@ module.exports = {
 		request.send();
 	}, 
 
-	/* get json with promise */
+	/* get json with promise - return json object */
 	getJsonWithFetch : function(url, callback) {
 		fetch(url)
 			.then(

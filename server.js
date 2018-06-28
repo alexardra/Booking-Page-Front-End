@@ -44,6 +44,13 @@ app.post("/searchjson.json", function(req, res) {
 	}
 });
 
+// temp for rendering restaurant view as home page
+const r = require("./js/data/restaurant.json");
+app.get("/restaurant.json", function(req,res) {
+	res.json(r);
+});
+
+
 app.listen(8000, function() {
 	// visualize running server 
 	console.log("listening on port 8000");

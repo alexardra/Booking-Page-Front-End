@@ -61,20 +61,48 @@ class RoutController {
         Router.add("restaurant", function() {
             let infoJson = routController._currentRout._searchResultJson;
             let restaurant = routController._viewFactory.createView("restaurant",[infoJson]);
-            // console.log(restaurant);
             routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[infoJson]));
         });
+
+
+        /* restaurant routs  - inside page navigation */
+
+        Router.add("#overview", function() {
+            document.getElementById("overview").scrollIntoView();
+        });
+
+        Router.add("#reviews", function() {
+            document.getElementById("reviews").scrollIntoView();
+        });
+
+        Router.add("#details", function() {
+            document.getElementById("details").scrollIntoView();
+        });
+
+        Router.add("#nearby", function() {
+            document.getElementById("nearby").scrollIntoView();
+        });
+
+        Router.add("#qna", function() {
+            document.getElementById("qna").scrollIntoView();
+        });
+
+        /***********************************/
     }
 
     constructStartRout() {
         // let startView = new HotelsView(); // starting view
         // let startView = new RentalsView(); 
-        let startView = new RestaurantsView(); 
-        Router.navigate("restaurants");
-        let viewRenderer = new ViewRenderer(this._templates, this._data, startView);
-        this._viewRenderer = viewRenderer;
-        AuthentificationView(viewRenderer);
+        // let startView = new RestaurantsView(); 
+        // Router.navigate("restaurants");
 
+        let routController = this;
+        lib.getJsonWithFetch("restaurant.json", function(restaurant) {
+            let startView = new RestaurantView(restaurant);
+            let viewRenderer = new ViewRenderer(routController._templates, routController._data, startView);
+            routController._viewRenderer = viewRenderer;
+            AuthentificationView(viewRenderer);
+        });
     }
 
 }
