@@ -58,7 +58,7 @@
   padding:1% 5% 1% 5%;
   height:500px;
   border-top:0.5px solid rgb(183, 214, 230);
-  /* border-bottom:0.5px solid rgb(183, 214, 230); */
+  border-bottom:0.5px solid rgb(183, 214, 230);
 }
 
 #overall-overview {
@@ -234,22 +234,74 @@ progress::-webkit-progress-value {
 #reviews {
   width:100%;
   height:300px;
+  padding:5%;
   /* border:1px solid blue; */
 }
 
+/******** DETAILS ********/
+
 #details {
   width:100%;
-  height:300px;
-  /* border:1px solid green; */
+  height:700px;
+  padding:2.5%;
+  border:1px solid green;
 }
 
+#details-info {
+  width:30%;
+  height:300px;
+  border:1px solid blue;
+}
+
+.details-info-span {
+  border:1px solid red;
+  display:block;
+  width:100%;
+  height:50px;
+}
+
+#details-info h3 {
+  height:36px;
+  font-size:18px;
+  padding:6px 0 6px 0;
+  width:100%;
+  text-align:center;
+  color:#515A5A;
+}
+
+#details-info div {
+  width:100%;
+  height:25px;
+  font-size:15px;
+  color:#515A5A;
+  text-align:center;
+  border:1px solid red;
+}
+
+#details-info div span {
+  display:block;
+  float:left;
+  height:100%;
+  padding:3px;
+  margin-left:2%;
+  margin-right:2%;
+}
 
 /*************** NEARBY ***************/
+#nearby {
+  width:100%;
+  min-width:450px;
+}
+
 .nearby {
   width:100%;
   height:450px;
   background:rgb(245, 245, 255);
   border-top:0.5px solid rgb(183, 214, 230);
+}
+
+.nearby:last-of-type {
+  border-bottom:0.5px solid rgb(183, 214, 230);
 }
 
 .nearby h3 {

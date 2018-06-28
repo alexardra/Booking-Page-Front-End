@@ -31,23 +31,31 @@ class RestaurantView extends View {
         let details = new View(viewRenderer,"restaurant-details","app");
         cover.addChildView(details);
 
-        let nearbyRestaurants = new View(viewRenderer,"restaurants-nearby","app");
-        cover.addChildView(nearbyRestaurants);
+        let contactInfo = new View(viewRenderer,"details-contact-info","details-info",4,"contact information");
+        console.log(contactInfo);
+        details.addChildView(contactInfo);
+
+        let nearby = new View(viewRenderer,"restaurant-nearby","app");
+        cover.addChildView(nearby);
+
+        let nearbyRestaurants = new View(viewRenderer,"restaurants-nearby","nearby");
+        nearby.addChildView(nearbyRestaurants);
+
         let nearbyRestaurantsList = new View(viewRenderer,"nearby-section","nearby-restaurants-container",4,"nearby restaurants");
         nearbyRestaurants.addChildView(nearbyRestaurantsList);
 
-        let nearbyHotels = new View(viewRenderer,"hotels-nearby","app");
-        cover.addChildView(nearbyHotels);
+        let nearbyHotels = new View(viewRenderer,"hotels-nearby","nearby");
+        nearby.addChildView(nearbyHotels);
         let nearbyHotelsList = new View(viewRenderer,"nearby-section","nearby-hotels-container",4,"nearby hotels");
         nearbyHotels.addChildView(nearbyHotelsList);
 
-        let nearbyAttractions = new View(viewRenderer,"attractions-nearby","app");
-        cover.addChildView(nearbyAttractions);
+        let nearbyAttractions = new View(viewRenderer,"attractions-nearby","nearby");
+        nearby.addChildView(nearbyAttractions);
         let nearbyAttractionsList = new View(viewRenderer,"nearby-section","nearby-attractions-container",4,"nearby attractions");
         nearbyAttractions.addChildView(nearbyAttractionsList);
 
         let qna = new View(viewRenderer,"restaurant-qna","app");
-        cover.addChildView(qna);
+        nearby.addChildView(qna);
 
         cover.renderView();
 

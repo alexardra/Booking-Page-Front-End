@@ -9,7 +9,8 @@
         "Comments",
         "Nearby Restaurants",
         "Nearby Hotels",
-        "Nearby Attractions"
+        "Nearby Attractions",
+        "Contact Information"
     ],
     "review types" : [
         { "type" : "Excellent", "value" : "79%"},
@@ -24,16 +25,21 @@
         { "type" : "Value", "value" : "4"},
         { "type" : "Atmosphere", "value" : "5"}
     ],
+    "contact information" : [
+        { "type" : "Address", "value" : "Imerovigli 847 00, Greece"},
+        { "type" : "Phone", "value" : "+30 2286 021120"},
+        { "type" : "Website", "value" : "kaparisantorini.gr"},
+        { "type" : "Email", "value" : "kapariwine@gmail.com"}
+    ],
+    "details additional information" : [
+        { "type" : "Rank", "value" : "2 of 38 Restaurants in Imerovigli"},
+        { "type" : "Tags", "value" : "Mediterranean, European, Greek"},
+        { "type" : "Average Prices", "value" : "GEL 106 - GEL 178"}
+    ],
     "name" : "Kapari Wine Restaurant", 
     "details" : {
         "rank" : "2 of 38 Restaurants in Imerovigli", 
         "tags" : "Mediterranean, European, Greek",
-        "contact information" : {
-            "address" : "Imerovigli 847 00, Greece",
-            "phone" : "+30 2286 021120", 
-            "website" : "kaparisantorini.gr",
-            "email" : "kapariwine@gmail.com"
-        },
         "description" : "At Kapari Wine Restaurant, we use the finest ingredients and follow the strictest standards to create healthy and appetizing meals.",
         "open hours" : {
             "Sunday" : "12:00 PM - 11:00 PM",
