@@ -1,0 +1,69 @@
+<script id="restaurant-header" type="text/html">
+    <section id="cover" class="hotels-background">
+        <div id="restaurant-name">{{name}}</div>
+    </section>
+
+    <section id="inner-nav-menu">
+        <ul>
+            <a href="#overview"><li>{{headings.0}}</li></a>
+            <a href="#reviews"><li>{{headings.1}}</li></a>
+            <a href="#details"><li>{{headings.2}}</li></a>
+            <a href="#nearby"><li>{{headings.3}}</li></a>
+            <a href="#qna"><li>{{headings.4}}</li></a>
+        </ul>
+    </section>
+
+</script>
+
+<script id="restaurant-overview" type="text/html">
+    <section id="overview">
+        <div id="overall-overview">
+
+            <div class="review-container" id="review-bars">
+                <h3>
+                {{headings.1}}
+                </h3>
+            </div>
+            <div class="review-container">
+
+            </div>
+        </div>
+
+        <div id="overview-comments">
+
+        </div>
+    </section>
+</script>
+
+/** should change value and types index */
+<script id="review-bar" type="text/html">
+    <div class="progress-bar">
+            <span>{{type}}</span>
+            <progress max="100" value="80"></progress>
+            <span>{{value}}</span>
+        </div>
+</script>
+
+<script id="restaurant-reviews" type="text/html">
+    <section id="reviews">
+
+    </section>
+</script>
+
+<script id="restaurant-details" type="text/html">
+    <section id="details">
+
+    </section>
+</script>
+
+<script id="restaurant-nearby" type="text/html">
+    <section id="nearby">
+
+    </section>
+</script>
+
+<script id="restaurant-qna" type="text/html">
+    <section id="qna">
+
+    </section>
+</script>
