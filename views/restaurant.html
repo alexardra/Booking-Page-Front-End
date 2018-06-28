@@ -21,27 +21,48 @@
 
             <div class="review-container" id="review-bars">
                 <h3>
-                {{headings.1}}
+                    {{headings.1}}
                 </h3>
             </div>
-            <div class="review-container">
-
+            <div class="review-container" id="rating-bars">
+                <h3>
+                    {{headings.5}}
+                </h3>
+                
             </div>
         </div>
 
         <div id="overview-comments">
-
+            <h3>
+                {{headings.6}}
+            </h3>
+            <div id="comments-container"></div>
         </div>
     </section>
 </script>
 
-/** should change value and types index */
 <script id="review-bar" type="text/html">
     <div class="progress-bar">
             <span>{{type}}</span>
             <progress max="100" value="80"></progress>
             <span>{{value}}</span>
         </div>
+</script>
+
+<script id="comment-section" type="text/html">
+    <div class="comment-section">
+        <div class="comment-author">
+            <img src="{{user avatar}}">
+            <span>{{user name}}</span>
+            <span>{{user details}}</span>
+        </div>
+        <div class="comment-content">
+            <h4>{{review heading}}</h4>
+            <p>{{review preview}}</p>
+            <span>{{review date}}</span>
+            <span>{{review response}}</span>
+        </div>
+    </div>
 </script>
 
 <script id="restaurant-reviews" type="text/html">
@@ -56,11 +77,41 @@
     </section>
 </script>
 
-<script id="restaurant-nearby" type="text/html">
-    <section id="nearby">
-
+<script id="restaurants-nearby" type="text/html">
+    <section class="nearby">
+        <h3>{{headings.7}}</h3>
+        <ul id="nearby-restaurants-container">
+        </ul>
     </section>
 </script>
+
+<script id="hotels-nearby" type="text/html">
+    <section class="nearby">
+        <h3>{{headings.8}}</h3>
+        <ul id="nearby-hotels-container">
+        </ul>
+    </section>
+</script>
+
+<script id="attractions-nearby" type="text/html">
+    <section class="nearby">
+        <h3>{{headings.9}}</h3>
+        <ul id="nearby-attractions-container">
+        </ul>
+    </section>
+</script>
+
+<script id="nearby-section" type="text/html">
+    <li>
+        <img src="{{image}}">
+        <div>
+            <span>{{name}}</span>
+            <span>{{distance}}</span>
+            <span>{{reviews}}</span>
+        </div>
+    </li>
+</script>
+
 
 <script id="restaurant-qna" type="text/html">
     <section id="qna">
