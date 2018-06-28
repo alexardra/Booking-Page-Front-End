@@ -4,7 +4,25 @@
         "Reviews",
         "Details",
         "Nearby",
-        "Q&A"  
+        "Q&A",
+        "Ratings",
+        "Comments",
+        "Nearby Restaurants",
+        "Nearby Hotels",
+        "Nearby Attractions"
+    ],
+    "review types" : [
+        { "type" : "Excellent", "value" : "79%"},
+        { "type" : "Very good", "value" : "15%"},
+        { "type" : "Average", "value" : "3%"},
+        { "type" : "Poor", "value" : "2%"},
+        { "type" : "Terrible", "value" : "1%"}
+    ],
+    "review ratings" : [
+        { "type" : "Food", "value" : "4"},
+        { "type" : "Service", "value" : "4"},
+        { "type" : "Value", "value" : "4"},
+        { "type" : "Atmosphere", "value" : "5"}
     ],
     "name" : "Kapari Wine Restaurant", 
     "details" : {
@@ -40,106 +58,123 @@
     },
     "overview" : {
         "reviews": {
-            "number" : "576",
-            "types" : {
-                "excellent" : "79%", 
-                "very good" : "15%", 
-                "average" : "3%", 
-                "poor" : "2%", 
-                "terrible" : "1%"
-            }, 
-            "rating": {
-                "food" : "4",
-                "service" : "4",
-                "value" : "4",
-                "atmosphere" : "5"
-            },
-            "comments": [
-                {
-                    "user name" : "OneBlondie", 
-                    "user details" : "London, United Kingdom", 
-                    "review heading" : "Good food, good service", 
-                    "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
-                    "review date" : "25.06.2018", 
-                    "review response" : "3 Likes" 
-                },
-                {
-                    "user name" : "OneBlondie", 
-                    "user details" : "London, United Kingdom", 
-                    "review heading" : "Good food, good service", 
-                    "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
-                    "review date" : "25.06.2018", 
-                    "review response" : "3 Likes" 
-                },
-                {
-                    "user name" : "OneBlondie", 
-                    "user details" : "London, United Kingdom", 
-                    "review heading" : "Good food, good service", 
-                    "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
-                    "review date" : "25.06.2018", 
-                    "review response" : "3 Likes" 
-                }
-            ]
+            "number" : "576"
         }
     },
+    "comments": [   
+        {
+            "user avatar" : "/avatar.jpg",
+            "user name" : "OneBlondie", 
+            "user details" : "London, United Kingdom", 
+            "review heading" : "Good food, good service", 
+            "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
+            "review date" : "25.06.2018", 
+            "review response" : "3 Likes" 
+        },
+        {
+            "user avatar" : "/avatar.jpg",
+            "user name" : "OneBlondie", 
+            "user details" : "London, United Kingdom", 
+            "review heading" : "Good food, good service", 
+            "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
+            "review date" : "25.06.2018", 
+            "review response" : "3 Likes" 
+        },
+        {
+            "user avatar" : "/avatar.jpg",
+            "user name" : "OneBlondie", 
+            "user details" : "London, United Kingdom", 
+            "review heading" : "Good food, good service", 
+            "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
+            "review date" : "25.06.2018", 
+            "review response" : "3 Likes" 
+        },
+        {
+            "user avatar" : "/avatar.jpg",
+            "user name" : "OneBlondie", 
+            "user details" : "London, United Kingdom", 
+            "review heading" : "Good food, good service", 
+            "review preview" : "We hadn’t booked and there was no difficulty in finding a shaded table with great views of the caldera.",
+            "review date" : "25.06.2018", 
+            "review response" : "3 Likes" 
+        }
+    ],
     "nearby restaurants": [
         {
             "name" : "The Athenian House",
             "distance" : "0.7 miles",
-            "reviews" : "616",
-            "image" : "--"
+            "reviews" : "616 reviews",
+            "image" : "/milan.jpg"
         },
         {
             "name" : "Artemis Villas",
             "distance" : "0.2 miles",
-            "reviews" : "603",
-            "image" : "--"
+            "reviews" : "603 reviews",
+            "image" : "/milan.jpg"
         },
         {
             "name" : "Kapari Natural Resort",
             "distance" : "0.1 miles",
-            "reviews" : "525",
-            "image" : "--"
+            "reviews" : "525 reviews",
+            "image" : "/milan.jpg"
+        },        
+        {
+            "name" : "Kapari Natural Resort",
+            "distance" : "0.1 miles",
+            "reviews" : "525 reviews",
+            "image" : "/milan.jpg"
         }
     ], 
     "nearby hotels" : [
         {
             "name" : "Iliovasilema Suites",
             "distance" : "0.1 miles",
-            "reviews" : "482",
-            "image" : "--"
+            "reviews" : "482 reviews",
+            "image" : "/milan.jpg"
+        },
+        {
+            "name" : "Iliovasilema Suites",
+            "distance" : "0.1 miles",
+            "reviews" : "482 reviews",
+            "image" : "/milan.jpg"
         },
         {
             "name" : "La Maison",
             "distance" : "0.3 miles",
-            "reviews" : "1.953",
-            "image" : "--"
+            "reviews" : "1.953 reviews",
+            "image" : "/milan.jpg"
         },
         {
             "name" : "Avocado Restaurant",
             "distance" : "0.5 miles",
-            "reviews" : "2.862",
-            "image" : "--"
+            "reviews" : "2.862 reviews",
+            "image" : "/milan.jpg"
         }
     ],
     "nearby attractions" : [
         {
             "name" : "Renieris Santorini Sailing Center",
             "distance" : "0.25 miles",
-            "reviews" : "172",
-            "image" : "--"
+            "reviews" : "172 reviews",
+            "image" : "/milan.jpg"
+        },
+        {
+            "name" : "Renieris Santorini Sailing Center",
+            "distance" : "0.25 miles",
+            "reviews" : "172 reviews",
+            "image" : "/milan.jpg"
         },
         {
             "name" : "Santorini Sailing",
             "distance" : "0.7 miles",
-            "reviews" : "1.927",
-            "image" : "--"
+            "reviews" : "1.927 reviews",
+            "image" : "/milan.jpg"
         },
         {
             "name" : "Skaros rock",
             "distance" : "0.16 miles",
-            "reviews" : "1.278",
-            "image" : "--"
+            "reviews" : "1.278 reviews",
+            "image" : "/milan.jpg"
         }
     ],
     "q&n" : [

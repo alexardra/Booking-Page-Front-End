@@ -5,9 +5,18 @@ class HotelsView extends View {
 
     constructor() {
         super();
-        console.log("maybe something could happen here");
+        this.constructSearchJson();
     }
 
+    constructSearchJson() {
+        this._searchJson = {
+            "search type": "hotel", 
+            "hotel name": "",
+            "hotel data": "",
+            "guests number": ""
+        }
+        this._searchResultJson = null;
+    }
     // should be render view (?)
     constructView(viewRenderer) {
         let navigationPage = new View(viewRenderer, "navigation-page", "app");
@@ -27,15 +36,13 @@ class HotelsView extends View {
 
         let calendarDropdown = new View(viewRenderer, "calendar-dropdown", "calendar-container");
         searchBar.addChildView(calendarDropdown);
-
-
         let additionalsContainer = new View(viewRenderer, "additionals-template", "additionals-container");
 
         let servicesList = new View(viewRenderer, "service-template", "services-container", 4, "services");
         additionalsContainer.addChildView(servicesList);
 
         navigationPage.addChildView(additionalsContainer);
-
+        navigationPage.renderView();
 
         lib.getJsonWithFetch("destinations.json", function(data) {
             viewRenderer.addData(data);
@@ -50,8 +57,34 @@ class HotelsView extends View {
             lib.addClass(elements[2].children[0],"service-money-icon");
             lib.addClass(elements[3].children[0],"service-booking-icon");
         });
+        
+
+        this.listenToEvents();
 
     }
+
+    listenToEvents(){
+        let hotelsView = this;
+        document.getElementById("submit-search").addEventListener("click", function() {
+            let form = document.getElementById("search_bar");
+            let input = form.querySelector("input[type='text']"); 
+            let searchValue = input.value;
+            console.log(searchValue);
+            if (searchValue != "") {
+                hotelsView._searchJson["hotel name"] = searchValue;
+
+                lib.sendJson(hotelsView._searchJson, "/searchjson.json", function(json) {
+                    hotelsView._searchResultJson = json;
+                    let newUrl = "hotel=" + searchValue;
+                    window.location = "#" + newUrl;
+                });
+
+            }
+
+        });
+
+    }
+
 }
 
 module.exports = HotelsView;

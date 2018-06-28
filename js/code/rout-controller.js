@@ -32,11 +32,17 @@ class RoutController {
         let routController = this;
 
         Router.add("hotels", function() {
-            console.log("hotels");  
             let hotelsView = routController._viewFactory.createView("hotels");
             routController._viewRenderer.changeView(hotelsView);
             routController._currentRout = hotelsView;
         });
+
+        Router.add("hotel", function() {
+            let infoJson = routController._currentRout._searchResultJson;
+            let hotel = routController._viewFactory.createView("hotel",[infoJson]);
+            routController._viewRenderer.changeView(routController._viewFactory.createView("hotel",[infoJson]));
+        });
+
         
         Router.add("about", function() {
             console.log("change to about page");    
@@ -91,10 +97,17 @@ class RoutController {
     }
 
     constructStartRout() {
-        // let startView = new HotelsView(); // starting view
+        let startView = new HotelsView(); // starting view
         // let startView = new RentalsView(); 
         // let startView = new RestaurantsView(); 
+<<<<<<< HEAD
         // Router.navigate("restaurants");
+=======
+        Router.navigate("hotels");
+        let viewRenderer = new ViewRenderer(this._templates, this._data, startView);
+        this._viewRenderer = viewRenderer;
+        AuthentificationView(viewRenderer);
+>>>>>>> e79c680e30b7eaa5a44a3d8f4d5f514cb32d2c76
 
         let routController = this;
         lib.getJsonWithFetch("restaurant.json", function(restaurant) {

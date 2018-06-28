@@ -36,12 +36,16 @@ app.post("/users.json", function(req,res) {
 });
 
 const restaurant = require("./js/data/restaurant.json");
+const hotel = require("./js/data/hotel.json");
 app.post("/searchjson.json", function(req, res) {
-	let searchJson = req.body; // json object
-
+	var searchJson = req.body; // json object
 	if (searchJson["search type"] == "restaurants") {
 		res.json(restaurant);
 	}
+	if (searchJson["search type"] == "hotel") {
+		res.json(hotel);
+	}
+
 });
 
 // temp for rendering restaurant view as home page
