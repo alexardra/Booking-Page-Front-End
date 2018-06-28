@@ -105,7 +105,6 @@ module.exports = {
 			}
 		};
 		var data = JSON.stringify(jsonObj);
-		console.log(data);
 		xhr.send(data);
 	},
 	
