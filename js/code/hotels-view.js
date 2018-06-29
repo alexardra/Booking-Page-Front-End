@@ -69,10 +69,8 @@ class HotelsView extends View {
             let form = document.getElementById("search_bar");
             let input = form.querySelector("input[type='text']"); 
             let searchValue = input.value;
-            console.log(searchValue);
             if (searchValue != "") {
                 hotelsView._searchJson["hotel name"] = searchValue;
-
                 lib.sendJson(hotelsView._searchJson, "/searchjson.json", function(json) {
                     hotelsView._searchResultJson = json;
                     let newUrl = "hotel=" + searchValue;

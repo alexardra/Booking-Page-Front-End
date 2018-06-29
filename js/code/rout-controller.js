@@ -39,7 +39,6 @@ class RoutController {
 
         Router.add("hotel", function() {
             let infoJson = routController._currentRout._searchResultJson;
-            let hotel = routController._viewFactory.createView("hotel",[infoJson]);
             routController._viewRenderer.changeView(routController._viewFactory.createView("hotel",[infoJson]));
         });
 
@@ -49,8 +48,15 @@ class RoutController {
         });
         
         Router.add("flights", function() {
-            console.log(routController._currentRout);
-            routController._viewRenderer.changeView(routController._viewFactory.createView("flights"));
+            let flightsView = routController._viewFactory.createView("flights");
+            routController._viewRenderer.changeView(flightsView);
+            routController._currentRout = flightsView;
+        
+        });
+
+        Router.add("flight", function() {
+            let infoJson = routController._currentRout._searchResultJson;
+            routController._viewRenderer.changeView(routController._viewFactory.createView("flight",[infoJson]));
         });
 
         Router.add("rentals", function() {
@@ -61,12 +67,10 @@ class RoutController {
             let restaurantsView = routController._viewFactory.createView("restaurants");
             routController._viewRenderer.changeView(restaurantsView);
             routController._currentRout = restaurantsView;
-            // console.log(routController._currentRout instanceof RestaurantsView);
         });
 
         Router.add("restaurant", function() {
             let infoJson = routController._currentRout._searchResultJson;
-            let restaurant = routController._viewFactory.createView("restaurant",[infoJson]);
             routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[infoJson]));
         });
 

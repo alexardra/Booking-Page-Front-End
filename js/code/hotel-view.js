@@ -1,16 +1,18 @@
 let View = require("./view.js");
 let lib = require("./library.js");
 
-class HotelsView extends View {
+class HotelView extends View {
 
-    constructor() {
+    constructor(info) {
         super();
+        this._info = info;
     }
 
     constructView(viewRenderer) {
-        console.log("HotelsView");
+    	viewRenderer.addData(this._info);
+        let cover = new View(viewRenderer,"restaurant-header","app");
     }
 }
 
 
-module.exports = RestaurantView;
+module.exports = HotelView;
