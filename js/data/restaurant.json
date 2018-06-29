@@ -10,7 +10,10 @@
         "Nearby Restaurants",
         "Nearby Hotels",
         "Nearby Attractions",
-        "Contact Information"
+        "Contact Information",
+        "Open Hours",
+        "Restaurant Features",
+        "Description"
     ],
     "review types" : [
         { "type" : "Excellent", "value" : "79%"},
@@ -36,20 +39,20 @@
         { "type" : "Tags", "value" : "Mediterranean, European, Greek"},
         { "type" : "Average Prices", "value" : "GEL 106 - GEL 178"}
     ],
+    "details open hours" : [
+        { "type" : "Sunday", "value" : "12:00 PM - 11:00 PM"},
+        { "type" : "Monday", "value" : "12:00 PM - 11:00 PM"},
+        { "type" : "Tuesday", "value" : "12:00 PM - 11:00 PM"},
+        { "type" : "Wednesday", "value" : "12:00 PM - 11:00 PM"},
+        { "type" : "Thursday", "value" : "12:00 PM - 11:00 PM"},
+        { "type" : "Friday", "value" : "12:00 PM - 11:00 PM"},
+        { "type" : "Saturday", "value" : "12:00 PM - 11:00 PM"}
+    ],
     "name" : "Kapari Wine Restaurant", 
     "details" : {
         "rank" : "2 of 38 Restaurants in Imerovigli", 
         "tags" : "Mediterranean, European, Greek",
         "description" : "At Kapari Wine Restaurant, we use the finest ingredients and follow the strictest standards to create healthy and appetizing meals.",
-        "open hours" : {
-            "Sunday" : "12:00 PM - 11:00 PM",
-            "Monday" : "12:00 PM - 11:00 PM",
-            "Tuesday" : "12:00 PM - 11:00 PM",
-            "Wednesday" : "12:00 PM - 11:00 PM",
-            "Thursday" : "12:00 PM - 11:00 PM",
-            "Friday" : "12:00 PM - 11:00 PM",
-            "Saturday" : "12:00 PM - 11:00 PM"
-        }, 
         "average prices" : "GEL 106 - GEL 178", 
         "restaurant features" : [
             "Reservations",

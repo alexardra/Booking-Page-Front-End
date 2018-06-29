@@ -73,11 +73,14 @@ class RoutController {
 
         /* restaurant routs  - inside page navigation */
 
-        Router.add("#overview", function() {
-            document.getElementById("overview").scrollIntoView();
+        Router.add("overview", function() {
+            console.log("-----");
+            document.getElementById("overview").scrollIntoView({behavior: 'smooth', block: 'start' });
+            console.log("-----");
+            window.scrollBy(0, -100);
         });
 
-        Router.add("#reviews", function() {
+        Router.add("reviews", function() {
             document.getElementById("reviews").scrollIntoView();
         });
 
@@ -99,12 +102,13 @@ class RoutController {
     constructStartRout() {
         let startView = new HotelsView(); // starting view
         // let startView = new RentalsView(); 
-        // let startView = new RestaurantsView(); 
-        Router.navigate("hotels");
+        // let startView = new RestaurantView(); 
+        // Router.navigate("hotels");
         
         let routController = this;
         lib.getJsonWithFetch("restaurant.json", function(restaurant) {
             let startView = new RestaurantView(restaurant);
+            console.log("111");
             let viewRenderer = new ViewRenderer(routController._templates, routController._data, startView);
             routController._viewRenderer = viewRenderer;
             AuthentificationView(viewRenderer);

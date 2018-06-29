@@ -32,8 +32,13 @@ class RestaurantView extends View {
         cover.addChildView(details);
 
         let contactInfo = new View(viewRenderer,"details-contact-info","details-info",4,"contact information");
-        console.log(contactInfo);
         details.addChildView(contactInfo);
+
+        let additionalInfo = new View(viewRenderer,"details-contact-info","details-info",3,"details additional information");
+        details.addChildView(additionalInfo);
+
+        let openHours = new View(viewRenderer,"details-contact-info","details-open-hours",7,"details open hours");
+        details.addChildView(openHours);
 
         let nearby = new View(viewRenderer,"restaurant-nearby","app");
         cover.addChildView(nearby);

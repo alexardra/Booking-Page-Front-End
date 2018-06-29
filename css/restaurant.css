@@ -242,15 +242,16 @@ progress::-webkit-progress-value {
 
 #details {
   width:100%;
-  height:700px;
-  padding:2.5%;
-  border:1px solid green;
+  min-height:550px;
+  padding:5% 2.5%;
+  border-top:0.5px solid rgb(183, 214, 230);
 }
 
 #details-info {
   width:30%;
   height:300px;
-  border:1px solid blue;
+  float:left;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
 .details-info-span {
@@ -260,13 +261,20 @@ progress::-webkit-progress-value {
   height:50px;
 }
 
-#details-info h3 {
+#details h3 {
   height:36px;
   font-size:18px;
   padding:6px 0 6px 0;
+  margin-top:10px;
+  margin-bottom:10px;
   width:100%;
-  text-align:center;
+  font-weight:300;
   color:#515A5A;
+}
+
+#details-info h3 {
+  padding-left:3%;
+  padding-right:3%;
 }
 
 #details-info div {
@@ -274,8 +282,10 @@ progress::-webkit-progress-value {
   height:25px;
   font-size:15px;
   color:#515A5A;
-  text-align:center;
-  border:1px solid red;
+}
+
+#details-info div:nth-of-type(5) {
+  margin-top:40px;
 }
 
 #details-info div span {
@@ -285,6 +295,83 @@ progress::-webkit-progress-value {
   padding:3px;
   margin-left:2%;
   margin-right:2%;
+}
+
+#details-open-hours {
+  width:30%;
+  height:300px;
+  float:left;
+  margin-left:5%;
+  margin-right:5%;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+}
+
+#details-open-hours h3 {
+  padding-left:10%;
+  padding-right:10%;
+}
+
+#details-open-hours div {
+  width:100%;
+  height:25px;
+  font-size:15px;
+  color:#515A5A;
+}
+
+#details-open-hours div span {
+  display:block;
+  float:left;
+  min-width:40%;
+  height:100%;
+  padding-left:10%;
+  padding-right:10%;
+}
+
+#details-features {
+  width:30%;
+  height:300px;
+  float:left;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+}
+
+#details-features h3 {
+  text-align:center;
+}
+
+#details-features span {
+  display:block;
+  float:left;
+  width:100%;
+  height:25px;
+  font-size:15px;
+  text-align:center;
+  color:#515A5A;
+}
+
+#details-description {
+  width:90%;
+  margin-left:5%;
+  margin-right:5%;
+  min-height:80px;
+  float:left;
+  margin-top:30px;
+  margin-bottom:30px;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+}
+
+#details-description h3 {
+  height:30px;
+  text-align:center;
+}
+
+#details-description p {
+  padding-left:2%;
+  padding-right:2%;
+  padding-bottom:1%;
+  font-size:17px;
+  height:20px;
+  width:100%;
+  color:#515A5A;
 }
 
 /*************** NEARBY ***************/
