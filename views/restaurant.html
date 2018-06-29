@@ -151,5 +151,31 @@
 <script id="restaurant-qna" type="text/html">
     <section id="qna">
 
+        <div id="qna-header">
+            <h3>{{headings.14}}</h3>
+            <button>
+                Ask a question
+            </button>
+        </div>
+
+        <div id="qna-questions">
+
+        </div>
     </section>
+</script>
+
+<script id="restaurant-qna-comment" type="text/html">
+    <div class="comment-section">
+        <div class="comment-author">
+            <img src="{{author avatar}}">
+            <span>{{author}}</span>
+        </div>
+        <div class="comment-content">
+            <p>{{question}}</p>
+        </div>
+        <div class="answer-content">
+            <span>Response From {{top response author}}</span>
+            <p>{{top response}}</p>
+        </div>
+    </div>
 </script>

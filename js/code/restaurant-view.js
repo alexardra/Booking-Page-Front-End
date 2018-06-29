@@ -61,7 +61,10 @@ class RestaurantView extends View {
         nearbyAttractions.addChildView(nearbyAttractionsList);
 
         let qna = new View(viewRenderer,"restaurant-qna","app");
-        nearby.addChildView(qna);
+        cover.addChildView(qna);
+
+        let questions = new View(viewRenderer,"restaurant-qna-comment","qna-questions",3,"q&n");
+        qna.addChildView(questions);
 
         cover.renderView();
 

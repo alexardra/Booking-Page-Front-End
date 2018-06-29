@@ -13,7 +13,8 @@
         "Contact Information",
         "Open Hours",
         "Restaurant Features",
-        "Description"
+        "Description",
+        "Questions And Answers"
     ],
     "review types" : [
         { "type" : "Excellent", "value" : "79%"},
@@ -190,7 +191,16 @@
         {
             "question" : "Hi, Is there a dress code in place?",
             "author" : "Jeffrey H",
-            "author avatar" : "--",
+            "author avatar" : "/avatar.jpg",
+            "top response" : "We went smart causal - chinos and a dress",
+            "top response author" : "Emma S",
+            "votes" : "1",
+            "total responses" : "3"
+        },
+        {
+            "question" : "Hi, Is there a dress code in place?",
+            "author" : "Jeffrey H",
+            "author avatar" : "/avatar.jpg",
             "top response" : "We went smart causal - chinos and a dress",
             "top response author" : "Emma S",
             "votes" : "1",
@@ -199,7 +209,7 @@
         {
             "question" : "Do they have good veg options ?",
             "author" : "Jeffrey H",
-            "author avatar" : "--",
+            "author avatar" : "/avatar.jpg",
             "top response" : "I didn’t look at the menu but they had a full vegetarian menu",
             "top response author" : "Emma S",
             "votes" : "3",
