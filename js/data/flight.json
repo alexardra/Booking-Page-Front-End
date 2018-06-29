@@ -1,0 +1,12 @@
+{
+	"airline" : "Turkish Airlines",
+	"Tbilisi-Paris" :{
+		"departure time" : "6:05 AM",
+		"arrival time" : "11:35 AM"	
+	},
+	"Paris-Tbilisi":{
+		"departure time" : "7:40 PM",
+		"arrival time" : "4:30 AM"	
+	},
+	"price" : "430 GEL"
+}

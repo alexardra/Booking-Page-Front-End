@@ -32,7 +32,7 @@ class RestaurantView extends View {
         cover.addChildView(details);
 
         let contactInfo = new View(viewRenderer,"details-contact-info","details-info",4,"contact information");
-        console.log(contactInfo);
+        // console.log(contactInfo);
         details.addChildView(contactInfo);
 
         let nearby = new View(viewRenderer,"restaurant-nearby","app");

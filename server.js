@@ -37,6 +37,7 @@ app.post("/users.json", function(req,res) {
 
 const restaurant = require("./js/data/restaurant.json");
 const hotel = require("./js/data/hotel.json");
+const flight = require("./js/data/flight.json");
 app.post("/searchjson.json", function(req, res) {
 	var searchJson = req.body; // json object
 	if (searchJson["search type"] == "restaurants") {
@@ -44,6 +45,9 @@ app.post("/searchjson.json", function(req, res) {
 	}
 	if (searchJson["search type"] == "hotel") {
 		res.json(hotel);
+	}
+	if (searchJson["search type"] == "flight") {
+		res.json(flight);
 	}
 
 });
