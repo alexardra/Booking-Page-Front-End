@@ -35,7 +35,7 @@ class FlightsView extends View {
         let flightsView = this;
         document.getElementsByClassName("submit-search")[0].addEventListener("click", function() {
             let form = document.getElementById("search_bar");
-            let input = form.querySelectorAll("input[type='text']"); // just one search input
+            let input = form.querySelectorAll("input[type='text']"); 
             let from = input[0].value;
             let where = input[1].value;
             if  (from != "" && where != ""){

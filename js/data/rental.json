@@ -1,0 +1,14 @@
+{
+	"rental name":"Palermo Apartments",
+	"deals":{
+		"app1":{
+			"name": "Villino Ancilo",
+			"price": "52 GEL"
+		},
+		"app2":{
+			"name": "Daysin Apartment",
+			"price": "107 GEL"
+		}
+	
+	}
+}

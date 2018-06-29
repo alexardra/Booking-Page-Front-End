@@ -60,7 +60,14 @@ class RoutController {
         });
 
         Router.add("rentals", function() {
-            routController._viewRenderer.changeView(routController._viewFactory.createView("rentals"));
+            let rentalsView = routController._viewFactory.createView("rentals");
+            routController._viewRenderer.changeView(rentalsView);
+            routController._currentRout = rentalsView;
+        });
+
+        Router.add("rental", function() {
+            let infoJson = routController._currentRout._searchResultJson;
+            routController._viewRenderer.changeView(routController._viewFactory.createView("rental",[infoJson]));
         });
 
         Router.add("restaurants", function() {
