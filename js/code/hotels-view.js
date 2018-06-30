@@ -5,6 +5,7 @@ class HotelsView extends View {
 
     constructor() {
         super();
+        this.constructData();
         this.constructSearchJson();
     }
 
@@ -17,6 +18,14 @@ class HotelsView extends View {
         }
         this._searchResultJson = null;
     }
+
+    constructData() {
+        let thisView = this;
+        lib.getJsonWithFetch("destinations.json", function(data) {
+            thisView._data = data;
+        });
+    }
+
     // should be render view (?)
     constructView(viewRenderer) {
         let navigationPage = new View(viewRenderer, "navigation-page", "app");
@@ -44,20 +53,34 @@ class HotelsView extends View {
         navigationPage.addChildView(additionalsContainer);
         navigationPage.renderView();
 
-        lib.getJsonWithFetch("destinations.json", function(data) {
-            viewRenderer.addData(data);
-            let browse = new View(viewRenderer, "browse-template", "browse", 5, "sections");
-            navigationPage.addChildView(browse);
+        // lib.getJsonWithFetch("destinations.json", function(data) {
+        //     viewRenderer.addData(data);
+        //     let browse = new View(viewRenderer, "browse-template", "browse", 5, "sections");
+        //     navigationPage.addChildView(browse);
     
-            navigationPage.renderView();
+        //     navigationPage.renderView();
 
-            let elements = document.getElementsByClassName("service-container");
-            lib.addClass(elements[0].children[0],"service-discover-icon");
-            lib.addClass(elements[1].children[0],"service-reviews-icon");
-            lib.addClass(elements[2].children[0],"service-money-icon");
-            lib.addClass(elements[3].children[0],"service-booking-icon");
-        });
+        //     let elements = document.getElementsByClassName("service-container");
+        //     lib.addClass(elements[0].children[0],"service-discover-icon");
+        //     lib.addClass(elements[1].children[0],"service-reviews-icon");
+        //     lib.addClass(elements[2].children[0],"service-money-icon");
+        //     lib.addClass(elements[3].children[0],"service-booking-icon");
+        // });
         
+        console.log(this._data);
+        console.log("--");
+
+        let browse = new View(viewRenderer, "browse-template", "browse", 5, "sections", this._data);
+        navigationPage.addChildView(browse);
+    
+        navigationPage.renderView();
+
+        let elements = document.getElementsByClassName("service-container");
+        lib.addClass(elements[0].children[0],"service-discover-icon");
+        lib.addClass(elements[1].children[0],"service-reviews-icon");
+        lib.addClass(elements[2].children[0],"service-money-icon");
+        lib.addClass(elements[3].children[0],"service-booking-icon");
+
 
         this.listenToEvents();
 

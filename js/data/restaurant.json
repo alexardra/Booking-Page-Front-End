@@ -1,7 +1,6 @@
 {
     "headings": [
         "Overview",
-        "Reviews",
         "Details",
         "Nearby",
         "Q&A",
@@ -14,7 +13,9 @@
         "Open Hours",
         "Restaurant Features",
         "Description",
-        "Questions And Answers"
+        "Questions And Answers",
+        "Restaurant Overview",
+        "Restaurant Details"
     ],
     "review types" : [
         { "type" : "Excellent", "value" : "79%"},
@@ -186,6 +187,9 @@
             "reviews" : "1.278 reviews",
             "image" : "/milan.jpg"
         }
+    ],
+    "q&n data" : [
+        "Ask a question"
     ],
     "q&n" : [
         {

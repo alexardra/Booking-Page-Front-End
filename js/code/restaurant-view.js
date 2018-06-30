@@ -16,17 +16,14 @@ class RestaurantView extends View {
         let overview = new View(viewRenderer,"restaurant-overview","app");
         cover.addChildView(overview);
 
-        let reviews = new View(viewRenderer,"restaurant-reviews","app");
-        cover.addChildView(reviews);
-
         let reviewProgressBarList = new View(viewRenderer,"review-bar","review-bars",5,"review types");
-        reviews.addChildView(reviewProgressBarList);
+        overview.addChildView(reviewProgressBarList);
 
         let ratingProgressBarList = new View(viewRenderer,"review-bar","rating-bars",4,"review ratings");
-        reviews.addChildView(ratingProgressBarList);
+        overview.addChildView(ratingProgressBarList);
 
         let comments = new View(viewRenderer,"comment-section","comments-container",4,"comments");
-        reviews.addChildView(comments);
+        overview.addChildView(comments);
 
         let details = new View(viewRenderer,"restaurant-details","app");
         cover.addChildView(details);

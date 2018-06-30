@@ -91,9 +91,6 @@ class RoutController {
             window.scrollBy(0, -100);
         });
 
-        Router.add("reviews", function() {
-            document.getElementById("reviews").scrollIntoView();
-        });
 
         Router.add("#details", function() {
             document.getElementById("details").scrollIntoView();

@@ -6,7 +6,7 @@ class View {
     // numTemplates - render same template several times
     // datakey - for searching in data.json for specific key 
     
-    constructor(viewRenderer, viewId, parentNode="app", numTemplates, dataKey) {
+    constructor(viewRenderer, viewId, parentNode="app", numTemplates, dataKey, data) {
         this._viewId = viewId;
         this._parentNode = parentNode;
 
@@ -16,6 +16,9 @@ class View {
         
         this._childViews = [];
         this._content = null;
+
+        this._data = data;
+        console.log(this._data);
     }
 
     get Id() {
@@ -55,7 +58,7 @@ class View {
 
         if (this._content == null) {
             for (var i = 0; i < this._numTemplates; i++) {
-                this._content = this._viewRenderer.getViewContent(this._viewId, this._dataKey,i);
+                this._content = this._viewRenderer.getViewContent(this._viewId, this._dataKey,i,this._data);
                 lib.append(this._parentNode, this._content);
             }
         }

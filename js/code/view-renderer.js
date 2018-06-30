@@ -41,17 +41,29 @@ class ViewRenderer {
     }
 
     /* if datakey is specified, should search in data for
-        specified value, otherwise render from data */
-    getViewContent(viewId, dataKey, templateIndex) {
+        specified value, otherwise render from data 
+        
+        if data is specified, should render from that data.
+        if not - render from existing data in this view-renderer
+    */
+    getViewContent(viewId, dataKey, templateIndex, data) {
+        if (data == undefined) {
+            data = this._data;
+        } else {
+            console.log(data);
+        }
+    
         var template = lib.constructTemplate(this._templates, viewId);
         if (dataKey == undefined) {
-            var output = Mustache.render(template, this._data);
+            var output = Mustache.render(template, data);
         } else {
         if (this._numTemplates == undefined) this._numTemplates = 1;
-            var output = Mustache.render(template, this._data[dataKey][templateIndex]);
+            var output = Mustache.render(template, data[dataKey][templateIndex]);
         }
         return output;
     }
+
+
 
     addData(newData) {
         Object.assign(this._data,newData);
