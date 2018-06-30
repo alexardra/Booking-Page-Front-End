@@ -116,7 +116,6 @@ class RoutController {
         let routController = this;
         lib.getJsonWithFetch("restaurant.json", function(restaurant) {
             let startView = new RestaurantView(restaurant);
-            console.log("111");
             let viewRenderer = new ViewRenderer(routController._templates, routController._data, startView);
             routController._viewRenderer = viewRenderer;
             AuthentificationView(viewRenderer);

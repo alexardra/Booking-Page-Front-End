@@ -49,10 +49,7 @@ class ViewRenderer {
     getViewContent(viewId, dataKey, templateIndex, data) {
         if (data == undefined) {
             data = this._data;
-        } else {
-            console.log(data);
-        }
-    
+        } 
         var template = lib.constructTemplate(this._templates, viewId);
         if (dataKey == undefined) {
             var output = Mustache.render(template, data);
@@ -63,11 +60,9 @@ class ViewRenderer {
         return output;
     }
 
-
-
-    addData(newData) {
-        Object.assign(this._data,newData);
-    }
+    // addData(newData) {
+    //     Object.assign(this._data,newData);
+    // }
 }
 
 

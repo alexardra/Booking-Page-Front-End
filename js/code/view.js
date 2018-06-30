@@ -18,7 +18,6 @@ class View {
         this._content = null;
 
         this._data = data;
-        console.log(this._data);
     }
 
     get Id() {
