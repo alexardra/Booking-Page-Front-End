@@ -20,7 +20,7 @@ class RestaurantsView extends View {
     constructSearchJson() {
         this._searchJson = {
             "search type": "restaurants", 
-            "destination search": ""
+            "destination": ""
         }
         this._searchResultJson = null;
     }

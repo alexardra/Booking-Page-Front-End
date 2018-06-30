@@ -6,6 +6,8 @@ let HotelView = require("./hotel-view.js");
 let RestaurantView = require("./restaurant-view.js");
 let FlightView = require("./flight-view.js");
 let RentalView = require("./rental-view.js");
+let ThingstodoView = require("./things-to-do-view.js");
+
 class ViewFactory {
 
     createView(type, args) {
@@ -18,6 +20,8 @@ class ViewFactory {
             	return new RentalsView();
             case "restaurants":
                 return new RestaurantsView();
+            case "things-to-do":
+                return new ThingstodoView();
             case "restaurant":
                 return new RestaurantView(args[0]);
             case "hotel":

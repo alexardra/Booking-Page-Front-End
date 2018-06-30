@@ -2,18 +2,13 @@
 	<form id="search_bar" onsubmit="return false;">
 		<div id="search-container">
 			<button class="location"><i></i></button>
-	    	<input id="search-input" type="text" placeholder="Destination" name="search">	
+	    	<input id="search-input" type="text" placeholder="Destination">	
 		</div>	
 
-			<div id="calendar-container">
-				<div id="calendar_content">
-					<i></i>
-		    		<span class="calendar_date">{{calendar.today}}</span>
-		    		<span class="calendar_space"></span>
-		    		<i></i>
-		    		<span class="calendar_date">{{calendar.later}}</span>
-				</div>
-    		</div>	
+		<div id="calendar-container">
+			<input class="date" type="date"></input>
+			<input class="date" type="date"></input>
+		</div>
 
 	    <div id="other_container">
 	    	<div id="other_content">
@@ -23,7 +18,11 @@
 	    	</div>
 	    	<div id="other-dropdown" class="dropdown hidden"></div>
 	    </div>
+<<<<<<< Updated upstream
 	    <input id="submit-search" type="submit" value="{{find}}">
+=======
+	    <input id="submit-search" type="submit" placeholder="{{}}"></input>
+>>>>>>> Stashed changes
 	</form>
 </script>
 

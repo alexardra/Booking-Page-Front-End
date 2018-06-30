@@ -35,8 +35,6 @@ class HotelsView extends View {
         let otherFilterDropdown = new View(viewRenderer, "other-filter-dropdown-elem", "other-dropdown", 3, "dropdown details");
         searchBar.addChildView(otherFilterDropdown);
 
-        let calendarDropdown = new View(viewRenderer, "calendar-dropdown", "calendar-container");
-        searchBar.addChildView(calendarDropdown);
         let additionalsContainer = new View(viewRenderer, "additionals-template", "additionals-container");
 
         let servicesList = new View(viewRenderer, "service-template", "services-container", 4, "services");

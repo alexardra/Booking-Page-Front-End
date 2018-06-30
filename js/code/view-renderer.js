@@ -68,10 +68,6 @@ class ViewRenderer {
         }
         return output;
     }
-
-    // addData(newData) {
-    //     Object.assign(this._data,newData);
-    // }
 }
 
 

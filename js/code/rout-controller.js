@@ -105,21 +105,34 @@ class RoutController {
         });
 
         /***********************************/
+
+        Router.add("things-to-do", function() {
+            let thingsToDoView = routController._viewFactory.createView("things-to-do");
+            routController._viewRenderer.changeView(thingsToDoView);
+            routController._currentRout = thingsToDoView;          
+        });
     }
 
     constructStartRout() {
         let startView = new HotelsView(); // starting view
+        Router.navigate("hotels");
+        let viewRenderer = new ViewRenderer(this._templates, this._data, startView);
+        this._viewRenderer = viewRenderer;
+        AuthentificationView(viewRenderer);
+
         // let startView = new RentalsView(); 
         // let startView = new RestaurantView(); 
         // Router.navigate("hotels");
+        // let routController = this;
+        // let viewRenderer = new ViewRenderer(routController._templates, routController._data, startView);
         
-        let routController = this;
-        lib.getJsonWithFetch("restaurant.json", function(restaurant) {
-            let startView = new RestaurantView(restaurant);
-            let viewRenderer = new ViewRenderer(routController._templates, routController._data, startView);
-            routController._viewRenderer = viewRenderer;
-            AuthentificationView(viewRenderer);
-        });
+        
+        // lib.getJsonWithFetch("restaurant.json", function(restaurant) {
+        //     let startView = new RestaurantView(restaurant);
+        //     let viewRenderer = new ViewRenderer(routController._templates, routController._data, startView);
+        //     routController._viewRenderer = viewRenderer;
+        //     AuthentificationView(viewRenderer);
+        // });
     }
 
 }
