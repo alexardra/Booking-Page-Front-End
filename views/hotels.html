@@ -1,5 +1,5 @@
 <script id="search-bar-template" type="text/html">
-	<div id="search_bar">
+	<form id="search_bar" onsubmit="return false;">
 		<div id="search-container">
 			<button class="location"><i></i></button>
 	    	<input id="search-input" type="text" placeholder="Destination" name="search">	
@@ -24,7 +24,7 @@
 	    	<div id="other-dropdown" class="dropdown hidden"></div>
 	    </div>
 	    <input id="submit-search" type="submit" value="{{find}}">
-	</div>
+	</form>
 </script>
 
 

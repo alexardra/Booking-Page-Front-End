@@ -19,31 +19,34 @@
 			<img id="user-icon" src="/user_icon.png"></img>
 		</div>
 		<div id="authentication-dropdown">
-			<button>
-				<div class="authentication-dropdown-element" id="facebook-sign-in">
-					<i></i>
-					<span>FACEBOOK</span>
-				</div>	
-			</button>
-
-			<button>
-				<div class="authentication-dropdown-element" id="google-sign-in">
-						<i></i>
-						<span>GOOGLE</span>
-				</div>
-			</button>
-			
-			<div id="authentication-dropdown-sign-in">
-				<div id="already-member">
-					Already a member?
-				</div>
-				<form id="login" method="post">
-					<input type="text" name="email" placeholder="Email">
-					<input type="password" name="password">
-					<input type="submit" value="Sign In">
-				</form>
-			</div>
 		</div>
+	</div>
+</script>
+
+<script id="authentification-dropdown-element" type="text/html">
+	<button>
+		<div class="authentication-dropdown-element" id="facebook-sign-in">
+			<i></i>
+			<span>FACEBOOK</span>
+		</div>	
+	</button>
+
+	<button>
+		<div class="authentication-dropdown-element" id="google-sign-in">
+				<i></i>
+				<span>GOOGLE</span>
+		</div>
+	</button>
+
+	<div id="authentication-dropdown-sign-in">
+		<div id="already-member">
+			Already a member?
+		</div>
+		<form id="login" method="post">
+			<input type="text" name="email" placeholder="Email">
+			<input type="password" name="password">
+			<input type="submit" value="Sign In">
+		</form>
 	</div>
 </script>
 
@@ -51,11 +54,23 @@
 <script id="user-settings" type="text/html">
 	<section id="user-pages">
 		<ul>
-			<a href="#bookings"><li>My Bookings</li></a>
-			<a href="#favourites"><li>Favourites</li></a>
-			<a href="#settings"><li>Settings</li></a>
-			<a href="#Week_Deals"><li>Week Deals</li></a>
-		</ul>		
+			<li>
+				<i id="bookings-icon"></i>
+				<a href="#bookings">My Bookings</a>
+			</li>
+			<li>
+				<i id="favourites-icon"></i>
+				<a href="#favourites">Favourites</a>
+			</li>
+			<li>
+				<i id="settings-icon"></i>
+				<a href="#settings">Settings</a>
+			</li>
+			<li>
+				<i id="weak-deals-icon"></i>
+				<a href="#Week_Deals">Week Deals</a>
+			</li>
+		</ul>
 		<button id="logout">Log out</button>
 	</section>
 </script>

@@ -22,6 +22,10 @@ class ViewRenderer {
         let headerTemplate = lib.constructTemplate(this._templates,"home-header");
         let header = document.getElementsByTagName("header")[0];
         let authentication = new View(this,"header-authentication",header);
+        let authentificationDropdown = new View(this, "authentification-dropdown-element",
+            "authentication-dropdown");
+        authentication.addChildView(authentificationDropdown);
+
         authentication.renderView();
         let output = Mustache.render(headerTemplate,this._data);
 		lib.append(header,output);
@@ -38,6 +42,11 @@ class ViewRenderer {
         this._currentView.removeView();
         viewToRender.constructView(this);
         this._currentView = viewToRender;
+    }
+
+    changeChildView(viewToChangeId, viewToRender){
+        document.getElementById(viewToChangeId).innerHTML = "";
+        viewToRender.renderView();   
     }
 
     /* if datakey is specified, should search in data for

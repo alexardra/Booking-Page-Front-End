@@ -109,7 +109,7 @@ header {
 	width: 300px;
 	position: absolute;
 	right:2.5%;
-	height:300px;
+	height:270px;
 	z-index:1;	
 	border:1px solid blue;
 	display:none;
@@ -199,7 +199,7 @@ header {
 	/* margin-left:5%; */
 }
 #authentication-dropdown-sign-in form input {
-	border:1px solid rgba(0,0,0,0.70);;
+	border:1px solid rgba(0,0,0,0.70);
 	width:95%;
 	margin-left:2.5%;
 	height:30px;
@@ -221,13 +221,50 @@ header {
 #authentication-dropdown-sign-in form input::placeholder {
 }
 
-
-#user-pages li{
-	color: #515A5A;
-	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
-	margin-left: 10%;
+ul{
+	list-style-type: none;
+	width:100%;
 }
 
+#user-pages li{
+	display: block;
+	width:100%;
+	color: #515A5A;
+	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
+	text-align: center;
+	padding: 4%;
+}
+
+#user-pages i{
+	margin-left:10%;
+	/*border: 1px solid red;*/
+	border-radius: 50%;
+    float: left;
+    width: 30px;
+    height: 30px
+}
+
+#bookings-icon{
+	background: url('/books.png') no-repeat;
+}
+
+#favourites-icon{
+	background: url('/favourites.png') no-repeat -2px -2px;
+}
+
+#settings-icon{
+	background: url('/settings.png') no-repeat;
+}
+
+#weak-deals-icon{
+	background: url('/deals.png') no-repeat;	
+}
+
+#logout{
+	border-radius: 4%;
+	background-color: #F8C471;
+	box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+}
 /*******************  NAVIGATION MENU *************************/
 #header-nav-menu {
 	height:50px;

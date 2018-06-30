@@ -9,9 +9,7 @@ class HotelView extends View {
     }
 
     constructView(viewRenderer) {
-        
-        
-
+       
     }
 }
 

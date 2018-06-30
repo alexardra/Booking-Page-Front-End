@@ -22,17 +22,32 @@ function sendRequest(url, callback, viewRenderer) {
 	request.send();
 }
 
-function usernameLoggedIn(data, viewRenderer){
+function userLoggedIn(data, viewRenderer){
 	let response = JSON.parse(data);
 	let dropdown = document.getElementById("authentication-dropdown");
-	let img = document.getElementById("user-icon");
-	img.src = "/avatar.jpg";
-	while (dropdown.firstChild) {
-    	dropdown.removeChild(dropdown.firstChild);
-	}
+	
     dropdown.style.display = "none";
     let userSpace = new View(viewRenderer, "user-settings", "authentication-dropdown");
-    userSpace.renderView();
+    viewRenderer.changeChildView("authentication-dropdown", userSpace);
+    let img = document.getElementById("user-icon");
+	img.src = "/avatar.jpg";
+    let logoutButton = document.getElementById('logout');
+    // logoutButton.addEventListener("click", userLoggedOut(viewRenderer));
+    logoutButton.addEventListener("click", function() {
+    	userLoggedOut(viewRenderer);
+    });
+
+}
+
+function userLoggedOut(viewRenderer){
+	let dropdown = document.getElementById("authentication-dropdown");
+	let img = document.getElementById("user-icon");
+	img.src = "/user_icon.png";
+
+    let dropdownElement = new View(viewRenderer, "authentification-dropdown-element",
+     "authentication-dropdown");
+    viewRenderer.changeChildView("authentication-dropdown", dropdownElement);
+	
 }
 
 function listenUserContainer(viewRenderer) {
@@ -49,7 +64,7 @@ function listenUserContainer(viewRenderer) {
 	let button = document.getElementById('login').getElementsByTagName("input")[2];
 	button.addEventListener("click", function () {
 		event.preventDefault();
-		sendRequest("users.json", usernameLoggedIn, viewRenderer);
+		sendRequest("users.json", userLoggedIn, viewRenderer);
 	});
 
 }
