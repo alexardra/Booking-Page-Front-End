@@ -9,8 +9,9 @@ class HotelView extends View {
     }
 
     constructView(viewRenderer) {
-    	viewRenderer.addData(this._info);
-        let cover = new View(viewRenderer,"restaurant-header","app");
+        
+        
+
     }
 }
 

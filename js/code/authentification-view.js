@@ -24,8 +24,9 @@ function sendRequest(url, callback, viewRenderer) {
 
 function usernameLoggedIn(data, viewRenderer){
 	let response = JSON.parse(data);
-	document.getElementById("username").innerHTML = response["username"];
 	let dropdown = document.getElementById("authentication-dropdown");
+	let img = document.getElementById("user-icon");
+	img.src = "/avatar.jpg";
 	while (dropdown.firstChild) {
     	dropdown.removeChild(dropdown.firstChild);
 	}
