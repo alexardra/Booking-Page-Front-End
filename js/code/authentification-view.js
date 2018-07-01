@@ -34,6 +34,7 @@ function userLoggedIn(data, viewRenderer){
     let logoutButton = document.getElementById('logout');
     // logoutButton.addEventListener("click", userLoggedOut(viewRenderer));
     logoutButton.addEventListener("click", function() {
+    	event.preventDefault();
     	userLoggedOut(viewRenderer);
     });
 
@@ -47,7 +48,7 @@ function userLoggedOut(viewRenderer){
     let dropdownElement = new View(viewRenderer, "authentification-dropdown-element",
      "authentication-dropdown");
     viewRenderer.changeChildView("authentication-dropdown", dropdownElement);
-	
+	listenLogInButton(viewRenderer);
 }
 
 function listenUserContainer(viewRenderer) {
@@ -61,14 +62,30 @@ function listenUserContainer(viewRenderer) {
 			dropdownElement.style.display = "none";
 		}
 	});
-	let button = document.getElementById('login').getElementsByTagName("input")[2];
-	button.addEventListener("click", function () {
+	listenLogInButton(viewRenderer);
+	
+}
+
+function listenLogInButton(viewRenderer) {
+	let logInInput = document.getElementById('login').getElementsByTagName("input");
+	logInInput[2].addEventListener("click", function () {
+		event.preventDefault();
+		if (logInInput[0].value != "" && logInInput[1].value != ""){
+			sendRequest("users.json", userLoggedIn, viewRenderer);	
+		}
+	});
+	let facebookButton = document.getElementById('facebook-sign-in');
+	facebookButton.addEventListener("click", function(){
+		event.preventDefault();
+		sendRequest("users.json", userLoggedIn, viewRenderer);
+	});
+	let googleButton = document.getElementById("google-sign-in");
+	googleButton.addEventListener("click", function(){
 		event.preventDefault();
 		sendRequest("users.json", userLoggedIn, viewRenderer);
 	});
 
 }
-
 
 module.exports = listenUserContainer;
 

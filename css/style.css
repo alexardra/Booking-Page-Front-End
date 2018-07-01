@@ -198,6 +198,8 @@ header {
 	height:110px;
 	/* margin-left:5%; */
 }
+
+
 #authentication-dropdown-sign-in form input {
 	border:1px solid rgba(0,0,0,0.70);
 	width:95%;
