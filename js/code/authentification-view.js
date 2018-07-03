@@ -70,9 +70,14 @@ function listenLogInButton(viewRenderer) {
 	let logInInput = document.getElementById('login').getElementsByTagName("input");
 	logInInput[2].addEventListener("click", function () {
 		event.preventDefault();
-		if (logInInput[0].value != "" && logInInput[1].value != ""){
+		if (logInInput[0].value == ""){
+			logInInput[0].style.border = "1px solid red";
+		}else{
+			if (logInInput[1].value == ""){
+				logInInput[1].style.border = "1px solid red";
+			}else
 			sendRequest("users.json", userLoggedIn, viewRenderer);	
-		}
+		} 
 	});
 	let facebookButton = document.getElementById('facebook-sign-in');
 	facebookButton.addEventListener("click", function(){

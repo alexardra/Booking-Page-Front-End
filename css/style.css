@@ -199,6 +199,9 @@ header {
 	/* margin-left:5%; */
 }
 
+.red-border{
+	border: 1px solid red;
+}
 
 #authentication-dropdown-sign-in form input {
 	border:1px solid rgba(0,0,0,0.70);
