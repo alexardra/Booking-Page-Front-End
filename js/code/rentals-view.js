@@ -2,6 +2,8 @@ let View = require("./view.js");
 let lib = require("./library.js");
 let Multi = require("./multi-inheritance.js");
 let Search = require("./search.js");
+let Visuals = require("./visual.js");
+
 
 class RentalsView extends Multi.inherit(View,Search) {
 
@@ -34,6 +36,9 @@ class RentalsView extends Multi.inherit(View,Search) {
         let cover = document.getElementById("cover");
         let elem = lib.removeClass(cover);
         lib.addClass(lib.removeClass(cover), "rentals-background");
+
+        Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
+        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
 
         this.formatCalendarInSearchBar();
         this.listenToEvents();

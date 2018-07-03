@@ -2,6 +2,8 @@ var View = require("./view.js");
 let lib = require("./library.js");
 let Multi = require("./multi-inheritance.js");
 let Search = require("./search.js");
+let Visuals = require("./visual.js");
+
 
 
 class FlightsView extends Multi.inherit(View,Search) {
@@ -43,7 +45,10 @@ class FlightsView extends Multi.inherit(View,Search) {
         searchBar.addChildView(otherFilterDropdown);
 
         navigationPage.renderView();
-        
+
+        Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
+        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
+
         this.formatCalendarInSearchBar();
         this.listenToEvents();
         this.listenToSearchInput(searchBar);

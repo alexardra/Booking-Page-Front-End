@@ -2,6 +2,8 @@ let View = require("./view.js");
 let lib = require("./library.js");
 let Multi = require("./multi-inheritance.js");
 let Search = require("./search.js");
+let Visuals = require("./visual.js");
+
 
 class RestaurantsView extends Multi.inherit(View,Search) {
 
@@ -16,6 +18,9 @@ class RestaurantsView extends Multi.inherit(View,Search) {
         let searchBar = new View(viewRenderer, "restaurants-search-bar-template", "cover");
         navigationPage.addChildView(searchBar);
         navigationPage.renderView();
+
+        Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
+        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
 
         this.listenToEvents();
         this.listenToSearchInput(searchBar);
