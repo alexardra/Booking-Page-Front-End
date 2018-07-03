@@ -439,7 +439,7 @@ section {
 
 /***** search bar *****/
 
-#search_bar {
+#search-bar {
 	width:90%;
 	height:50px;
 	background-color:#FFFDE7;
@@ -459,7 +459,7 @@ section {
 	padding:0;
 	outline:inherit;
 	cursor:inherit;
-	border-top-left-radius: 20%;
+	padding:9px 13px;
 }
 
 .location i {
@@ -467,7 +467,6 @@ section {
 	width:22px;
 	height:32px;
 	float:left;
-	margin-left:13px;
 }
 
 #search-input {
@@ -479,11 +478,153 @@ section {
 	color:#5DADE2;
 }
 
-#search_bar ::placeholder {
+#search-bar ::placeholder {
 	font-size:1.2em;
 	color:#EC7065;	
 	font-family:page_font;
 }
+
+/****** SEARCHES ************/
+#maxlength-search {
+    width:calc(60% + 225px);
+    height:100%;
+    float:left;
+}
+
+#maxlength-search input[type="text"] {
+	width:calc(100% - 48px);
+    float:left;
+    height:100%;
+    background-color:inherit;
+    font-size:0.85em;
+    color: #EC7065;
+    font-family: "Lato", "Helvetica", Helvetica, sans-serif;
+    padding:5px;
+}
+
+/*************************************/
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+/************** CALENDAR **************/
+
+#calendar-container {
+	width:280px;
+    height:100%;
+    float:left;
+}
+
+#calendar-container input[type="date"] {
+    height:100%;
+    float:left;  
+    background:inherit;
+    color:#EC7065;
+    padding-left:5px;
+    padding-right:5px;
+    outline:none;
+}
+
+#calendar-container input[type="date"]:hover {
+    background:rgb(247, 243, 201);
+}
+
+
+#calendar-container input[type="date"]::-webkit-clear-button {
+    display:none;
+}
+
+#calendar-container input[type="date"]::-webkit-inner-spin-button {
+    display:none;
+}
+
+#calendar-container input[type="date"]::-webkit-calendar-picker-indicator {
+    background-repeat:repeat-y;
+    opacity:1;
+    background:inherit;
+    color:#EC7065;
+}
+
+#calendar-container input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    background:inherit;
+}
+
+#calendar-container input[type="date"]::-webkit-datetime-edit-month-field {
+    display:inline-block;
+    padding:2px;
+}
+
+#calendar-container input[type="date"]::-webkit-datetime-edit-day-field {
+    display:inline-block;
+    padding:2px;
+}
+
+#calendar-container input[type="date"]::-webkit-datetime-edit-year-field {
+    display:inline-block;
+    padding:2px;
+}
+/****************/
+#other-container {
+	height:100%;
+	float:left;
+	width:225px;
+	position:relative;
+}
+  
+.human_icon {
+	background: url("/search_icons.png") no-repeat -5px 0;
+	width: 30px;
+	height: 40px;
+	float: left;
+	margin: 5px 7.5px 5px 7.5px;
+}
+
+#other-content {
+	height:100%;
+	vertical-align:middle;
+	text-align:center;
+}
+
+#other-content span {
+	display: block;
+	float:left;
+	height:100%;
+	width:150px;
+	line-height:20px;
+	font-size:0.9em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding-top:15px;
+	padding-bottom:10px;
+}
+
+#other-content div {
+	height:100%;
+	width:30px;
+	float:right;
+	padding:20px 7px;
+	text-align:center;
+}
+  
+.arrow_icon {
+	background: url("/search_icons.png") no-repeat -137px -5px;
+	width:16px;
+	height:10px;
+	float:right;
+}
+  
+#other-dropdown {
+	position: absolute;
+	background-color: #f9f9f9;
+	margin-left: -20%;
+	margin-top: 7px;
+	width: 140%;
+	min-height:120px;
+	z-index: 1;
+	border: 1px solid blue;
+}
+/*****************/
 
 #submit-search {
     height:100%;
@@ -498,40 +639,6 @@ section {
     font-size:1em;
     font-family: "Lato", "Helvetica", Helvetica, sans-serif;
 }
-
-/***************    break points     ***************/
-
-
-/* @media screen and (max-width:1220px) {
-	#submit_search {
-		display:none;
-	}
-
-	#other_container {
-		border-right:none;
-	}
-} */
-
-/* @media screen and (max-width:1090px) {
-	#other_container {
-		display:none;
-	}
-	#calendar-container div{
-		border-right:none;
-	}
-	#calendar-container {
-		width:60%;
-	}
-} */
-/* 
-@media screen and (max-width:200px) {
-	#logo,.hamburger,#side-menu {
-		display:none;
-	}
-	#name {
-		width:100%;
-	}
-} */
 
 @media screen and (min-width:600px) {
 

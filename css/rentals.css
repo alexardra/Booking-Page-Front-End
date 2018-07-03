@@ -1,16 +1,11 @@
 #rentals-search{
-	width:calc(40% + 225px);
+	width:calc(60% - 55px);
     height:100%;
     float:left;
-}
-.rentals-destination {
-    height:100%;
-    width:100%;
-    float:left;
-	border-right:1px solid grey;
+    position: relative;
 }
 
-.rentals-destination input[type="text"] {
+#rentals-search input[type="text"] {
 	width:calc(100% - 48px);
     float:left;
     height:100%;
@@ -18,4 +13,13 @@
     font-size:0.8em;
     color:#EC7065;
     font-family: "Lato", "Helvetica", Helvetica, sans-serif;
+}
+
+#rentals-search-dropdown {
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width:100%;
+    z-index: 1;
+    margin-top:57px;
 }
