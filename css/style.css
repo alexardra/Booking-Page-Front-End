@@ -488,7 +488,8 @@ section {
 #maxlength-search {
     width:calc(60% + 225px);
     height:100%;
-    float:left;
+	float:left;
+	position: relative;
 }
 
 #maxlength-search input[type="text"] {

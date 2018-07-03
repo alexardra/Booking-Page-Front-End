@@ -39,21 +39,70 @@ const restaurant = require("./js/data/restaurant.json");
 const hotel = require("./js/data/hotel.json");
 const flight = require("./js/data/flight.json");
 const rental = require("./js/data/rental.json");
+const todo = require("./js/data/todo.json");
 app.post("/searchjson.json", function(req, res) {
-	var searchJson = req.body; // json object
+	let searchJson = req.body; // json object
 	if (searchJson["search type"] == "restaurants") {
 		res.json(restaurant);
-	}
+	} else
 	if (searchJson["search type"] == "hotel") {
 		res.json(hotel);
-	}
+	} else
 	if (searchJson["search type"] == "flight") {
 		res.json(flight);
-	}
+	} else
 	if (searchJson["search type"] == "rental") {
 		res.json(rental);
+	} else 
+	if (searchJson["search type"] == "things to do") {
+		res.json(todo);
 	}
+});
 
+app.post("/searchinput.json", function(req,res) {
+
+	let searchJson = req.body;
+	if (searchJson["search type"] == "hotels") {
+		let jsonToSend = {	
+			"recently viewed info": [
+				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
+				{"location": "United States", "additional info": "North America"}
+			]
+		}
+		res.json(jsonToSend);
+	} else if (searchJson["search type"] == "rentals") {
+		let jsonToSend = {	
+			"recently viewed info": [
+				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
+				{"location": "United States", "additional info": "North America"}
+			]
+		}
+		res.json(jsonToSend);
+	} else if (searchJson["search type"] == "flights") {
+		let jsonToSend = {	
+			"recently viewed info": [
+				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
+				{"location": "United States", "additional info": "North America"}
+			]
+		}
+		res.json(jsonToSend);	
+	} else if (searchJson["search type"] == "things to do") {
+		let jsonToSend = {	
+			"recently viewed info": [
+				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
+				{"location": "United States", "additional info": "North America"}
+			]
+		}
+		res.json(jsonToSend);	
+	} else if (searchJson["search type"] == "restaurants") {
+		let jsonToSend = {	
+			"recently viewed info": [
+				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
+				{"location": "United States", "additional info": "North America"}
+			]
+		}
+		res.json(jsonToSend);	
+	}
 });
 
 // temp for rendering restaurant view as home page

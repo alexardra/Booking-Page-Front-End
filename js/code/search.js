@@ -64,7 +64,33 @@ class Search {
         let info = element.getElementsByTagName("span")[0].innerHTML;    
         let num = info.substring(0,info.indexOf(" "));
         return num;
+	}
+	
+	formatCalendarInSearchBar() {
+        let dates = document.querySelectorAll("input[type='date']");
+        let numDates = dates.length;
+        let currentDate = lib.getFormatedDate();
+        for (let i = 0; i < numDates; i++) {
+            dates[i].value = currentDate;
+        } 
     }
+
+    	/* Toggle between display:none and other display */
+	toggleDropdown(element) {	
+		if (lib.hasClass(element,"hidden")) {
+			this.showOneDropdown(element);
+		} else {
+			lib.addClass(element,"hidden");
+		}
+	}
+
+	/* When displaying one of dropdown menus in search bar
+	   others should not be visible at the same time. */
+	showOneDropdown(element) {
+		var allDropdowns = document.getElementsByClassName("dropdown");
+		lib.addClass(allDropdowns, "hidden");
+		lib.removeClass(element,"hidden");
+	}
 } 
 
 module.exports = Search;

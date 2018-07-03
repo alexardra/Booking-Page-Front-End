@@ -44,7 +44,6 @@ class View {
         if (typeof(this._parentNode) == "string") {
             this._parentNode = document.getElementById(this._parentNode);
         }
-
         this._parentNode.innerHTML = "";
     }
 

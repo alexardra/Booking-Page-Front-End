@@ -148,11 +148,11 @@ module.exports = {
 		}
 		var len = element.length;
 		if (element.length == undefined) {
-			result = removeClassFromOne(element,className);
+			result = this.removeClassFromOne(element,className);
 		} else {
 			var elements = []
 			for (var i = 0; i < len; i++) {
-				elements.push(removeClassFromOne(element[i],className));
+				elements.push(this.removeClassFromOne(element[i],className));
 			}
 			result = elements;
 		}
@@ -208,5 +208,21 @@ module.exports = {
 	constructTemplate : function(templates, templateId) {
 		var template = templates.querySelector("#" + templateId).innerHTML;
 		return template;
+	},
+
+	/*	Get current date in format year-month-day */
+	getFormatedDate : function() {
+		let date = new Date();
+
+		let day = date.getDate();
+		let month = date.getMonth() + 1;
+		let year = date.getFullYear();
+	
+		if (month < 10) month = "0" + month;
+		if (day < 10) day = "0" + day;
+	
+		let today = year + "-" + month + "-" + day;   
+		
+		return today;
 	}
 }

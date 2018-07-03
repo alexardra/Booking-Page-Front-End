@@ -7,6 +7,10 @@ lib.ready(function() {
 		templates = lib.filter(templates);
 		lib.getJsonWithFetch("data.json", function(data) {
 			let routController = new RoutController(templates, data);
+
 		});
-	})
+	});
+
 });
+
+

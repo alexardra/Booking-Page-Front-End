@@ -33,12 +33,21 @@ class RoutController {
 
         Router.add("hotels", function() {
             let hotelsView = routController._viewFactory.createView("hotels");
-            routController._viewRenderer.changeView(hotelsView);
+
+            if (routController._currentRout == null) { // start rout not constructed
+                let viewRenderer = new ViewRenderer(routController._templates, routController._data, hotelsView);
+                AuthentificationView(viewRenderer);
+                routController._viewRenderer = viewRenderer; 
+            } else {
+                routController._viewRenderer.changeView(hotelsView);
+            }
             routController._currentRout = hotelsView;
         });
 
         Router.add("hotel", function() {
+            console.log(routController._currentRout);
             let infoJson = routController._currentRout._searchResultJson;
+            console.log(infoJson);
             routController._viewRenderer.changeView(routController._viewFactory.createView("hotel",[infoJson]));
         });
 
@@ -51,7 +60,6 @@ class RoutController {
             let flightsView = routController._viewFactory.createView("flights");
             routController._viewRenderer.changeView(flightsView);
             routController._currentRout = flightsView;
-        
         });
 
         Router.add("flight", function() {
@@ -60,6 +68,7 @@ class RoutController {
         });
 
         Router.add("rentals", function() {
+            console.log(routController._currentRout);
             let rentalsView = routController._viewFactory.createView("rentals");
             routController._viewRenderer.changeView(rentalsView);
             routController._currentRout = rentalsView;
@@ -71,12 +80,14 @@ class RoutController {
         });
 
         Router.add("restaurants", function() {
+            console.log(routController._currentRout);
             let restaurantsView = routController._viewFactory.createView("restaurants");
             routController._viewRenderer.changeView(restaurantsView);
             routController._currentRout = restaurantsView;
         });
 
         Router.add("restaurant", function() {
+            console.log(routController._currentRout);
             let infoJson = routController._currentRout._searchResultJson;
             routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[infoJson]));
         });
@@ -114,25 +125,7 @@ class RoutController {
     }
 
     constructStartRout() {
-        let startView = new HotelsView(); // starting view
         Router.navigate("hotels");
-        let viewRenderer = new ViewRenderer(this._templates, this._data, startView);
-        this._viewRenderer = viewRenderer;
-        AuthentificationView(viewRenderer);
-
-        // let startView = new RentalsView(); 
-        // let startView = new RestaurantView(); 
-        // Router.navigate("hotels");
-        // let routController = this;
-        // let viewRenderer = new ViewRenderer(routController._templates, routController._data, startView);
-        
-        
-        // lib.getJsonWithFetch("restaurant.json", function(restaurant) {
-        //     let startView = new RestaurantView(restaurant);
-        //     let viewRenderer = new ViewRenderer(routController._templates, routController._data, startView);
-        //     routController._viewRenderer = viewRenderer;
-        //     AuthentificationView(viewRenderer);
-        // });
     }
 
 }
