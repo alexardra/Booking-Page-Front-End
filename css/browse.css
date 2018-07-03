@@ -55,11 +55,16 @@
     border-radius:4px;
     box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
     background:#FCF3CF;
+    transition: all .2s ease-in-out;
 }
 
 .section-element {
     width:100%;
     height:100%;
+}
+
+.browse-section li:hover { 
+    transform: scale(1.1); 
 }
 
 .section-element img {

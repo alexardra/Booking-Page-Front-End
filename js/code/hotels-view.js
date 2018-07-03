@@ -104,7 +104,6 @@ class HotelsView extends Multi.inherit(View,Search)  {
 
     listenToSearchInput(searchBar) {
         let hotelsView = this; 
-        console.log(hotelsView);
         let recentlyViewedDropdown = searchBar.childViews[0];
 
         document.getElementById("search-input").addEventListener("focus", function() {

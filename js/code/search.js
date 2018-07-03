@@ -3,7 +3,6 @@ let lib = require("./library.js");
 class Search {
 
     constructor() {
-        console.log("search-view");
     }
 
     	/* change content of div#other_filters 
