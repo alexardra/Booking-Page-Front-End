@@ -35,52 +35,40 @@
 		<div class="browse-header">
 			<h3>{{header}}</h3>
 			<a href="#">
-				<button>See All</button>
+				See All
 			</a>	
 		</div>
 		<ul>
-			<li>
-				<div class="section-element">
-					<img src="{{overviews.0.url}}">
-					<div class="section-element-description">
-						<span>{{overviews.0.name}}</span>
-						<span>{{overviews.0.reviews}}</span>
-						<span>{{overviews.0.place}}</span>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="section-element">
-					<img src="{{overviews.1.url}}">
-					<div class="section-element-description">
-						<span>{{overviews.1.name}}</span>
-						<span>{{overviews.1.reviews}}</span>
-						<span>{{overviews.1.place}}</span>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="section-element">
-					<img src="{{overviews.2.url}}">
-					<div class="section-element-description">
-						<span>{{overviews.2.name}}</span>
-						<span>{{overviews.2.reviews}}</span>
-						<span>{{overviews.2.place}}</span>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="section-element">
-					<img src="{{overviews.3.url}}">
-					<div class="section-element-description">
-						<span>{{overviews.3.name}}</span>
-						<span>{{overviews.3.reviews}}</span>
-						<span>{{overviews.3.place}}</span>
-					</div>
-				</div>
-			</li>
 		</ul>
 	</div>
+</script>
+
+
+<script id="section-element-template" type="text/html">
+	<li>
+		<div class="section-element">
+			<a href="">
+				<img src="{{url}}">
+			</a>
+			<div class="section-element-description">
+				<span>
+					<a href="">
+						{{name}}
+					</a>
+				</span>
+				<span>
+					<a href="">
+						{{reviews}}
+					</a>
+				</span>
+				<span>
+					<a href="">
+						{{place}}
+					</a>
+				</span>
+			</div>
+		</div>
+	</li>
 </script>
 
 <!-- FOOTER -->

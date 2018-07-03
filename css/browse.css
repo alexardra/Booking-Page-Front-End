@@ -12,7 +12,7 @@
 .browse-section {
     width:90%;
     min-height:300px;
-    margin:0 0 5% 5%;
+    margin:2.5% 5%;
     background:#F9E79F;
 }
 
@@ -25,20 +25,29 @@
 	display:inline-block;
 	font-family:page_font;
 	line-height:20px;
-    margin-top:15px;
-    margin-left:2%;
+    height:100%;
+    padding:20px;
     color:#515A5A;
     font-weight:300;
 }
 
-.browse-header button {
+.browse-header h3:hover {
+    font-size:20px;
+}
+
+.browse-header a {
 	background:none;
 	border:none;
 	padding:0;
 	float:right;
-	width:48px;
-	height:48px;
-	margin-right:1%;
+    height:100%;
+    line-height:20px;
+    padding:20px;
+    text-decoration:none;
+}
+
+.browse-header a:hover {
+    text-decoration:underline;
 }
 
 .browse-section ul {
@@ -69,9 +78,12 @@
 
 .section-element img {
     width:90%;
-    margin-left:5%;
-    margin-top:5%;
+    margin:2.5% 5%;
     height:200px;
+}
+
+.section-element img:hover {
+    opacity:0.6;
 }
 
 .section-element-description {
@@ -81,11 +93,19 @@
 
 .section-element-description span {
     display:inline-block;
-    width:100%;
+    width:90%;
     height:20px;
-    margin:5px 0 0 0;
-    padding-left:5%;
+    margin:2.5px 5%;
     color:#515A5A;
+}
+
+.section-element-description span:hover {
+    text-decoration:underline;
+}
+
+.section-element-description span a {
+    text-decoration:none;
+    color:inherit;
 }
 
 @media screen and (max-width:1100px) {

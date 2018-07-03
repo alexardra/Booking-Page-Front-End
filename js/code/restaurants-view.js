@@ -55,7 +55,7 @@ class RestaurantsView extends Multi.inherit(View,Search) {
                 lib.sendJson(todoView._searchJson, "/searchjson.json", function(json) {
                     console.log(json);
                     todoView._searchResultJson = json;
-                    let newUrl = "todo=" + json["destination"];
+                    let newUrl = "restaurant=" + json["destination"];
                     window.location = "#" + newUrl;
                 });
             }
