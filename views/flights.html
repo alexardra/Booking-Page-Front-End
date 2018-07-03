@@ -1,28 +1,45 @@
 <script id="flights-search-bar-template" type="text/html">
-	<div id="search_bar">
+	<form id="search-bar">
 		<div id="flight-search">
-			<div class="flight-destination">
-					<button class="location"><i></i></button>
-					<input type="text" placeholder="{{flights.search.destinations.0}}"></input>
-				</div>
-				<div class="flight-destination">
-					<button class="location"><i></i></button>
-					<input type="text" placeholder="{{flights.search.destinations.1}}"></input>
-				</div>
+
 		</div>
 
-		<div class="calendar-container">
+		<div id="calendar-container">
 			<input class="date" type="date"></input>
 			<input class="date" type="date"></input>
 		</div>
-		<div id="other_container">
-			<div id="other_content">
+		<div id="other-container">
+			<div id="other-content" class="flight-other-content">
 				<span>{{flights.search.details}}</span>
 			</div>
 			<div id="other-dropdown" class="dropdown hidden"></div>
 		</div>
-		<div class="submit-search">
-			<input class="submit-search-input" type="submit" value="{{flights.search.submit}}"></input>
+	    <input id="submit-search" type="submit" value="{{find}}">
+	</form>
+</script>
+
+<script id="flights-destination-template" type="text/html">
+	<div class="flight-destination">
+		<button class="location"><i></i></button>
+		<input type="text" placeholder="{{flights.search.destinations.1}}"></input>
+		<div class="dropdown hidden flights-search-dropdown">
+			<h1>Recently Viewed</h1>
+
+			<div class="dropdown-elements-container">
+
+			</div>
 		</div>
+	</div>
+</script>
+
+
+<script id="select-menu-template" type="text/html">
+	<div id="mainselection">
+	<select>
+		<option class="option" value="0">Economy</option>
+		<option class="option" value="1">Premium Economy</option>
+		<option class="option" value="2">Business Class</option>
+		<option class="option" value="3">First Class</option>
+	</select>
 	</div>
 </script>

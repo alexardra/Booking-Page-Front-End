@@ -1,10 +1,17 @@
 <script id="restaurants-search-bar-template" type="text/html">
 
-	<form id="search_bar" onsubmit="return false;">
+	<form id="search-bar" onsubmit="return false;">
 
-		<div id="restaurants-search">
+		<div id="maxlength-search">
 			<button class="location"><i></i></button>	
 			<input type="text" placeholder="{{restaurants.search.find}}"></input>
+			<div id="todo-search-dropdown" class="dropdown hidden">
+				<h1>Recently Viewed</h1>
+
+				<div id="dropdown-elements-container">
+
+				</div>
+			</div>
 		</div>
 		<input id="submit-search" type="submit" placeholder="{{restaurants.search.submit}}"></input>
 	</form>

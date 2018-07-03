@@ -1,8 +1,8 @@
 <script id="search-bar-template" type="text/html">
-	<form id="search_bar" onsubmit="return false;">
+	<form id="search-bar" onsubmit="return false;">
 		<div id="search-container">
 			<button class="location"><i></i></button>
-	    	<input id="search-input" type="text" placeholder="Destination">	
+	    	<input id="search-input" type="text" placeholder="Destination" autocomplete="off">
 		</div>	
 
 		<div id="calendar-container">
@@ -10,16 +10,18 @@
 			<input class="date" type="date"></input>
 		</div>
 
-	    <div id="other_container">
-	    	<div id="other_content">
+	    <div id="other-container">
+	    	<div id="other-content">
 	    		<i class="human_icon"></i>
-	    		<span>{{details}}</span>
-	    		<i class="arrow_icon"></i>
+				<span>{{details}}</span>
+				
+				<div>
+					<i class="arrow_icon"></i>
+				</div>
 	    	</div>
 	    	<div id="other-dropdown" class="dropdown hidden"></div>
 	    </div>
 	    <input id="submit-search" type="submit" value="{{find}}">
-
 	</form>
 </script>
 
@@ -27,6 +29,9 @@
 <script id="recently-viewed-dropdown" type="text/html">
 	<div id="search-dropdown" class="dropdown hidden">
 		<h1>{{recently viewed}}</h1>
+		<div id="dropdown-elements-container">
+
+		</div>
 	</div>
 </script>
 

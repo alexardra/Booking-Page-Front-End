@@ -1,9 +1,17 @@
 <script id="thingstodo-search-bar-template" type="text/html">
-    <form id="search_bar" onsubmit="return false;">
-		<div id="thingstodo-search">
-			<button class="location"><i></i></button>	
-			<input type="text" placeholder="{{restaurants.search.find}}"></input>
-		</div>
-		<input id="submit-search" type="submit" placeholder="{{restaurants.search.submit}}"></input>
+    <form id="search-bar" onsubmit="return false;">
+			<div id="maxlength-search">
+				<button class="location"><i></i></button>	
+				<input type="text" placeholder="Find thing to do"></input>
+				<div id="todo-search-dropdown" class="dropdown hidden">
+					<h1>Recently Viewed</h1>
+	
+					<div id="dropdown-elements-container">
+	
+					</div>
+				</div>
+
+			</div>
+			<input id="submit-search" type="submit" placeholder="{{restaurants.search.submit}}"></input>
     </form>
 </script>

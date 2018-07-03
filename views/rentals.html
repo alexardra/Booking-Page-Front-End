@@ -1,18 +1,24 @@
 <script id="rentals-search-bar-template" type="text/html">
-	<div id="search_bar">
+	<form id="search-bar">
 		<div id="rentals-search">
-			<div class="rentals-destination">
-				<button class="location"><i></i></button>
-				<input type="text" placeholder="{{rentals.search.destinations}}"></input>
+			<button class="location"><i></i></button>
+			<input id="search-input" type="text" placeholder="{{rentals.search.destinations}}" autocomplete="off"></input>
+			<div id="rentals-search-dropdown" class="dropdown hidden">
+				<h1>Recently Viewed</h1>
+
+				<div id="dropdown-elements-container">
+
+				</div>
 			</div>
+
 		</div>
 
-		<div class="calendar-container">
+		<div id="calendar-container">
 			<input class="date" type="date"></input>
 			<input class="date" type="date"></input>
 		</div>
-		<div class="submit-search">
-			<input class="submit-search-input" type="submit" value="{{rentals.search.submit}}"></input>
-		</div>
-	</div>
+		<input id="submit-search" type="submit" value="{{find}}">
+	</form>
 </script>
+
+
