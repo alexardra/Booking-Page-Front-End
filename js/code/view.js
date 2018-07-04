@@ -47,7 +47,8 @@ class View {
         this._parentNode.innerHTML = "";
     }
 
-    renderView() {
+    renderView(data) {
+        if (data != undefined) this._data = data;
         if (typeof(this._parentNode) == "string") {
             this._parentNode = document.getElementById(this._parentNode);
         }

@@ -9,6 +9,7 @@
 		<a href="#restaurants"><li>{{navigation info.3}}</li></a>
 		<a href="#things-to-do"><li>{{navigation info.4}}</li></a>
 	</ul>
+	<i class="notes-icon"></i>
 	<i class="hamburger"></i>
 </script>
 
@@ -55,6 +56,9 @@
 	<section id="user-pages">
 		<ul>
 			<li>
+				<a href="">{{username}}</a>
+			</li>
+			<li>
 				<i id="bookings-icon"></i>
 				<a href="#bookings">My Bookings</a>
 			</li>
@@ -73,4 +77,34 @@
 		</ul>
 		<button id="logout">Log out</button>
 	</section>
+</script>
+
+<script id="notes-section-template" type="text/html">
+
+	<div class="notes-section-container">
+		<h3>
+			{{heading}}
+		</h3>
+
+		<ul>
+
+		</ul>
+	</div>
+
+</script>
+
+<script id="note-container-template" type="text/html">
+	<li>
+		<div class="note-container">
+			<input type="checkbox" />
+			<div class="note-content" data-toggle="dropdown">
+				<span>{{name}}</span>
+				<i></i>
+			</div>
+			<div class="note-dropdown">
+				<span>{{place}}</span>
+				<span>{{reviews}}</span>
+			</div>
+		</div>
+	</li>
 </script>

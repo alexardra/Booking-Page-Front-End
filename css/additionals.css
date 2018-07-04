@@ -19,7 +19,7 @@
     font-size:1.7em;
     font-weight:300;
     color:#515A5A;
-    padding:20px 0 0 0;
+    padding:20px 10px;
 }
 
 #services-container {
@@ -34,8 +34,7 @@
     float:left;
     text-align:center;
     color:#515A5A;
-    padding-left:15px;
-    padding-right:15px;
+    padding:15px;
 }
 
 .service-container i {

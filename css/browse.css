@@ -33,6 +33,7 @@
 
 .browse-header h3:hover {
     font-size:20px;
+    cursor: pointer;
 }
 
 .browse-header a {

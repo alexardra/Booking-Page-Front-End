@@ -1,0 +1,74 @@
+{
+    "heading" : "Bookmarks",
+    "section headings" : [
+        {"heading" : "Hotels"},
+        {"heading" : "Rentals"},
+        {"heading" : "Flights"},
+        {"heading" : "Restaurants"},
+        {"heading" : "Things to do"}
+    ],
+    "section contents" : [
+        {
+            "section" : [
+                { 
+                    "name" : "Punta Cana", 
+                    "url" : "hotel=puntacana",
+                    "place":"Dominican Repulic",
+                    "reviews":"1,171 Reviews",
+                    "notes" : ""
+                }
+            ]
+        },
+        {
+            "section" : [
+                { 
+                    "name" : "Punta Cana", 
+                    "url" : "hotel=puntacana",
+                    "place":"Dominican Repulic",
+                    "reviews":"1,171 Reviews",
+                    "notes" : ""
+                },
+                { 
+                    "name" : "Punta Cana", 
+                    "url" : "hotel=puntacana",
+                    "place":"Dominican Repulic",
+                    "reviews":"1,171 Reviews",
+                    "notes" : ""
+                }
+            ]
+        },
+        {
+            "section" : [
+                { 
+                    "name" : "Punta Cana", 
+                    "url" : "hotel=puntacana",
+                    "place":"Dominican Repulic",
+                    "reviews":"1,171 Reviews",
+                    "notes" : ""
+                }
+            ]
+        },
+        {
+            "section" : [
+                { 
+                    "name" : "Punta Cana", 
+                    "url" : "hotel=puntacana",
+                    "place":"Dominican Repulic",
+                    "reviews":"1,171 Reviews",
+                    "notes" : ""
+                }
+            ]
+        },
+        {
+            "section" : [
+                { 
+                    "name" : "Punta Cana", 
+                    "url" : "hotel=puntacana",
+                    "place":"Dominican Repulic",
+                    "reviews":"1,171 Reviews",
+                    "notes" : ""
+                }
+            ]
+        }	
+    ]
+}

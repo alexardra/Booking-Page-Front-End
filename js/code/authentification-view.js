@@ -28,9 +28,11 @@ function userLoggedIn(data, viewRenderer){
 	
     dropdown.style.display = "none";
     let userSpace = new View(viewRenderer, "user-settings", "authentication-dropdown");
-    viewRenderer.changeChildView("authentication-dropdown", userSpace);
     let img = document.getElementById("user-icon");
-	img.src = "/avatar.jpg";
+	img.src = response["user avatar"];
+	document.getElementById("authentication-dropdown").innerHTML = "";
+	userSpace.renderView(response);
+
     let logoutButton = document.getElementById('logout');
     // logoutButton.addEventListener("click", userLoggedOut(viewRenderer));
     logoutButton.addEventListener("click", function() {

@@ -1,6 +1,7 @@
 var lib = require("./library.js");
 var View = require("./view.js");
 var HotelsView = require("./hotels-view.js");
+let Notes = require("./notes.js");
 
 class ViewRenderer {
 
@@ -28,7 +29,9 @@ class ViewRenderer {
 
         authentication.renderView();
         let output = Mustache.render(headerTemplate,this._data);
-		lib.append(header,output);
+        lib.append(header,output);
+        Notes.listen(this);
+
     }
 
     renderFooter() {

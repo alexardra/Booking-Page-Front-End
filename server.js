@@ -111,6 +111,13 @@ app.get("/restaurant.json", function(req,res) {
 	res.json(r);
 });
 
+const searchNotes = require("./js/data/searchnotes.json");
+app.post("/searchnotes.json", function(req,res) {
+	let searchJson = req.body;
+	if (searchJson["search type"] == "notes") {
+		res.json(searchNotes);
+	}
+});
 
 app.listen(8000, function() {
 	// visualize running server 
