@@ -41,6 +41,7 @@ class RoutController {
             } else {
                 routController._viewRenderer.changeView(hotelsView);
             }
+            routController._viewRenderer.addCurrentPageIndentifier("hotels");
             routController._currentRout = hotelsView;
         });
 
@@ -59,6 +60,7 @@ class RoutController {
         Router.add("flights", function() {
             let flightsView = routController._viewFactory.createView("flights");
             routController._viewRenderer.changeView(flightsView);
+            routController._viewRenderer.addCurrentPageIndentifier("flights");
             routController._currentRout = flightsView;
         });
 
@@ -71,6 +73,7 @@ class RoutController {
             console.log(routController._currentRout);
             let rentalsView = routController._viewFactory.createView("rentals");
             routController._viewRenderer.changeView(rentalsView);
+            routController._viewRenderer.addCurrentPageIndentifier("rentals");
             routController._currentRout = rentalsView;
         });
 
@@ -83,6 +86,7 @@ class RoutController {
             console.log(routController._currentRout);
             let restaurantsView = routController._viewFactory.createView("restaurants");
             routController._viewRenderer.changeView(restaurantsView);
+            routController._viewRenderer.addCurrentPageIndentifier("restaurants");
             routController._currentRout = restaurantsView;
         });
 
@@ -120,6 +124,7 @@ class RoutController {
         Router.add("things-to-do", function() {
             let thingsToDoView = routController._viewFactory.createView("things-to-do");
             routController._viewRenderer.changeView(thingsToDoView);
+            routController._viewRenderer.addCurrentPageIndentifier("things-to-do");
             routController._currentRout = thingsToDoView;          
         });
     }

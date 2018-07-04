@@ -104,7 +104,7 @@
     text-decoration:underline;
 }
 
-.section-element-description span a {
+.section-element-description a {
     text-decoration:none;
     color:inherit;
 }

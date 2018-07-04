@@ -3,19 +3,20 @@ let View = require("./view.js");
 
 module.exports = {
     listen : function(viewRenderer) {
-        console.log(viewRenderer);
+
         let notesIcons = document.getElementsByClassName("notes-icon");
         let numNotesIcons = notesIcons.length;
 
-        console.log("---");
+
+        let sideBarView;
 
         for (let i = 0; i < numNotesIcons; i++) {
             notesIcons[i].addEventListener("click", function() {
                 
                 let notesSideBar = document.getElementById("notes-side-bar");
                 if (notesSideBar == undefined) {
-                    console.log("-");
 
+                    
                     let usernamePlaceholder = document.querySelector("#user-pages ul li a");
                     if (usernamePlaceholder == undefined) {
                         console.log("not logged in");
@@ -32,23 +33,19 @@ module.exports = {
                             let notesContainer = createNotesContainer(json["heading"]);
 
                             // create sections in notes-side-bar
-                            let sections = new View(viewRenderer,"notes-section-template",notesContainer,numSections,"section headings",json);
-                            sections.renderView();
+                            sideBarView = new View(viewRenderer,"notes-section-template",notesContainer,numSections,"section headings",json);
+                            sideBarView.renderView();
 
                             let content = json["section contents"];
-                            // console.log(content);
                             let lists = document.querySelectorAll(".notes-section-container ul")
 
                             for (let i = 0; i < numSections; i++) {
                                 let currentContent = content[i];
-                                console.log(currentContent);
                                 let numNotes = currentContent["section"].length;
-                                console.log(numNotes);
                                 let parentList = lists[i];
 
                                 let currentView = new View(viewRenderer,"note-container-template", parentList, numNotes,"section",currentContent);
-                                // console.log(currentView);
-                                sections.addChildView(currentView);
+                                sideBarView.addChildView(currentView);
                                 currentView.renderView(currentContent);
 
                                 let ds = document.getElementsByClassName("note-content");
@@ -59,9 +56,12 @@ module.exports = {
                                     });
                                 }
                             }
+                            sectionDragAndDrop(viewRenderer);
                         });
                     }
-                }
+                } else {
+                    notesSideBar.parentNode.removeChild(notesSideBar);
+                }   
             });
         }
     }
@@ -80,4 +80,41 @@ function createNotesContainer(heading) {
     notesContainer.appendChild(notesHeading);  
     
     return notesContainer;
+}
+
+
+function sectionDragAndDrop(viewRenderer) {
+    let dropToElement = document.getElementById("notes-side-bar");
+
+    dropToElement.addEventListener("dragover", function(evnt) {
+        // allow drag
+        evnt.preventDefault();
+    });
+
+    dropToElement.addEventListener("drop",function(evnt) {
+        let name = evnt.dataTransfer.getData("name");
+        let reviews = evnt.dataTransfer.getData("reviews");
+        let place = evnt.dataTransfer.getData("place");
+
+        let currentPage = document.getElementsByClassName("current-page")[0].parentNode.href;
+        let link = currentPage.substring(currentPage.indexOf("#") + 1);
+        let renderJson = {
+            "section" : [
+                { 
+                    "name" : name,
+                    "url" : link,
+                    "place" : place,
+                    "reviews" : reviews,
+                    "note" : ""
+                }
+            ]
+        }
+        let index = ["hotels","rentals","flights","restaurants","things-to-do"].indexOf(link);
+        let notesSectionContainer = document.getElementsByClassName("notes-section-container")[index];
+        let parentToAppend = notesSectionContainer.getElementsByTagName("ul")[0];
+        console.log(parentToAppend);
+        console.log(renderJson);
+        let currentView = new View(viewRenderer,"note-container-template",parentToAppend,1,"section",renderJson);
+        currentView.renderView();
+    });
 }

@@ -34,6 +34,30 @@ class ViewRenderer {
 
     }
 
+    addCurrentPageIndentifier(nextPageLink) {
+        let currentPage = document.getElementsByClassName("current-page");
+        let headerNavMenu = document.getElementById("header-nav-menu");
+
+        if (currentPage.length == 0) { // page first load
+            lib.addClass(headerNavMenu.getElementsByTagName("li")[0],"current-page");
+        } else {
+            let pageLinks = headerNavMenu.getElementsByTagName("a");
+            let numPageLinks = pageLinks.length;
+
+            let nextPage;
+            for (let i = 0; i < numPageLinks; i++) {
+                let rawLink = pageLinks[i].href;
+                let link = rawLink.substring(rawLink.indexOf("#") + 1);
+                if (nextPageLink == link) {
+                    nextPage = pageLinks[i].childNodes;
+                }
+            }
+
+            lib.removeClass(currentPage,"current-page");
+            lib.addClass(nextPage,"current-page");
+        }
+    }
+
     renderFooter() {
         let footerTemplate = lib.constructTemplate(this._templates,"home-footer");
         let output = Mustache.render(footerTemplate,this._data);
