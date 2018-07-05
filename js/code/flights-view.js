@@ -89,8 +89,8 @@ class FlightsView extends Multi.inherit(View,Search) {
             if (flightsView.parseSearchBar()) {
                 lib.sendJson(flightsView._searchJson, "/searchjson.json", function(json) {
                     console.log(json);
-                    let newUrl = "flight=" + flightsView._searchJson["from"] + "%" +
-                                flightsView._searchJson["to"];
+                    flightsView._searchResultJson = json;
+                    let newUrl = "destination=" + json["name"];
                     window.location = "#" + newUrl;
                 });
             }

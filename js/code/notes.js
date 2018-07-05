@@ -47,21 +47,8 @@ module.exports = {
                                 let currentView = new View(viewRenderer,"note-container-template", parentList, numNotes,"section",currentContent);
                                 sideBarView.addChildView(currentView);
                                 currentView.renderView(currentContent);
-
-                            //     let ds = document.getElementsByClassName("note-content");
-                            //     for (let i = 0; i < ds.length; i++) {
-                            //         console.log(ds[i]);
-                            //         console.log(ds[i].getElementsByTagName("span")[0]);
-                            //         ds[i].getElementsByTagName("span")[0].addEventListener("click", function(evnt) {
-                            //             evnt.stopPropagation();
-                            //             let dropdown = ds[i].parentNode.getElementsByClassName("note-dropdown")[0];
-                            //             lib.removeClass(dropdown,"hidden");
-                            //         });
-                            //         ds[i].getElementsByTagName("i")[0].addEventListener("click", function() {
-                            //             console.log("delete");
-                            //         });
-                            //     }
                             }
+                            removeBookmarksListener();
                             sectionDragAndDrop(viewRenderer);
                         });
                     }
@@ -105,7 +92,6 @@ function sectionDragAndDrop(viewRenderer) {
         let currentPage = document.getElementsByClassName("current-page")[0].parentNode.href;
         let link = currentPage.substring(currentPage.indexOf("#") + 1);
         let url = "#" + link.substring(0,link.length-1) + "=" + encodeURI(name);
-        console.log(url);
         let renderJson = {
             "section" : [
                 { 
@@ -120,7 +106,48 @@ function sectionDragAndDrop(viewRenderer) {
         let index = ["hotels","rentals","flights","restaurants","things-to-do"].indexOf(link);
         let notesSectionContainer = document.getElementsByClassName("notes-section-container")[index];
         let parentToAppend = notesSectionContainer.getElementsByTagName("ul")[0];
-        let currentView = new View(viewRenderer,"note-container-template",parentToAppend,1,"section",renderJson);
-        currentView.renderView();
+
+        let existingBookmarks = parentToAppend.getElementsByClassName("note-content");
+        let numExistingBookmarks = existingBookmarks.length;
+        let alreadyExists = false;
+        for (let i = 0; i < numExistingBookmarks; i++) {
+            let bookmarkName = existingBookmarks[i].getElementsByTagName("span")[0].innerHTML.trim();
+            if (name == bookmarkName) {
+                alreadyExists = true;
+                break;
+            }
+        }
+        if (!alreadyExists) {
+            let currentView = new View(viewRenderer,"note-container-template",parentToAppend,1,"section",renderJson);
+            currentView.renderView();
+            
+            addBookmark(renderJson);
+        }
+
     });
+}
+
+
+function addBookmark(renderJson) {
+
+    lib.sendJson(renderJson,"/bookmark.json", function(json) {
+        console.log(json);
+    });
+}
+
+function removeBookmarksListener() {
+    console.log("---=");
+    let bookmarks = document.getElementsByClassName("note-dropdown");
+    let numBookmarks = bookmarks.length;
+    console.log(numBookmarks);
+
+
+    for (let i = 0; i < numBookmarks; i++) {
+        let removeButton = bookmarks[i].getElementsByTagName("button")[0];
+        removeButton.addEventListener("click", function() {
+            console.log(this.parentNode.parentNode);
+            let elementToRemove = this.parentNode.parentNode.parentNode;
+            elementToRemove.parentNode.removeChild(elementToRemove);
+        });
+    }
 }

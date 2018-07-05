@@ -38,8 +38,8 @@ app.post("/users.json", function(req,res) {
 
 const restaurant = require("./js/data/restaurant.json");
 const hotel = require("./js/data/hotel.json");
-const flight = require("./js/data/flight.json");
-const rental = require("./js/data/rental.json");
+// const flight = require("./js/data/flight.json");
+// const rental = require("./js/data/rental.json");
 const todo = require("./js/data/todo.json");
 app.post("/searchjson.json", function(req, res) {
 	var searchJson = req.body; // json object
@@ -52,10 +52,15 @@ app.post("/searchjson.json", function(req, res) {
 		res.json(hotel);
 	} else
 	if (searchJson["search type"] == "flight") {
-		res.json(flight);
+		let flight = {"name" : "Istanbul"};
+		let combinedJson = Object.assign(flight, destinations);
+		// fs.writeFile("./js/data/flight.json", JSON.stringify(combinedJson), 'utf8',function() {});
+		res.json(combinedJson);
 	} else
 	if (searchJson["search type"] == "rental") {
-		res.json(rental);
+		let rental = {"name":"Palermo Apartments"};
+		let combinedJson = Object.assign(rental, destinations);
+		res.json(combinedJson);
 	} else 
 	if (searchJson["search type"] == "things to do") {
 		res.json(todo);

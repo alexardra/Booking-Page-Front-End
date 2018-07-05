@@ -9,6 +9,17 @@
 	</section>
 </script>
 
+<!-- NAVIGATION FOR DESTINATIONS SEARCH -->
+<script id="destinations-navigation-page" type="text/html">
+	<!-- <section id="cover" class="hotels-background"></section> -->
+	<section id="browse">
+			<div class="filler">
+	
+			</div>
+		</section>
+	<section id="additionals-container"></section>
+</script>
+
 <!-- ADDITIONALS SECTION -->
 <script id="additionals-template" type="text/html">
 
@@ -47,24 +58,24 @@
 <script id="section-element-template" type="text/html">
 	<li>
 		<div class="section-element" draggable="true">
-			<a href="">
+			<a href="#{{section}}={{name}}">
 				<img src="{{url}}">
 			</a>
 			<div class="section-element-description">
-				<a href="">
+				<a href="#{{section}}={{name}}">
 					<span>
 						{{name}}	
 					</span>
 				</a>
-				<a href="">
-						<span>
-							{{reviews}}	
-						</span>
+				<a href="#reviews={{name}}">
+					<span>
+						{{reviews}}	
+					</span>
 				</a>
-				<a href="">
-						<span>
-							{{place}}	
-						</span>
+				<a href="#destination={{place}}">
+					<span>
+						{{place}}	
+					</span>
 				</a>
 			</div>
 		</div>

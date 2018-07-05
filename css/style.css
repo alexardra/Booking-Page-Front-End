@@ -395,6 +395,21 @@ ul{
 	border:1px solid #DBE2E9;
 }
 
+.note-dropdown button {
+    display:inline-block;
+    height:100%;
+	width:90%;
+	margin:2% 5%;
+    line-height:14px;
+	padding:5px;
+	font-weight:300;
+	font-size:0.8em;
+	overflow: hidden;
+    text-overflow:ellipsis;
+	white-space: nowrap;
+	border:1px solid #DBE2E9;
+}	
+.note-dropdown button:focus {outline:0;}
 
 .note-container > .note-dropdown {
 	max-height: 0;
@@ -426,6 +441,7 @@ ul{
 	float:left;
 	padding-left:3%;
 	padding-right:3%;
+	display:flex;
 }
 #header-nav-menu li {
 	display:inline-block;
@@ -434,6 +450,7 @@ ul{
 	font-size:1.2em;
 	color: #515A5A;
 	padding:0 10px;
+	height:50px;
 	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
 }
 

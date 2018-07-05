@@ -46,8 +46,10 @@ class RoutController {
         });
 
         Router.add("destination", function() {
-            console.log("destinations");
-            let destinationsView = routController._viewFactory.createView("destinations");
+            let infoJson = routController._currentRout._searchResultJson;
+            let section = document.getElementsByClassName("current-page")[0].innerHTML.trim().toLocaleLowerCase();
+            section = section.substring(0,section.length - 1);
+            let destinationsView = routController._viewFactory.createView("destinations",[infoJson,section]);
             routController._viewRenderer.changeView(destinationsView);
             // routController._viewRenderer.addCurrentPageIndentifier("flights");
             routController._currentRout = destinationsView;
@@ -134,6 +136,11 @@ class RoutController {
             routController._viewRenderer.changeView(thingsToDoView);
             routController._viewRenderer.addCurrentPageIndentifier("things-to-do");
             routController._currentRout = thingsToDoView;          
+        });
+
+        Router.add("user", function() {
+            // console.log(window.location);
+            let currentUrl = window.location.href;
         });
     }
 

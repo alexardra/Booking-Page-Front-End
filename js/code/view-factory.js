@@ -32,7 +32,7 @@ class ViewFactory {
             case "rental":
                 return new RentalView(args[0]);
             case "destinations":
-                return new DestinationsView();
+                return new DestinationsView(args[0],args[1]);
         }
     }
 }

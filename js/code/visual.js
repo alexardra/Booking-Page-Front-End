@@ -35,26 +35,31 @@ module.exports = {
         }
     },
 
+    renderBrowseSectionWithInfo(viewRenderer, parentTemplate, data) {
+        let visuals = this;
+        let browse = new View(viewRenderer, "browse-template", "browse", 5, "sections", data);
+
+        parentTemplate.addChildView(browse);
+        browse.renderView();
+    
+        let browseSectionUls = document.querySelectorAll(".browse-section ul");
+        let numbrowseSectionUls = browseSectionUls.length;
+        for (let i = 0; i < numbrowseSectionUls; i++) {
+            for (let j = 0; j < 4; j++) {
+                let sectionInfo = data["sections"][i]["overviews"][j];
+                let section = new View(viewRenderer,"section-element-template",browseSectionUls[i],1,undefined,sectionInfo);
+                browse.addChildView(section);
+                section.renderView();
+                visuals.browseSectionDragListen();
+            }
+        }        
+    },
+
     renderBrowseSection : function(viewRenderer, parentTemplate, url) {
         let visuals = this;
 
         lib.getJsonWithFetch(url, function(data) {
-            let browse = new View(viewRenderer, "browse-template", "browse", 5, "sections", data);
-            parentTemplate.addChildView(browse);
-            browse.renderView();
-        
-            let browseSectionUls = document.querySelectorAll(".browse-section ul");
-            let numbrowseSectionUls = browseSectionUls.length;
-            for (let i = 0; i < numbrowseSectionUls; i++) {
-                for (let j = 0; j < 4; j++) {
-                    let sectionInfo = data["sections"][i]["overviews"][j];
-                    let section = new View(viewRenderer,"section-element-template",browseSectionUls[i],1,undefined,sectionInfo);
-                    browse.addChildView(section);
-                    section.renderView();
-                    visuals.browseSectionDragListen();
-                }
-            }
-
+            visuals.renderBrowseSectionWithInfo(viewRenderer, parentTemplate, data)
         });
     }
 }

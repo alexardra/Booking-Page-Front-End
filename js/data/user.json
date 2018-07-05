@@ -1,0 +1,11 @@
+{
+    "id" : "1",
+    "name" : "Tatia",
+    "avatar" : "/avatar.jpg",
+    "user details" : {
+        "age" : "22",
+        "gender" : "female",
+        "location" : "Tbilisi, Georgia",
+        "about" : ""
+    }
+}

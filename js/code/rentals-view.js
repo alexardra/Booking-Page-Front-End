@@ -73,7 +73,7 @@ class RentalsView extends Multi.inherit(View,Search) {
                 lib.sendJson(rentalsView._searchJson, "/searchjson.json", function(json) {
                     console.log(json);
                     rentalsView._searchResultJson = json;
-                    let newUrl = "rental=" + json["rental name"];
+                    let newUrl = "destination=" + json["name"];
                     window.location = "#" + newUrl;
                 });
             }
