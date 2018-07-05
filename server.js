@@ -41,7 +41,7 @@ const flight = require("./js/data/flight.json");
 const rental = require("./js/data/rental.json");
 const todo = require("./js/data/todo.json");
 app.post("/searchjson.json", function(req, res) {
-	let searchJson = req.body; // json object
+	var searchJson = req.body; // json object
 	if (searchJson["search type"] == "restaurants") {
 		res.json(restaurant);
 	} else
@@ -61,9 +61,9 @@ app.post("/searchjson.json", function(req, res) {
 
 app.post("/searchinput.json", function(req,res) {
 
-	let searchJson = req.body;
+	var searchJson = req.body;
 	if (searchJson["search type"] == "hotels") {
-		let jsonToSend = {	
+		var jsonToSend = {	
 			"recently viewed info": [
 				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
 				{"location": "United States", "additional info": "North America"}
@@ -71,7 +71,7 @@ app.post("/searchinput.json", function(req,res) {
 		}
 		res.json(jsonToSend);
 	} else if (searchJson["search type"] == "rentals") {
-		let jsonToSend = {	
+		var jsonToSend = {	
 			"recently viewed info": [
 				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
 				{"location": "United States", "additional info": "North America"}
@@ -79,7 +79,7 @@ app.post("/searchinput.json", function(req,res) {
 		}
 		res.json(jsonToSend);
 	} else if (searchJson["search type"] == "flights") {
-		let jsonToSend = {	
+		var jsonToSend = {	
 			"recently viewed info": [
 				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
 				{"location": "United States", "additional info": "North America"}
@@ -87,7 +87,7 @@ app.post("/searchinput.json", function(req,res) {
 		}
 		res.json(jsonToSend);	
 	} else if (searchJson["search type"] == "things to do") {
-		let jsonToSend = {	
+		var jsonToSend = {	
 			"recently viewed info": [
 				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
 				{"location": "United States", "additional info": "North America"}
@@ -95,7 +95,7 @@ app.post("/searchinput.json", function(req,res) {
 		}
 		res.json(jsonToSend);	
 	} else if (searchJson["search type"] == "restaurants") {
-		let jsonToSend = {	
+		var jsonToSend = {	
 			"recently viewed info": [
 				{"location": "Tbilisi", "additional info": "Georgia, Europe"},
 				{"location": "United States", "additional info": "North America"}
@@ -113,7 +113,7 @@ app.get("/restaurant.json", function(req,res) {
 
 const searchNotes = require("./js/data/searchnotes.json");
 app.post("/searchnotes.json", function(req,res) {
-	let searchJson = req.body;
+	var searchJson = req.body;
 	if (searchJson["search type"] == "notes") {
 		res.json(searchNotes);
 	}

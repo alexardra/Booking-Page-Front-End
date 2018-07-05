@@ -12,7 +12,7 @@
             "section" : [
                 { 
                     "name" : "Punta Cana", 
-                    "url" : "hotel=puntacana",
+                    "url" : "#hotel=Punta%20Cana",
                     "place":"Dominican Repulic",
                     "reviews":"1,171 Reviews",
                     "notes" : ""
@@ -23,14 +23,14 @@
             "section" : [
                 { 
                     "name" : "Punta Cana", 
-                    "url" : "hotel=puntacana",
+                    "url" : "#hotel=Punta%20Cana",
                     "place":"Dominican Repulic",
                     "reviews":"1,171 Reviews",
                     "notes" : ""
                 },
                 { 
                     "name" : "Punta Cana", 
-                    "url" : "hotel=puntacana",
+                    "url" : "#hotel=Punta%20Cana",
                     "place":"Dominican Repulic",
                     "reviews":"1,171 Reviews",
                     "notes" : ""
@@ -41,7 +41,7 @@
             "section" : [
                 { 
                     "name" : "Punta Cana", 
-                    "url" : "hotel=puntacana",
+                    "url" : "#hotel=Punta%20Cana",
                     "place":"Dominican Repulic",
                     "reviews":"1,171 Reviews",
                     "notes" : ""
@@ -52,7 +52,7 @@
             "section" : [
                 { 
                     "name" : "Punta Cana", 
-                    "url" : "hotel=puntacana",
+                    "url" : "#hotel=Punta%20Cana",
                     "place":"Dominican Repulic",
                     "reviews":"1,171 Reviews",
                     "notes" : ""
@@ -63,7 +63,7 @@
             "section" : [
                 { 
                     "name" : "Punta Cana", 
-                    "url" : "hotel=puntacana",
+                    "url" : "#hotel=Punta%20Cana",
                     "place":"Dominican Repulic",
                     "reviews":"1,171 Reviews",
                     "notes" : ""

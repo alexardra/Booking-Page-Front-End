@@ -48,13 +48,19 @@ module.exports = {
                                 sideBarView.addChildView(currentView);
                                 currentView.renderView(currentContent);
 
-                                let ds = document.getElementsByClassName("note-content");
-                                for (let i = 0; i < ds.length; i++) {
-                                    ds[i].addEventListener("click", function() {
-                                        let dropdown = ds[i].parentNode.getElementsByClassName("note-dropdown")[0];
-                                        lib.removeClass(dropdown,"hidden");
-                                    });
-                                }
+                            //     let ds = document.getElementsByClassName("note-content");
+                            //     for (let i = 0; i < ds.length; i++) {
+                            //         console.log(ds[i]);
+                            //         console.log(ds[i].getElementsByTagName("span")[0]);
+                            //         ds[i].getElementsByTagName("span")[0].addEventListener("click", function(evnt) {
+                            //             evnt.stopPropagation();
+                            //             let dropdown = ds[i].parentNode.getElementsByClassName("note-dropdown")[0];
+                            //             lib.removeClass(dropdown,"hidden");
+                            //         });
+                            //         ds[i].getElementsByTagName("i")[0].addEventListener("click", function() {
+                            //             console.log("delete");
+                            //         });
+                            //     }
                             }
                             sectionDragAndDrop(viewRenderer);
                         });
@@ -92,17 +98,19 @@ function sectionDragAndDrop(viewRenderer) {
     });
 
     dropToElement.addEventListener("drop",function(evnt) {
-        let name = evnt.dataTransfer.getData("name");
-        let reviews = evnt.dataTransfer.getData("reviews");
-        let place = evnt.dataTransfer.getData("place");
+        let name = evnt.dataTransfer.getData("name").trim();
+        let reviews = evnt.dataTransfer.getData("reviews").trim();
+        let place = evnt.dataTransfer.getData("place").trim();
 
         let currentPage = document.getElementsByClassName("current-page")[0].parentNode.href;
         let link = currentPage.substring(currentPage.indexOf("#") + 1);
+        let url = "#" + link.substring(0,link.length-1) + "=" + encodeURI(name);
+        console.log(url);
         let renderJson = {
             "section" : [
                 { 
                     "name" : name,
-                    "url" : link,
+                    "url" : url,
                     "place" : place,
                     "reviews" : reviews,
                     "note" : ""
@@ -112,8 +120,6 @@ function sectionDragAndDrop(viewRenderer) {
         let index = ["hotels","rentals","flights","restaurants","things-to-do"].indexOf(link);
         let notesSectionContainer = document.getElementsByClassName("notes-section-container")[index];
         let parentToAppend = notesSectionContainer.getElementsByTagName("ul")[0];
-        console.log(parentToAppend);
-        console.log(renderJson);
         let currentView = new View(viewRenderer,"note-container-template",parentToAppend,1,"section",renderJson);
         currentView.renderView();
     });

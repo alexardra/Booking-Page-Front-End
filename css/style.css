@@ -321,6 +321,7 @@ ul{
 	width:100%;
 	min-height:20%;
 	margin:10px 0;
+	border-top:0.5px solid rgb(206, 227, 236);
 }
 
 .notes-section-container h3 {
@@ -332,29 +333,29 @@ ul{
 .notes-section-container ul {
 	width:100%;
 	/* min-height:0px; */
+	padding:5% 0;
 }
 
 .notes-section-container ul li {
-    /* width:100%;
-    min-height:50px; */
+	margin:2% 0;
 }
 
 .note-container {
-	/* width:100%;
-	min-height:100%; */
 	position: relative;
+	border:1px solid rgb(183, 214, 230);
+	width: 95%;
+    margin: 2.5% 2.5%;
 }
 
 .note-content {
-
+	height:40px;
 }
 
 .note-content span {
-    display:inline-block;
-    height:100%;
-    width:calc(100% - 50px);
+	display:inline-block;
+	width: calc(101% - 50px);
     line-height:20px;
-	padding:15px;
+	padding:10px;
 	font-weight:300;
 	font-size:1em;
 	overflow: hidden;
@@ -366,26 +367,32 @@ ul{
 	text-decoration:underline;
 }
 
-.note-content i {
+
+.notes-section-container i {
 	background: url('/delete-icon.png') no-repeat 0 0;
 	width:30px;
 	height:30px;
 	float:right;
-	margin:10px;
+	margin:5px;
 }
+
+.note-content i:hover {
+	border:3px solid blue;
+}	
 
 .note-dropdown span {
     display:inline-block;
     height:100%;
-    width:calc(100% - 50px);
-    line-height:20px;
-	padding:15px;
+	width:90%;
+	margin:1% 5%;
+    line-height:14px;
+	padding:5px;
 	font-weight:300;
-	font-size:1em;
+	font-size:0.8em;
 	overflow: hidden;
     text-overflow:ellipsis;
 	white-space: nowrap;
-	border:1px solid red;
+	border:1px solid #DBE2E9;
 }
 
 
