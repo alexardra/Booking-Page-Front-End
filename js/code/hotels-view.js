@@ -81,7 +81,7 @@ class HotelsView extends Multi.inherit(View,Search)  {
                 lib.sendJson(hotelsView._searchJson, "/searchjson.json", function(json) {
                     console.log(json);
                     hotelsView._searchResultJson = json;
-                    let newUrl = "hotel=" + json["name"];
+                    let newUrl = "destination=" + json["name"];
                     window.location = "#" + newUrl;
                 });
             }

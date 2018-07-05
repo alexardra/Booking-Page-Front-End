@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var fs = require("fs");
 var app = express();
 
 app.use(bodyParser.json());
@@ -46,6 +47,8 @@ app.post("/searchjson.json", function(req, res) {
 		res.json(restaurant);
 	} else
 	if (searchJson["search type"] == "hotel") {
+		let combinedJson = Object.assign(hotel, destinations);
+		fs.writeFile("./js/data/hotel.json", JSON.stringify(combinedJson), 'utf8',function() {});
 		res.json(hotel);
 	} else
 	if (searchJson["search type"] == "flight") {
@@ -117,6 +120,18 @@ app.post("/searchnotes.json", function(req,res) {
 	if (searchJson["search type"] == "notes") {
 		res.json(searchNotes);
 	}
+});
+
+app.post("/bookmark.json", function(req,res) {
+	let bookmark = req.body;
+	let entry = bookmark["section"][0];
+
+	let type = entry["url"].substring(1,entry["url"].indexOf("="));
+	let index = ["hotel", "rental", "flight", "restaurant", "things-to-do"].indexOf(type);
+	let insertInto = searchNotes["section contents"][index]["section"];
+	insertInto.push(entry);
+
+	fs.writeFile("./js/data/searchnotes.json", JSON.stringify(searchNotes), 'utf8',function() {});
 });
 
 app.listen(8000, function() {

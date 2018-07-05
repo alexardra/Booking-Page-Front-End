@@ -45,6 +45,14 @@ class RoutController {
             routController._currentRout = hotelsView;
         });
 
+        Router.add("destination", function() {
+            console.log("destinations");
+            let destinationsView = routController._viewFactory.createView("destinations");
+            routController._viewRenderer.changeView(destinationsView);
+            // routController._viewRenderer.addCurrentPageIndentifier("flights");
+            routController._currentRout = destinationsView;
+        });
+
         Router.add("hotel", function() {
             console.log(routController._currentRout);
             let infoJson = routController._currentRout._searchResultJson;
