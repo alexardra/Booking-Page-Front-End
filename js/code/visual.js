@@ -35,7 +35,8 @@ module.exports = {
         }
     },
 
-    renderBrowseSectionWithInfo(viewRenderer, parentTemplate, data) {
+    renderBrowseSectionWithInfo(viewRenderer, parentTemplate, data, section) {
+        this.fillInfo(data,section);
         let visuals = this;
         let browse = new View(viewRenderer, "browse-template", "browse", 5, "sections", data);
 
@@ -55,11 +56,26 @@ module.exports = {
         }        
     },
 
-    renderBrowseSection : function(viewRenderer, parentTemplate, url) {
+    renderBrowseSection : function(viewRenderer, parentTemplate, url, section) {
         let visuals = this;
 
         lib.getJsonWithFetch(url, function(data) {
-            visuals.renderBrowseSectionWithInfo(viewRenderer, parentTemplate, data)
+            visuals.renderBrowseSectionWithInfo(viewRenderer, parentTemplate, data, section);
         });
-    }
+    },
+
+    fillInfo(info, section) {
+
+		let browseSections = info["sections"];
+		let numBrowseSections = browseSections.length;
+
+		for (let i = 0; i < numBrowseSections; i++) {
+			let overviews = browseSections[i]["overviews"];
+			let numOverviews = overviews.length;
+
+			for (let j = 0; j < numOverviews; j++) {
+				overviews[j]["section"] = section;
+			}
+		}
+	}
 }

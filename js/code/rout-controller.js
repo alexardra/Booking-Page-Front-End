@@ -51,20 +51,21 @@ class RoutController {
             section = section.substring(0,section.length - 1);
             let destinationsView = routController._viewFactory.createView("destinations",[infoJson,section]);
             routController._viewRenderer.changeView(destinationsView);
-            // routController._viewRenderer.addCurrentPageIndentifier("flights");
             routController._currentRout = destinationsView;
         });
 
         Router.add("hotel", function() {
-            console.log(routController._currentRout);
             let infoJson = routController._currentRout._searchResultJson;
-            console.log(infoJson);
-            routController._viewRenderer.changeView(routController._viewFactory.createView("hotel",[infoJson]));
+            // routController._viewRenderer.changeView(routController._viewFactory.createView("hotel",[infoJson]));
+
+            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[infoJson]));
         });
 
         
         Router.add("about", function() {
-            console.log("change to about page");    
+            lib.getJsonWithFetch("about.json", function(data) {
+                routController._viewRenderer.changeView(routController._viewFactory.createView("about",[data])); 
+            });
         });
         
         Router.add("flights", function() {
@@ -101,7 +102,6 @@ class RoutController {
         });
 
         Router.add("restaurant", function() {
-            console.log(routController._currentRout);
             let infoJson = routController._currentRout._searchResultJson;
             routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[infoJson]));
         });

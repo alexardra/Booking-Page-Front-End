@@ -67,7 +67,7 @@ class HotelsView extends Multi.inherit(View,Search)  {
         navigationPage.renderView();
 
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
-        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
+        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json", "hotel");
 
         this.formatCalendarInSearchBar();
         this.listenToEvents();

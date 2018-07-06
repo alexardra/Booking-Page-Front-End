@@ -10,6 +10,7 @@ class RestaurantView extends View {
 
 
     constructView(viewRenderer) {
+        this._viewRenderer = viewRenderer;
         let cover = new View(viewRenderer,"restaurant-header","app",undefined,undefined,this._info);
 
         let overview = new View(viewRenderer,"restaurant-overview","app", undefined,undefined,this._info);
@@ -64,6 +65,7 @@ class RestaurantView extends View {
         cover.renderView();
 
         this.assignPercentsToProgressBars();
+        this.listen();
     }
 
     assignPercentsToProgressBars() {
@@ -81,6 +83,61 @@ class RestaurantView extends View {
             let currentPercentValue = (parseInt(ratingInfo[i]["value"]) / 5) * 100;
             progressBars[i + 5].value = currentPercentValue;
         }
+    }
+
+    listen() {
+        this.addQuestion();
+    }
+
+    addQuestion() {
+        let restaurantView = this;
+        let buttonParent = document.getElementById("qna-header");
+        let qnaQuestions = document.getElementById("qna-questions");
+
+        let addQuestionButton = buttonParent.getElementsByTagName("button")[0];
+
+        addQuestionButton.addEventListener("click", function() {
+    
+            if (qnaQuestions.childNodes[0].tagName == undefined) {
+                let textarea = document.createElement("textarea");
+                let submitButton = document.createElement("button");
+                textarea.placeholder = restaurantView._info["q&n data"][1];
+                
+                submitButton.innerHTML = restaurantView._info["q&n data"][2];
+                qnaQuestions.insertBefore(submitButton,qnaQuestions.childNodes[0]);
+                qnaQuestions.insertBefore(textarea,qnaQuestions.childNodes[0]);
+
+                submitButton.addEventListener("click", function() {
+                    let text = textarea.value;
+                    if (text != "") {
+                        let usernameContainer = document.getElementById("user-pages");
+                        if (usernameContainer != undefined) {
+                            let name = usernameContainer.getElementsByTagName("a")[0].innerHTML.trim();
+                            let avatarUrl = document.getElementById("user-icon").src;
+
+                            let currentUrl = window.location.href;
+                            let section = currentUrl.substring(currentUrl.indexOf("#") + 1, currentUrl.indexOf("="));
+
+                            let jsonToSend = {
+                                // "section" : section,
+                                "question" : text,
+                                "author" : name,
+                                "author avatar" : avatarUrl,
+                            }
+                            lib.sendJson(jsonToSend,"/addquestion.json", function(json) {
+                                let question = new View(restaurantView._viewRenderer,"restaurant-qna-comment",qnaQuestions,1,undefined, jsonToSend);
+                                question.renderView();
+                                console.log(question);
+                            });
+                            
+                        } else {
+                            console.log('need authentication');
+                        }
+
+                    }
+                });
+            } 
+        }); 
     }
 }
 

@@ -31,6 +31,11 @@ app.get("/templates.html", function(req,res) {
 	res.sendFile(__dirname + "/html/templates.html");
 });
 
+const about = require("./js/data/about.json");
+app.get("/about.json", function(req,res) {
+	res.json(about);
+});
+
 const users = require("./js/data/users.json");
 app.post("/users.json", function(req,res) {
 	res.json(users);
@@ -137,6 +142,18 @@ app.post("/bookmark.json", function(req,res) {
 	insertInto.push(entry);
 
 	fs.writeFile("./js/data/searchnotes.json", JSON.stringify(searchNotes), 'utf8',function() {});
+});
+
+app.post("/contact.json", function(req,res) {
+	let contactJson = req.body;
+	fs.writeFile("./js/data/contact.json", JSON.stringify(contactJson), 'utf8',function() {});
+});
+
+app.post("/addquestion.json", function(req,res) {
+	let questionJson = req.body;
+	restaurant["q&n"].push(questionJson);
+	fs.writeFile("./js/data/restaurant.json", JSON.stringify(restaurant), 'utf8',function() {});
+	res.json(restaurant);
 });
 
 app.listen(8000, function() {
