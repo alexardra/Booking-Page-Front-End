@@ -52,19 +52,19 @@ app.post("/searchjson.json", function(req, res) {
 		res.json(restaurant);
 	} else
 	if (searchJson["search type"] == "hotel") {
-		let combinedJson = Object.assign(hotel, destinations);
+		var combinedJson = Object.assign(hotel, destinations);
 		fs.writeFile("./js/data/hotel.json", JSON.stringify(combinedJson), 'utf8',function() {});
 		res.json(hotel);
 	} else
 	if (searchJson["search type"] == "flight") {
-		let flight = {"name" : "Istanbul"};
-		let combinedJson = Object.assign(flight, destinations);
+		var flight = {"name" : "Istanbul"};
+		var combinedJson = Object.assign(flight, destinations);
 		// fs.writeFile("./js/data/flight.json", JSON.stringify(combinedJson), 'utf8',function() {});
 		res.json(combinedJson);
 	} else
 	if (searchJson["search type"] == "rental") {
-		let rental = {"name":"Palermo Apartments"};
-		let combinedJson = Object.assign(rental, destinations);
+		var rental = {"name":"Palermo Apartments"};
+		var combinedJson = Object.assign(rental, destinations);
 		res.json(combinedJson);
 	} else 
 	if (searchJson["search type"] == "things to do") {
@@ -133,24 +133,24 @@ app.post("/searchnotes.json", function(req,res) {
 });
 
 app.post("/bookmark.json", function(req,res) {
-	let bookmark = req.body;
-	let entry = bookmark["section"][0];
+	var bookmark = req.body;
+	var entry = bookmark["section"][0];
 
-	let type = entry["url"].substring(1,entry["url"].indexOf("="));
-	let index = ["hotel", "rental", "flight", "restaurant", "things-to-do"].indexOf(type);
-	let insertInto = searchNotes["section contents"][index]["section"];
+	var type = entry["url"].substring(1,entry["url"].indexOf("="));
+	var index = ["hotel", "rental", "flight", "restaurant", "things-to-do"].indexOf(type);
+	var insertInto = searchNotes["section contents"][index]["section"];
 	insertInto.push(entry);
 
 	fs.writeFile("./js/data/searchnotes.json", JSON.stringify(searchNotes), 'utf8',function() {});
 });
 
 app.post("/contact.json", function(req,res) {
-	let contactJson = req.body;
+	var contactJson = req.body;
 	fs.writeFile("./js/data/contact.json", JSON.stringify(contactJson), 'utf8',function() {});
 });
 
 app.post("/addquestion.json", function(req,res) {
-	let questionJson = req.body;
+	var questionJson = req.body;
 	restaurant["q&n"].push(questionJson);
 	fs.writeFile("./js/data/restaurant.json", JSON.stringify(restaurant), 'utf8',function() {});
 	res.json(restaurant);

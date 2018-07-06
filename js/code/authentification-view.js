@@ -1,5 +1,6 @@
 let View = require("./view.js");
 let lib = require("./library.js");
+let SignupView = require("./signup-view.js");
 // let viewRenderer = require("./view-renderer.js")
 
 function sendRequest(url, callback, viewRenderer) {
@@ -65,7 +66,16 @@ function listenUserContainer(viewRenderer) {
 		}
 	});
 	listenLogInButton(viewRenderer);
+	listenSignUpButton(viewRenderer);
 	
+}
+
+function listenSignUpButton(viewRenderer){
+	let signUpButton = document.getElementById('sign-up');
+	let popView = new SignupView();
+	popView.constructView(viewRenderer);
+	popView.listen(signUpButton);
+
 }
 
 function listenLogInButton(viewRenderer) {

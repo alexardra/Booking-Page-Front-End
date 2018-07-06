@@ -180,6 +180,23 @@ header {
 	margin:8px;
 }
 
+#sign-up{
+	background-color: #EC7065;
+    color: white;
+    font-size: 1.1em;
+    font-family: page_font;
+    width: 95%;
+    margin-left: 2.5%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+#sign-up span{
+	display: inline-block;
+	line-height:14px;
+	margin:8px;
+	color: white;
+}
 #authentication-dropdown-sign-in {
 	width:100%;
 	min-height:200px;	
@@ -889,4 +906,71 @@ footer {
 	padding:20px;
 	background:#e6e6e6;
 	color:#515A5A;
+}
+
+/*------ Popup styles -------*/
+#signup-container{
+	overflow: auto;
+    width: 500px;
+    min-height: 50vh;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    border: 3px solid red;
+    left: calc(50% - 250px);
+    background: #FEF9E9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#signup-container input{
+	padding: 6px 12px;
+    font-size: 14px;
+    color: #444;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: block;
+    float: left;
+    width: 90%;
+    height: 35px;
+    margin: 1% 5%;
+
+}
+
+#signup-container select{
+	border: 0;
+    color: #515A5A;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 300;
+    height: 35px;
+    width: 90%;
+    margin: 1% 5%;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+}
+
+.faded {
+	opacity:0.5;
+}
+
+.normal-opacity {
+	opacity: 1;
+}
+
+#signup-container button{
+	border: 1px solid #ddd;
+	width: 90%;
+	margin: 2% 5%;
+	height: 35px;
+    font-size: 20px;
+    background: #EC7065;
+    color: white;
+}
+
+#signup-container button:focus{
+	outline: none;
 }

@@ -175,10 +175,6 @@ module.exports = {
 		}
 	}, 
 
-	filter : function(selector,filterFn) {
-		Array.prototype.filter.call(document.querySelectorAll(selector), filterFn);
-	}, 
-	
 	/* className, parent - optional */
 	createElementWithClass : function(tagName,className,parent) {
 		// console.log(className);

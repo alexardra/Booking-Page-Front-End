@@ -110,9 +110,7 @@ class RoutController {
         /* restaurant routs  - inside page navigation */
 
         Router.add("overview", function() {
-            console.log("-----");
             document.getElementById("overview").scrollIntoView({behavior: 'smooth', block: 'start' });
-            console.log("-----");
             window.scrollBy(0, -100);
         });
 
