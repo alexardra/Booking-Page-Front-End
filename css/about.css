@@ -1,0 +1,97 @@
+#contact-container {
+    width:60%;
+    min-height:400px;
+    margin:5% 20%;
+    padding:15px;
+    border: 1px solid #ddd;
+}
+
+#contact-container h2 {
+    font-weight: 300;
+    font-size:40px;
+    padding:15px;
+    color: #666;
+    text-align:center;
+}
+
+#contact-container hr {
+    height: 2px;
+    width: 70px;
+    text-align: center;
+    position: relative;
+    background: #EC7065;
+    margin: 0 auto;
+    border:0;
+}
+
+#contact-container p {
+    font-size:18px;
+    padding:10px;
+    color: #666;
+    text-align:center;
+}
+
+#contact-container form {
+    width:100%;
+    min-height: 300px;
+    padding: 15px;
+}
+
+#contact-container form input[type="text"] {
+    padding: 6px 12px;
+    font-size:14px;
+    color: #444;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: block;
+    float: left;
+    width: 40%;
+    height:35px;
+    margin: 1% 5%;
+}
+
+#contact-container form textarea {
+    padding: 6px 12px;
+    font-size:14px;
+    color: #444;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: block;
+    float: left;
+    width:90%;
+    min-height:100px;
+    margin: 1% 5%;   
+    resize:none;
+}
+
+#contact-container form textarea:focus {
+    outline:none;
+}
+
+#contact-container form div {
+    text-align: center;
+    width:100%;
+    float:left;
+}
+
+#contact-container form button {
+    color: #fff;
+    background-color: #EC7065;
+    border: 0;
+    padding: 14px 20px;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 2px;
+    margin:15px;
+    transition: all 0.3s;
+    text-align:center;
+}
+
+#contact-container form button:focus {
+    outline:none;
+}
+
+#contact-container form button:active {
+    outline:none;
+    background-color:rgb(138, 18, 7);
+}

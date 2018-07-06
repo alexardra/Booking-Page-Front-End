@@ -12,5 +12,3 @@ lib.ready(function() {
 	});
 
 });
-
-

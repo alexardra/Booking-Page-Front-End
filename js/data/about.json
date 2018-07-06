@@ -1,0 +1,13 @@
+{
+    "name" : "about",
+    "contact" : {
+        "heading" : "Contact Us", 
+        "content" : "We do our best to deliver the best products to our clients and users",
+        "form" : [
+            "Name",
+            "Email",
+            "Message",
+            "Send Message"
+        ]
+    }
+}
