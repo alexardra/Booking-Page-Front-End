@@ -43,6 +43,10 @@ class FlightsView extends View {
         searchBar.addChildView(otherFilterDropdown);
 
         navigationPage.renderView();
+        let cover = document.getElementById("cover");
+        let elem = lib.removeClass(cover);
+        lib.addClass(lib.removeClass(cover), "flights-background");
+
 
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
         Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");

@@ -18,6 +18,9 @@ class RestaurantsView extends View {
         let searchBar = new View(viewRenderer, "restaurants-search-bar-template", "cover");
         navigationPage.addChildView(searchBar);
         navigationPage.renderView();
+        let cover = document.getElementById("cover");
+        let elem = lib.removeClass(cover);
+        lib.addClass(lib.removeClass(cover), "restaurants-background");
 
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
         Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");

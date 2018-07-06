@@ -44,7 +44,7 @@ input {
 header {
 	height:50px;
 	width:100%;
-	background-color:#FEF9E7;
+	background-color:#FEF9E9;
 	position:fixed;
 	z-index:1;
 
@@ -616,11 +616,23 @@ section {
 
 }
 .rentals-background{
-	background: url('/crop_sunset') no-repeat;
+	background: url('/beach-house.jpg') no-repeat;
 	
 }
 .hotels-background{
-	background: url('/crop_sunset') no-repeat;
+	background: url('/beach.jpg') no-repeat;
+}
+
+.flights-background{
+	background: url('/aerial.jpg') no-repeat;	
+}
+
+.restaurants-background{
+	background: url('/restaurant.jpg') no-repeat;	
+}
+
+.things-to-do-background{
+	background: url('/canyon.jpg') no-repeat;		
 }
 
 /***** search bar *****/
@@ -628,7 +640,7 @@ section {
 #search-bar {
 	width:90%;
 	height:50px;
-	background-color:#FFFDE7;
+	background-color:#FEF9E9;
 	color: #515A5A ;
 	font-size:1.2em;
 	display:block;
