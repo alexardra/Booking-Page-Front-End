@@ -5,7 +5,7 @@ let Search = require("./search.js");
 let Visuals = require("./visual.js");
 
 
-class RestaurantsView extends Multi.inherit(View,Search) {
+class RestaurantsView extends View {
 
     constructor() {
         super();
@@ -71,7 +71,7 @@ class RestaurantsView extends Multi.inherit(View,Search) {
 
             let jsonToSend = {"search type" : "restaurants"};
             lib.sendJson(jsonToSend,"/searchinput.json", function(json) {
-                todoView.showOneDropdown(document.getElementById("todo-search-dropdown"));
+                Search.showOneDropdown(document.getElementById("todo-search-dropdown"));
                 let recentlyViewedElem = new View(todoView._viewRenderer, "recently-viewed-elem", "dropdown-elements-container", 2,"recently viewed info",json);
                 searchBar.addChildView(recentlyViewedElem);
                 recentlyViewedElem.renderView();

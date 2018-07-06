@@ -4,7 +4,7 @@ let Multi = require("./multi-inheritance.js");
 let Search = require("./search.js");
 let Visuals = require("./visual.js");
 
-class HotelsView extends Multi.inherit(View,Search)  {
+class HotelsView extends View {
 
     constructor() {
         super();
@@ -39,9 +39,9 @@ class HotelsView extends Multi.inherit(View,Search)  {
             hotelsView._searchJson["date to"] = dates[1].value;
 
             let otherSearchOptions = document.getElementsByClassName("other-filter-dropdown-elem");
-            hotelsView._searchJson["rooms number"] = this.getSearchOptionsInfo(otherSearchOptions[0]);
-            hotelsView._searchJson["adults number"] = this.getSearchOptionsInfo(otherSearchOptions[1]);
-            hotelsView._searchJson["children number"] = this.getSearchOptionsInfo(otherSearchOptions[2]);
+            hotelsView._searchJson["rooms number"] = Search.getSearchOptionsInfo(otherSearchOptions[0]);
+            hotelsView._searchJson["adults number"] = Search.getSearchOptionsInfo(otherSearchOptions[1]);
+            hotelsView._searchJson["children number"] = Search.getSearchOptionsInfo(otherSearchOptions[2]);
 
             return true;
         } 
@@ -69,7 +69,7 @@ class HotelsView extends Multi.inherit(View,Search)  {
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
         Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json", "hotel");
 
-        this.formatCalendarInSearchBar();
+        Search.formatCalendarInSearchBar();
         this.listenToEvents();
         this.listenToSearchInput(searchBar);
     }
@@ -88,7 +88,7 @@ class HotelsView extends Multi.inherit(View,Search)  {
         });
 
 		document.getElementById("other-content").onclick = function() {
-			hotelsView.toggleDropdown(document.getElementById("other-dropdown"));		
+			Search.toggleDropdown(document.getElementById("other-dropdown"));		
         }
         
         let plusMinusIcons = document.querySelectorAll(".plus_icon, .minus_icon");
@@ -97,7 +97,7 @@ class HotelsView extends Multi.inherit(View,Search)  {
 				var buttonClass = this.className;
 				var textPlaceholder = this.parentNode.querySelector("span");
 				var text = textPlaceholder.innerHTML;
-				lib.changeHtml(textPlaceholder,hotelsView.generateTextInDropdown(buttonClass,text,true));
+				lib.changeHtml(textPlaceholder,Search.generateTextInDropdown(buttonClass,text,true));
 			}
 		}
     }
@@ -114,7 +114,7 @@ class HotelsView extends Multi.inherit(View,Search)  {
             let jsonToSend = {"search type" : "hotels"};
             lib.sendJson(jsonToSend,"/searchinput.json", function(json) {
 
-                hotelsView.showOneDropdown(document.getElementById("search-dropdown"));
+                Search.showOneDropdown(document.getElementById("search-dropdown"));
 
                 let recentlyViewedElem = new View(hotelsView._viewRenderer, "recently-viewed-elem", "dropdown-elements-container", 2,"recently viewed info",json);
                 recentlyViewedDropdown.addChildView(recentlyViewedElem);

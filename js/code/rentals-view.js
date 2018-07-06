@@ -5,7 +5,7 @@ let Search = require("./search.js");
 let Visuals = require("./visual.js");
 
 
-class RentalsView extends Multi.inherit(View,Search) {
+class RentalsView extends View {
 
     constructor() {
         super();
@@ -40,7 +40,7 @@ class RentalsView extends Multi.inherit(View,Search) {
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
         Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
 
-        this.formatCalendarInSearchBar();
+        Search.formatCalendarInSearchBar();
         this.listenToEvents();
         this.listenToSearchInput(searchBar);
     }
@@ -92,7 +92,7 @@ class RentalsView extends Multi.inherit(View,Search) {
             let jsonToSend = {"search type" : "rentals"};
             lib.sendJson(jsonToSend,"/searchinput.json", function(json) {
 
-                rentalsView.showOneDropdown(document.getElementById("rentals-search-dropdown"));
+                Search.showOneDropdown(document.getElementById("rentals-search-dropdown"));
 
                 let recentlyViewedElem = new View(rentalsView._viewRenderer, "recently-viewed-elem", "dropdown-elements-container", 2,"recently viewed info",json);
                 searchBar.addChildView(recentlyViewedElem);

@@ -1,13 +1,9 @@
 let lib = require("./library.js");
 
-class Search {
-
-    constructor() {
-    }
-
+module.exports = {
     	/* change content of div#other_filters 
 	   when dropdown content is changed by user */
-	changeTextInSearchOther(newText, plus) {
+	   changeTextInSearchOther: function(newText, plus) {
 		let currentElement = document.querySelector("#other-content span")
 		let currentText = currentElement.innerHTML;
 		let toChange = newText.substring(newText.indexOf(" ") + 1);
@@ -29,10 +25,9 @@ class Search {
 			currentText = pre + replaceWith + " guests"
 		}
 		lib.changeHtml(currentElement,currentText);
-    }
-	
+	},
 	// changeInParent - if true changes other-content span 
-    generateTextInDropdown(buttonClass, currentText, changeInParent) {
+    generateTextInDropdown : function(buttonClass, currentText, changeInParent) {
 		/* TODO add constraint on number - max 32 - 2 chars */
         let num = parseInt(currentText.substring(0,2));
         
@@ -57,39 +52,39 @@ class Search {
 			this.changeTextInSearchOther(newText, (buttonClass == "plus_icon"));		
 		}
 		return newText;
-	}
+	},
 
-    getSearchOptionsInfo(element) {
+    getSearchOptionsInfo : function(element) {
         let info = element.getElementsByTagName("span")[0].innerHTML;    
         let num = info.substring(0,info.indexOf(" "));
         return num;
-	}
+	},
 	
-	formatCalendarInSearchBar() {
+	formatCalendarInSearchBar : function() {
         let dates = document.querySelectorAll("input[type='date']");
         let numDates = dates.length;
         let currentDate = lib.getFormatedDate();
         for (let i = 0; i < numDates; i++) {
             dates[i].value = currentDate;
         } 
-    }
+    },
 
     	/* Toggle between display:none and other display */
-	toggleDropdown(element) {	
+	toggleDropdown : function(element) {	
 		if (lib.hasClass(element,"hidden")) {
 			this.showOneDropdown(element);
 		} else {
 			lib.addClass(element,"hidden");
 		}
-	}
+	},
 
 	/* When displaying one of dropdown menus in search bar
 	   others should not be visible at the same time. */
-	showOneDropdown(element) {
+	showOneDropdown : function(element) {
 		var allDropdowns = document.getElementsByClassName("dropdown");
 		lib.addClass(allDropdowns, "hidden");
 		lib.removeClass(element,"hidden");
 	}
-} 
+}
 
-module.exports = Search;
+
