@@ -4,9 +4,7 @@ let Multi = require("./multi-inheritance.js");
 let Search = require("./search.js");
 let Visuals = require("./visual.js");
 
-
-
-class FlightsView extends Multi.inherit(View,Search) {
+class FlightsView extends View {
 
     constructor() {
         super();
@@ -49,7 +47,7 @@ class FlightsView extends Multi.inherit(View,Search) {
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
         Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
 
-        this.formatCalendarInSearchBar();
+        Search.formatCalendarInSearchBar();
         this.listenToEvents();
         this.listenToSearchInput(searchBar);
     }
@@ -73,9 +71,9 @@ class FlightsView extends Multi.inherit(View,Search) {
             flightsView._searchJson["flight type"] = flightType;
 
             let otherSearchOptions = document.getElementsByClassName("other-filter-dropdown-elem");
-            flightsView._searchJson["adults number"] = this.getSearchOptionsInfo(otherSearchOptions[0]);
-            flightsView._searchJson["senior number"] = this.getSearchOptionsInfo(otherSearchOptions[1]);
-            flightsView._searchJson["children number"] = this.getSearchOptionsInfo(otherSearchOptions[2]);
+            flightsView._searchJson["adults number"] = Search.getSearchOptionsInfo(otherSearchOptions[0]);
+            flightsView._searchJson["senior number"] = Search.getSearchOptionsInfo(otherSearchOptions[1]);
+            flightsView._searchJson["children number"] = Search.getSearchOptionsInfo(otherSearchOptions[2]);
 
             return true;
         }
@@ -97,7 +95,7 @@ class FlightsView extends Multi.inherit(View,Search) {
         });
         
 		document.getElementById("other-content").onclick = function() {
-            flightsView.toggleDropdown(document.getElementById("other-dropdown"));
+            Search.toggleDropdown(document.getElementById("other-dropdown"));
             console.log("toggle");		
         }
 
@@ -115,7 +113,7 @@ class FlightsView extends Multi.inherit(View,Search) {
 				var buttonClass = this.className;
 				var textPlaceholder = this.parentNode.querySelector("span");
 				var text = textPlaceholder.innerHTML;
-				lib.changeHtml(textPlaceholder,flightsView.generateTextInDropdown(buttonClass,text));
+				lib.changeHtml(textPlaceholder,Search.generateTextInDropdown(buttonClass,text));
 			}
 		}
     }
@@ -151,7 +149,7 @@ class FlightsView extends Multi.inherit(View,Search) {
                     searchBar.childViews[0].addChildView(recentlyViewedElem);
                     recentlyViewedElem.renderView();
 
-                    flightsView.showOneDropdown(dropdownParent.parentNode);
+                    Search.showOneDropdown(dropdownParent.parentNode);
                 });
 
 
