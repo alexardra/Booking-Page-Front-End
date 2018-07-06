@@ -27,7 +27,7 @@ function userLoggedIn(data, viewRenderer){
 	let response = JSON.parse(data);
 	let dropdown = document.getElementById("authentication-dropdown");
 	
-    dropdown.style.display = "none";
+	lib.addClass(dropdown,"hidden");
     let userSpace = new View(viewRenderer, "user-settings", "authentication-dropdown");
     let img = document.getElementById("user-icon");
 	img.src = response["user avatar"];
@@ -58,11 +58,12 @@ function listenUserContainer(viewRenderer) {
 	let userIcon = document.getElementById('user-icon');
 	userIcon.addEventListener("click", function () {
 		let dropdownElement = document.getElementById("authentication-dropdown");
-		let style = window.getComputedStyle(dropdownElement);
-		if (style.getPropertyValue("display") == "none" ){
-			dropdownElement.style.display = "inline-block";
-		}else{
-			dropdownElement.style.display = "none";
+
+		if (lib.hasClass(dropdownElement, "hidden")) {
+			console.log("----");
+			lib.removeClass(dropdownElement,"hidden");
+		} else {
+			lib.addClass(dropdownElement,"hidden");
 		}
 	});
 	listenLogInButton(viewRenderer);

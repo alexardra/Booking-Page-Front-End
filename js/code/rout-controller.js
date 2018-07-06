@@ -139,6 +139,10 @@ class RoutController {
         Router.add("user", function() {
             // console.log(window.location);
             let currentUrl = window.location.href;
+            console.log(currentUrl);
+            let id = currentUrl.substring(currentUrl.indexOf("=") + 1);
+            let userView = routController._viewFactory.createView("user", id);
+            routController._viewRenderer.changeView(userView);
         });
     }
 

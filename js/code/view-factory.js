@@ -9,7 +9,7 @@ let RentalView = require("./rental-view.js");
 let ThingstodoView = require("./things-to-do-view.js");
 let DestinationsView = require("./destinations-view.js");
 let AboutView = require("./about-view.js");
-
+let UserView = require("./user-view.js");
 
 class ViewFactory {
 
@@ -37,6 +37,8 @@ class ViewFactory {
                 return new DestinationsView(args[0],args[1]);
             case "about":
                 return new AboutView(args[0]);
+            case "user":
+                return new UserView(args[0]);
         }
     }
 }

@@ -41,6 +41,7 @@ class View {
     }
 
     removeView() {
+
         if (typeof(this._parentNode) == "string") {
             this._parentNode = document.getElementById(this._parentNode);
         }

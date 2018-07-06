@@ -156,6 +156,19 @@ app.post("/addquestion.json", function(req,res) {
 	res.json(restaurant);
 });
 
+app.post("/signup.json", function(req,res) {
+	var userInfo = req.body;
+	var users = require("./js/data/usersinfo.json");
+	var numUsers = users["users"].length;
+	var id =  numUsers + 1;
+	userInfo["id"] = id;
+	users["users"].push(userInfo);
+	fs.writeFile("./js/data/usersinfo.json", JSON.stringify(users), 'utf8',function() {
+		res.json({"status" : "success", "id" : id});
+	});
+
+});
+
 app.listen(8000, function() {
 	// visualize running server 
 	console.log("listening on port 8000");
