@@ -661,8 +661,9 @@ section {
 }
 
 .location i {
-	background:url('/search_icons.png') no-repeat -99px -4px;
-	width:22px;
+	background: url('/loc.png') no-repeat;
+	/*background:url('/search_icons.png') no-repeat -99px -4px;*/
+	width:32px;
 	height:32px;
 	float:left;
 }
@@ -674,6 +675,8 @@ section {
 	outline:none;
 	background-color:inherit;
 	color:#5DADE2;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 #search-bar ::placeholder {
@@ -771,11 +774,12 @@ input[type="search"]::-webkit-search-results-decoration {
 }
   
 .human_icon {
-	background: url("/search_icons.png") no-repeat -5px 0;
+	background: url("/hotel_icon.png") no-repeat;
+	/*background: url("/search_icons.png") no-repeat -5px 0;*/
 	width: 30px;
 	height: 40px;
 	float: left;
-	margin: 5px 7.5px 5px 7.5px;
+	margin: 10px 5px;
 }
 
 #other-content {
@@ -802,14 +806,16 @@ input[type="search"]::-webkit-search-results-decoration {
 	height:100%;
 	width:30px;
 	float:right;
-	padding:20px 7px;
+	padding: 17px;
+	/*padding:20px 7px;*/
 	text-align:center;
 }
   
 .arrow_icon {
-	background: url("/search_icons.png") no-repeat -137px -5px;
+	background: url("/arrow.png") no-repeat;
+	/*background: url("/search_icons.png") no-repeat -137px -5px;*/
 	width:16px;
-	height:10px;
+	height:16px;
 	float:right;
 }
   

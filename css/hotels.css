@@ -236,17 +236,21 @@
 }
 
 .minus_icon i {
-	background: url('/search_icons.png') no-repeat -258px 0;
+	background: url('/minus.png') no-repeat;
+	/*background: url('/search_icons.png') no-repeat -258px 0;*/
 	width:30px;
 	height:30px;
 	float:left;
+	opacity: 0.7;
 }
 
 .plus_icon i {
-	background: url('/search_icons.png') no-repeat -298px 0;
+	background: url('/plus.png') no-repeat;
+	/*background: url('/search_icons.png') no-repeat -298px 0;*/
 	width:30px;
 	height:30px;
 	float:left;
+	opacity: 0.7;
 }
 
 
