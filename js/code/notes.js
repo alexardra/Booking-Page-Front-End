@@ -1,5 +1,6 @@
 let lib = require("./library");
 let View = require("./view.js");
+let SignupView = require("./signup-view.js");
 
 module.exports = {
     listen : function(viewRenderer) {
@@ -12,14 +13,16 @@ module.exports = {
 
         for (let i = 0; i < numNotesIcons; i++) {
             notesIcons[i].addEventListener("click", function() {
-                
                 let notesSideBar = document.getElementById("notes-side-bar");
                 if (notesSideBar == undefined) {
 
                     
                     let usernamePlaceholder = document.querySelector("#user-pages ul li a");
                     if (usernamePlaceholder == undefined) {
-                        console.log("not logged in");
+                        console.log("a");
+                        popView = new SignupView();
+                        popView.constructView(viewRenderer);
+                        popView.buttonOnClick(this);
                     } else {
                         
                         let jsonToSend = {

@@ -28,13 +28,14 @@ class FlightsView extends View {
 
     constructView(viewRenderer) {
         this._viewRenderer = viewRenderer;
-        console.log("change to flights view");
 
         let navigationPage = new View(viewRenderer, "navigation-page", "app");
         let searchBar = new View(viewRenderer, "flights-search-bar-template", "cover");
         navigationPage.addChildView(searchBar);
 
-        let flightsDestination = new View(viewRenderer,"flights-destination-template","flight-search",2);
+        let flightsDestination = new View(viewRenderer,"flights-destination-template","flight-search", 2, "destinations");
+
+        // let flightsDestination = new View(viewRenderer,"flights-destination-template","flight-search", 2);
         searchBar.addChildView(flightsDestination);
 
         let otherFilterDropdownSelectMenu = new View(viewRenderer, "select-menu-template", "other-dropdown");
@@ -49,11 +50,10 @@ class FlightsView extends View {
 
 
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
-        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
+        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json", "flight");
 
         Search.formatCalendarInSearchBar();
         this.listenToEvents();
-        this.listenToSearchInput(searchBar);
     }
 
     // if parsed successfully returns true, otherwise false.
@@ -87,10 +87,8 @@ class FlightsView extends View {
     listenToEvents(){
         let flightsView = this;
         document.getElementById("submit-search").addEventListener("click", function() {
-            console.log("submit");
             if (flightsView.parseSearchBar()) {
                 lib.sendJson(flightsView._searchJson, "/searchjson.json", function(json) {
-                    console.log(json);
                     flightsView._searchResultJson = json;
                     let newUrl = "destination=" + json["name"];
                     window.location = "#" + newUrl;
@@ -100,11 +98,9 @@ class FlightsView extends View {
         
 		document.getElementById("other-content").onclick = function() {
             Search.toggleDropdown(document.getElementById("other-dropdown"));
-            console.log("toggle");		
         }
 
         document.getElementsByTagName("select")[0].addEventListener("change", function() {
-            console.log('b');
             let select = document.getElementById("mainselection").getElementsByTagName("select")[0];
             let currentText = select.options[select.selectedIndex].text;
             let currentElement = document.querySelector("#other-content span")
@@ -123,52 +119,6 @@ class FlightsView extends View {
     }
 
 
-    listenToSearchInput(searchBar) {
-        let flightsView = this;
-
-        let destinationSearchbars = document.querySelectorAll("#search-bar input[type='text']");
-        let numDestinationSearchbars = destinationSearchbars.length;
-
-        let dropdownParent;
-
-        for (let i = 0; i < numDestinationSearchbars; i++) {
-            destinationSearchbars[i].addEventListener("focus", function() {
-                let searchInput = this;
-
-                console.log("focus flight");
-
-                let jsonToSend = {"search type" : "flights"};
-                lib.sendJson(jsonToSend,"/searchinput.json", function(json) {
-
-                    let siblings = searchInput.parentNode.childNodes;
-                    let numSiblings = siblings.length;
-                    for (let i = 0; i < numSiblings; i++) {
-                        if (siblings[i].tagName == "DIV") {
-                            dropdownParent = siblings[i].getElementsByTagName("div")[0];
-                            break;
-                        }   
-                    }
-
-                    let recentlyViewedElem = new View(flightsView._viewRenderer, "recently-viewed-elem", dropdownParent, 2,"recently viewed info",json);
-                    searchBar.childViews[0].addChildView(recentlyViewedElem);
-                    recentlyViewedElem.renderView();
-
-                    Search.showOneDropdown(dropdownParent.parentNode);
-                });
-
-
-            });
-
-            destinationSearchbars[i].addEventListener("blur", function() {
-                console.log("blur");
-
-                if (dropdownParent) {
-                    flightsView.removeSearchbarDropdown(searchBar,dropdownParent);
-                }
-            });
-        }
-
-    }
 
     removeSearchbarDropdown(searchBar, searchDropdown) {
         let dropdowns = document.getElementById("search-bar").getElementsByClassName("dropdown");

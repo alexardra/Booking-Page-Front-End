@@ -32,7 +32,7 @@ class ThingstodoView extends View {
         lib.addClass(lib.removeClass(cover), "things-to-do-background");
 
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
-        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
+        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json", "todo");
 
         this.listenToEvents();
         this.listenToSearchInput(searchBar);
@@ -42,7 +42,6 @@ class ThingstodoView extends View {
         let todoView = this;
 
         let destinationSearch = document.querySelector("#maxlength-search input");
-        console.log(destinationSearch);
         let searchValue = destinationSearch.value;
         if (searchValue != "") {
             todoView._searchJson["destination"] = searchValue;
@@ -57,9 +56,8 @@ class ThingstodoView extends View {
         document.getElementById("submit-search").addEventListener("click", function() {
             if (todoView.parseSearchBar()) {
                 lib.sendJson(todoView._searchJson, "/searchjson.json", function(json) {
-                    console.log(json);
                     todoView._searchResultJson = json;
-                    let newUrl = "todo=" + json["destination"];
+                    let newUrl = "todo=" + document.querySelector("#maxlength-search input").value;
                     window.location = "#" + newUrl;
                 });
             }
@@ -71,8 +69,6 @@ class ThingstodoView extends View {
         let searchInput = document.querySelector("#maxlength-search input")
 
         searchInput.addEventListener("focus", function() {
-            console.log("focus");
-
             let jsonToSend = {"search type" : "things to do"};
             lib.sendJson(jsonToSend,"/searchinput.json", function(json) {
                 Search.showOneDropdown(document.getElementById("todo-search-dropdown"));
@@ -83,7 +79,6 @@ class ThingstodoView extends View {
                 let recentlyViewedDomElems = document.getElementsByClassName("search-recently-viewed");
                 for (let i = 0; i < recentlyViewedDomElems.length; i++) {
                     recentlyViewedDomElems[i].addEventListener("mousedown", function(event) {
-                        console.log("click");
                         event.preventDefault();
                         let recentlyViewedElemValue = this.getElementsByTagName("div")[0].innerHTML;
                         searchInput.value = recentlyViewedElemValue;

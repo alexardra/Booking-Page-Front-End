@@ -44,6 +44,11 @@ class DestinationsView extends View {
                 "text" : text
             }
             lib.sendJson(jsonToSend,"/contact.json", function(json) {
+                if (json["status"] == "success") {
+                    let p = document.createElement("p");
+                    p.innerHTML = "Your message was delivered! Thank you!";
+                    container.getElementsByTagName("form")[0].appendChild(p);
+                }
             });
 
         });

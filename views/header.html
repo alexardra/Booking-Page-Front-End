@@ -1,7 +1,9 @@
 <!-- HEADER -->
 <script id="home-header" type="text/html">
-	<i id="logo"><a href="#hotels"></a></i>
-	<div id="name">Traveler</div>
+	<a href="#hotels">
+		<i id="logo"></i>
+		<div id="name">Traveler</div>
+	</a>
 	<ul id="header-nav-menu">
 		<a href="#hotels"><li>{{navigation info.0}}</li></a>
 		<a href="#rentals"><li>{{navigation info.1}}</li></a>
@@ -11,7 +13,6 @@
 		<a href="#about"><li>{{navigation info.5}}</li></a>
 	</ul>
 	<i class="notes-icon"></i>
-	<i class="hamburger"></i>
 </script>
 
 <script id="header-authentication" type="text/html">
@@ -29,31 +30,31 @@
 	<button>
 		<div class="authentication-dropdown-element" id="facebook-sign-in">
 			<i></i>
-			<span>FACEBOOK</span>
+			<span>{{authentication.0}}</span>
 		</div>	
 	</button>
 
 	<button>
 		<div class="authentication-dropdown-element" id="google-sign-in">
 				<i></i>
-				<span>GOOGLE</span>
+				<span>{{authentication.1}}</span>
 		</div>
 	</button>
 	
 	<button>
 		<div class="authentication-dropdown-element" id="sign-up">
-				<span>Sign up</span>
+				<span>{{authentication.2}}</span>
 		</div>
 	</button>
 
 	<div id="authentication-dropdown-sign-in">
 		<div id="already-member">
-			Not a member?
+			{{authentication.3}}
 		</div>
 		<form id="login" method="post">
-			<input type="text" name="email" placeholder="Email">
+			<input type="text" name="email" placeholder="{{authentication.4}}">
 			<input type="password" name="password">
-			<input type="submit" value="Sign In">
+			<input type="submit" value="{{authentication.2}}">
 		</form>
 	</div>
 </script>
@@ -63,23 +64,7 @@
 	<section id="user-pages">
 		<ul>
 			<li>
-				<a href="#user={{username}}">{{username}}</a>
-			</li>
-			<li>
-				<i id="bookings-icon"></i>
-				<a href="#bookings">My Bookings</a>
-			</li>
-			<li>
-				<i id="favourites-icon"></i>
-				<a href="#favourites">Favourites</a>
-			</li>
-			<li>
-				<i id="settings-icon"></i>
-				<a href="#settings">Settings</a>
-			</li>
-			<li>
-				<i id="weak-deals-icon"></i>
-				<a href="#Week_Deals">Week Deals</a>
+				<a href="#user=1">{{username}}</a>
 			</li>
 		</ul>
 		<button id="logout">Log out</button>

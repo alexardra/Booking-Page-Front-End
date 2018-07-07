@@ -16,7 +16,7 @@ class DestinationsView extends View {
 		let navigationPage = new View(viewRenderer, "destinations-navigation-page", "app");
 		navigationPage.renderView();
 
-        Visuals.renderBrowseSectionWithInfo(viewRenderer,navigationPage,this._info, this._section);
+    Visuals.renderBrowseSectionWithInfo(viewRenderer,navigationPage,this._info, this._section);
 		Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
 	}
 

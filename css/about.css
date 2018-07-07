@@ -25,6 +25,16 @@
 }
 
 #contact-container p {
+    font-size:22px;
+    padding:10px;
+    color:#EC7065;
+    text-align:center;
+    overflow: hidden;
+    text-overflow:ellipsis;
+	white-space: nowrap;  
+}
+
+#contact-container p:first-of-type {
     font-size:18px;
     padding:10px;
     color: #666;

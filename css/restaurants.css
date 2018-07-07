@@ -13,3 +13,9 @@
     color: #EC7065;
     font-family: "Lato", "Helvetica", Helvetica, sans-serif;
 }
+
+@media screen and (max-width:970px) {
+    #maxlength-search {
+        width:80%;
+    }
+}

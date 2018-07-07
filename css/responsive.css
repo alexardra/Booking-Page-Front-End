@@ -1,0 +1,151 @@
+@media screen and (max-width:970px) {
+	#other-container {
+		display:none;
+	}
+	#search-container {
+		width:calc(80% - 280px);
+	}
+	#submit-search {
+		width:20%;
+    }
+    #rentals-search {
+        width:calc(80% - 280px);
+    }
+	header {
+		padding:0 5%;
+	}
+	#header-nav-menu {
+		display:none;
+    }
+
+}
+
+
+@media screen and (max-width:1250px) {
+    #details-open-hours {
+        display:none;
+    }
+    #details-info, #details-features {
+        width:40%;
+        margin:0 5%;
+    }
+}
+@media screen and (max-width:1050px) {
+	header {
+		padding:0 1%;
+	}
+	#notes-side-bar + #app {
+		padding-right:25%;
+	}
+	#notes-side-bar {
+		width:25%;
+	}
+	#authentication-dropdown {
+		right:1%;
+    }
+
+}	
+
+@media screen and (max-width:800px) {
+	.notes-icon {
+		display:none;
+	}
+	#notes-side-bar {
+		display:none;
+	}
+	#notes-side-bar + #app {
+		padding-right:0;
+    }
+    .comment-section span {
+        display:none;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .review-container {
+        width:90%;
+        margin:0 5%;
+    }
+}
+
+@media screen and (max-width:750px) {
+
+    #details-info, #details-features {
+        width:90%;
+        margin:2% 5%;
+    }
+
+    #details-description {
+        display:none;
+    }
+
+    #details {
+        min-height:800px;
+    }
+
+    .comment-content {
+        padding:0;
+    }
+}
+
+@media screen and (max-width:650px) {
+	#calendar-container {
+		display:none;
+	}
+
+	#search-container {
+		width:70%;
+	}
+	
+	#submit-search {
+		width:30%;
+	}
+
+	#rentals-search {
+		width:70%;
+    }
+    
+    #flight-search {
+        width:70%;
+    }
+    
+    #maxlength-search {
+        width:70%;
+    }
+    
+    #overview {
+        display:none;
+    }
+
+    #inner-nav-menu {
+        display:none;
+    }
+
+    #qna-questions {
+        width:90%;
+    }
+}
+
+@media screen and (max-width:680px) {
+    #qna-header {
+        display:none;
+    }
+
+    .nearby ul li {
+        width:40%;
+        margin:20px 5%;
+    }
+}
+
+@media screen and (max-width:600px) {
+
+    #nearby {
+        display:none;
+    }
+}
+
+@media screen and (max-width:450px) {
+    #qna {
+        display:none;
+    }
+}

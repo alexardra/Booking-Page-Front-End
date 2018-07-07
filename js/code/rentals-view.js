@@ -38,7 +38,7 @@ class RentalsView extends View {
         lib.addClass(lib.removeClass(cover), "rentals-background");
 
         Visuals.renderAdditionalsSection(viewRenderer,navigationPage);
-        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json");
+        Visuals.renderBrowseSection(viewRenderer,navigationPage,"destinations.json", "rental");
 
         Search.formatCalendarInSearchBar();
         this.listenToEvents();
@@ -68,10 +68,8 @@ class RentalsView extends View {
     listenToEvents() {
         let rentalsView = this;
         document.getElementById("submit-search").addEventListener("click", function() {
-            console.log("submit");
             if (rentalsView.parseSearchBar()) {
                 lib.sendJson(rentalsView._searchJson, "/searchjson.json", function(json) {
-                    console.log(json);
                     rentalsView._searchResultJson = json;
                     let newUrl = "destination=" + json["name"];
                     window.location = "#" + newUrl;
@@ -85,7 +83,6 @@ class RentalsView extends View {
         // let recentlyViewedDropdown = searchBar.childViews[0];
 
         document.getElementById("search-input").addEventListener("focus", function() {
-            console.log("focus");
 
             let searchInput = this;
 
@@ -112,7 +109,6 @@ class RentalsView extends View {
         });
 
         document.getElementById("search-input").addEventListener("blur", function() {
-            console.log("blur");
             rentalsView.removeSearchbarDropdown(searchBar);
 
         });

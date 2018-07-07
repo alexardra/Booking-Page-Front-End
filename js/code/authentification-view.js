@@ -36,8 +36,8 @@ function userLoggedIn(data, viewRenderer){
 
     let logoutButton = document.getElementById('logout');
     // logoutButton.addEventListener("click", userLoggedOut(viewRenderer));
-    logoutButton.addEventListener("click", function() {
-    	event.preventDefault();
+    logoutButton.addEventListener("click", function(evnt) {
+    	evnt.preventDefault();
     	userLoggedOut(viewRenderer);
     });
 

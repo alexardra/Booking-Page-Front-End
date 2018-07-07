@@ -31,6 +31,16 @@ class RoutController {
 
         let routController = this;
 
+        let cachedJson;
+        lib.getJsonWithFetch("/restaurant.json", function(json) {
+            cachedJson = json;
+        });
+
+        let cachedDestinationJson; 
+        lib.getJsonWithFetch("/destinations.json", function(json) {
+            cachedDestinationJson = json;
+        });
+
         Router.add("hotels", function() {
             let hotelsView = routController._viewFactory.createView("hotels");
 
@@ -48,17 +58,14 @@ class RoutController {
         Router.add("destination", function() {
             let infoJson = routController._currentRout._searchResultJson;
             let section = document.getElementsByClassName("current-page")[0].innerHTML.trim().toLocaleLowerCase();
-            section = section.substring(0,section.length - 1);
-            let destinationsView = routController._viewFactory.createView("destinations",[infoJson,section]);
+            section = section.substring(section.indexOf(" ") + 1,section.length - 1);
+            let destinationsView = routController._viewFactory.createView("destinations",[cachedDestinationJson,section]);
             routController._viewRenderer.changeView(destinationsView);
             routController._currentRout = destinationsView;
         });
 
         Router.add("hotel", function() {
-            let infoJson = routController._currentRout._searchResultJson;
-            // routController._viewRenderer.changeView(routController._viewFactory.createView("hotel",[infoJson]));
-
-            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[infoJson]));
+            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[cachedJson]));
         });
 
         
@@ -76,12 +83,10 @@ class RoutController {
         });
 
         Router.add("flight", function() {
-            let infoJson = routController._currentRout._searchResultJson;
-            routController._viewRenderer.changeView(routController._viewFactory.createView("flight",[infoJson]));
+            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[cachedJson]));
         });
 
         Router.add("rentals", function() {
-            console.log(routController._currentRout);
             let rentalsView = routController._viewFactory.createView("rentals");
             routController._viewRenderer.changeView(rentalsView);
             routController._viewRenderer.addCurrentPageIndentifier("rentals");
@@ -89,12 +94,10 @@ class RoutController {
         });
 
         Router.add("rental", function() {
-            let infoJson = routController._currentRout._searchResultJson;
-            routController._viewRenderer.changeView(routController._viewFactory.createView("rental",[infoJson]));
+            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[cachedJson]));
         });
 
         Router.add("restaurants", function() {
-            console.log(routController._currentRout);
             let restaurantsView = routController._viewFactory.createView("restaurants");
             routController._viewRenderer.changeView(restaurantsView);
             routController._viewRenderer.addCurrentPageIndentifier("restaurants");
@@ -104,6 +107,24 @@ class RoutController {
         Router.add("restaurant", function() {
             let infoJson = routController._currentRout._searchResultJson;
             routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[infoJson]));
+        });
+
+        Router.add("things-to-do", function() {
+            let thingsToDoView = routController._viewFactory.createView("things-to-do");
+            routController._viewRenderer.changeView(thingsToDoView);
+            routController._viewRenderer.addCurrentPageIndentifier("things-to-do");
+            routController._currentRout = thingsToDoView;          
+        });
+
+        Router.add("todo", function() {
+            routController._viewRenderer.changeView(routController._viewFactory.createView("restaurant",[cachedJson]));
+        });
+
+        Router.add("user", function() {
+            let currentUrl = window.location.href;
+            let id = currentUrl.substring(currentUrl.indexOf("=") + 1);
+            let userView = routController._viewFactory.createView("user", [id]);
+            routController._viewRenderer.changeView(userView);
         });
 
 
@@ -128,22 +149,6 @@ class RoutController {
         });
 
         /***********************************/
-
-        Router.add("things-to-do", function() {
-            let thingsToDoView = routController._viewFactory.createView("things-to-do");
-            routController._viewRenderer.changeView(thingsToDoView);
-            routController._viewRenderer.addCurrentPageIndentifier("things-to-do");
-            routController._currentRout = thingsToDoView;          
-        });
-
-        Router.add("user", function() {
-            // console.log(window.location);
-            let currentUrl = window.location.href;
-            console.log(currentUrl);
-            let id = currentUrl.substring(currentUrl.indexOf("=") + 1);
-            let userView = routController._viewFactory.createView("user", id);
-            routController._viewRenderer.changeView(userView);
-        });
     }
 
     constructStartRout() {

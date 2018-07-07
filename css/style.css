@@ -184,10 +184,9 @@ header {
     color: white;
     font-size: 1.1em;
     font-family: page_font;
-    width: 95%;
-    margin-left: 2.5%;
     height: 30px;
-    margin-bottom: 10px;
+	margin-bottom: 10px;
+	border:1px solid black;
 }
 
 #sign-up span{
@@ -195,6 +194,7 @@ header {
 	line-height:14px;
 	margin:8px;
 	color: white;
+	font-size:1.1em;
 }
 #authentication-dropdown-sign-in {
 	width:100%;
@@ -468,6 +468,8 @@ ul{
 	padding:0 10px;
 	height:50px;
 	font-family: "Lato", "Helvetica", Helvetica, sans-serif;
+	text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #header-nav-menu li:hover {
@@ -674,9 +676,10 @@ section {
 	border:none;
 	outline:none;
 	background-color:inherit;
-	color:#5DADE2;
+	color:#EC7065;
 	padding-left: 5px;
 	padding-right: 5px;
+	font-size: 0.85em;
 }
 
 #search-bar ::placeholder {
@@ -827,7 +830,7 @@ input[type="search"]::-webkit-search-results-decoration {
 	width: 140%;
 	min-height:120px;
 	z-index: 1;
-	border: 1px solid blue;
+	border: 1px solid #ddd;
 }
 /*****************/
 
@@ -843,20 +846,6 @@ input[type="search"]::-webkit-search-results-decoration {
 	line-height:30px;
     font-size:1em;
     font-family: "Lato", "Helvetica", Helvetica, sans-serif;
-}
-
-@media screen and (min-width:600px) {
-
-	.hamburger,#side-menu {
-		display:none;
-	}
-
-}
-
-@media screen and (max-width:800px) {
-	#header-nav-menu {
-		display:none; /* temp */
-	}
 }
 
 /************************** FOOTER ***************************/

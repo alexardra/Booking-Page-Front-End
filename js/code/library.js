@@ -220,5 +220,16 @@ module.exports = {
 		let today = year + "-" + month + "-" + day;   
 		
 		return today;
-	}
+	}, 
+
+	isDescendant : function(parent, child) {
+		var node = child.parentNode;
+		while (node != null) {
+			if (node == parent) {
+				return true;
+			}
+			node = node.parentNode;
+		}
+		return false;
+   }
 }

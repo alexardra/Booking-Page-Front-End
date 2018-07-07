@@ -79,7 +79,6 @@ class HotelsView extends View {
         document.getElementById("submit-search").addEventListener("click", function() {
             if (hotelsView.parseSearchBar()) {
                 lib.sendJson(hotelsView._searchJson, "/searchjson.json", function(json) {
-                    console.log(json);
                     hotelsView._searchResultJson = json;
                     let newUrl = "destination=" + json["name"];
                     window.location = "#" + newUrl;
@@ -107,8 +106,6 @@ class HotelsView extends View {
         let recentlyViewedDropdown = searchBar.childViews[0];
 
         document.getElementById("search-input").addEventListener("focus", function() {
-            console.log("focus");
-
             let searchInput = this;
 
             let jsonToSend = {"search type" : "hotels"};
@@ -134,7 +131,6 @@ class HotelsView extends View {
         });
 
         document.getElementById("search-input").addEventListener("blur", function() {
-            console.log("blur");
             hotelsView.removeSearchbarDropdown(searchBar);
         });
     }

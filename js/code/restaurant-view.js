@@ -8,7 +8,6 @@ class RestaurantView extends View {
         this._info = info;
     }
 
-
     constructView(viewRenderer) {
         this._viewRenderer = viewRenderer;
         let cover = new View(viewRenderer,"restaurant-header","app",undefined,undefined,this._info);
@@ -127,11 +126,9 @@ class RestaurantView extends View {
                             lib.sendJson(jsonToSend,"/addquestion.json", function(json) {
                                 let question = new View(restaurantView._viewRenderer,"restaurant-qna-comment",qnaQuestions,1,undefined, jsonToSend);
                                 question.renderView();
-                                console.log(question);
                             });
                             
                         } else {
-                            console.log('need authentication');
                         }
 
                     }

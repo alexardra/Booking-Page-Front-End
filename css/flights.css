@@ -17,6 +17,10 @@
     float:left;
     line-height:25px;
     background:inherit;
+    color:#EC7065;
+    font-size: 0.85em;
+    padding-left:5px;
+    padding-right:5px;
 }
 
 .flight-other-content {
@@ -44,7 +48,6 @@
 }
 
 #mainselection select {
-    border: 0;
     color: #515A5A;
     background: transparent;
     font-size:20px;
@@ -54,11 +57,17 @@
     margin-top:15px;
     margin-bottom:15px;
     padding:5px;
-    border:1px solid grey;
+    border:1px solid #ddd;
     *background: #58B14C;
     -webkit-appearance: none;
 }
 
 #mainselection select:focus {
     outline:none;
+}
+
+@media screen and (max-width:970px) {
+    #flight-search {
+        width:calc(80% - 280px);
+    }
 }
