@@ -13,7 +13,7 @@ let UserView = require("./user-view.js");
 
 class ViewFactory {
 
-    createView(type, args) {
+    createView(type, args) {ს
         switch(type) {
             case "hotels":
                 return new HotelsView();

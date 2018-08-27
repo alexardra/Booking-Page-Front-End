@@ -5,3 +5,4 @@ package-lock.json
 dist/
 css/bundle.css
 html/templates.html
+old-server.js

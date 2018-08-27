@@ -1,0 +1,622 @@
+<script id="about-nav-bar-template" type="text/html">
+    <section id="cover" class="hotels-background"></section>
+    <section id="contact-container"></section>
+    <section id="additionals-container"></section>
+</script>
+
+<script id="contact-us-template" type="text/html">
+    <div>
+        <h2>{{contact.heading}}</h2>
+        <hr>
+        <p>{{contact.content}}</p>
+    </div>
+    <form>
+        <input type="text" placeholder="{{contact.form.0}}">
+        <input type="text" placeholder="{{contact.form.1}}">
+        <textarea placeholder="{{contact.form.2}}"></textarea>
+        <div>
+            <button type="submit">{{contact.form.3}}</button>
+        </div>
+    </form>
+</script>
+
+<script id="flights-search-bar-template" type="text/html">
+	<form id="search-bar">
+		<div id="flight-search">
+
+		</div>
+
+		<div id="calendar-container">
+			<input class="date" type="date"></input>
+			<input class="date" type="date"></input>
+		</div>
+		<div id="other-container">
+			<div id="other-content" class="flight-other-content">
+				<span>{{flights.search.details}}</span>
+			</div>
+			<div id="other-dropdown" class="dropdown hidden"></div>
+		</div>
+	    <input id="submit-search" type="submit" value="{{find}}">
+	</form>
+</script>
+
+<script id="flights-destination-template" type="text/html">
+	<div class="flight-destination">
+		<button class="location"><i></i></button>
+		<input type="text" placeholder="{{destination}}"></input>
+		<div class="dropdown hidden flights-search-dropdown">
+			<h1>Recently Viewed</h1>
+
+			<div class="dropdown-elements-container">
+
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<script id="select-menu-template" type="text/html">
+	<div id="mainselection">
+	<select>
+		<option class="option" value="0">Economy</option>
+		<option class="option" value="1">Premium Economy</option>
+		<option class="option" value="2">Business Class</option>
+		<option class="option" value="3">First Class</option>
+	</select>
+	</div>
+</script>
+
+<!-- HEADER -->
+<script id="home-header" type="text/html">
+	<a href="#hotels">
+		<i id="logo"></i>
+		<div id="name">Traveler</div>
+	</a>
+	<ul id="header-nav-menu">
+		<a href="#hotels"><li>{{navigation info.0}}</li></a>
+		<a href="#rentals"><li>{{navigation info.1}}</li></a>
+		<a href="#flights"><li>{{navigation info.2}}</li></a>
+		<a href="#restaurants"><li>{{navigation info.3}}</li></a>
+		<a href="#things-to-do"><li>{{navigation info.4}}</li></a>
+		<a href="#about"><li>{{navigation info.5}}</li></a>
+	</ul>
+	<i class="notes-icon"></i>
+</script>
+
+<script id="header-authentication" type="text/html">
+	<div id="authentication-container">
+		<div id="authentication-content">
+			<a href="#" id="username"></a>
+			<img id="user-icon" src="/resources/user_icon.png"></img>
+		</div>
+		<div id="authentication-dropdown" class="hidden dropdown">
+		</div>
+	</div>
+</script>
+
+<script id="authentification-dropdown-element" type="text/html">
+	<button>
+		<div class="authentication-dropdown-element" id="facebook-sign-in">
+			<i></i>
+			<span>{{authentication.0}}</span>
+		</div>	
+	</button>
+
+	<button>
+		<div class="authentication-dropdown-element" id="google-sign-in">
+				<i></i>
+				<span>{{authentication.1}}</span>
+		</div>
+	</button>
+	
+	<button>
+		<div class="authentication-dropdown-element" id="sign-up">
+				<span>{{authentication.2}}</span>
+		</div>
+	</button>
+
+	<div id="authentication-dropdown-sign-in">
+		<div id="already-member">
+			{{authentication.3}}
+		</div>
+		<form id="login" method="post">
+			<input type="text" name="email" placeholder="{{authentication.4}}">
+			<input type="password" name="password">
+			<input type="submit" value="{{authentication.2}}">
+		</form>
+	</div>
+</script>
+
+<!-- USER DROPDOWN PAGE -->
+<script id="user-settings" type="text/html">
+	<section id="user-pages">
+		<ul>
+			<li>
+				<a href="#user=1">{{username}}</a>
+			</li>
+		</ul>
+		<button id="logout">Log out</button>
+	</section>
+</script>
+
+<script id="notes-section-template" type="text/html">
+
+	<div class="notes-section-container">
+		<h3>
+			{{heading}}
+		</h3>
+
+		<ul>
+
+		</ul>
+	</div>
+
+</script>
+
+<script id="note-container-template" type="text/html">
+	<li>
+		<div class="note-container">
+			<input type="checkbox" />
+			<div class="note-content" data-toggle="dropdown">
+				<span>{{name}}</span>
+			</div>
+			<div class="note-dropdown">
+				<span>{{place}}</span>
+				<span>{{reviews}}</span>
+				<span><a href="{{url}}">See More...</a></span>
+				<button>
+					Remove Bookmark
+				</button>
+			</div>
+		</div>
+	</li>
+</script>
+<script id="search-bar-template" type="text/html">
+	<form id="search-bar" onsubmit="return false;">
+		<div id="search-container">
+			<button class="location"><i></i></button>
+	    	<input id="search-input" type="text" placeholder="Destination" autocomplete="off">
+		</div>	
+
+		<div id="calendar-container">
+			<input class="date" type="date"></input>
+			<input class="date" type="date"></input>
+		</div>
+
+	    <div id="other-container">
+	    	<div id="other-content">
+	    		<i class="human_icon"></i>
+				<span>{{details}}</span>
+				
+				<div>
+					<i class="arrow_icon"></i>
+				</div>
+	    	</div>
+	    	<div id="other-dropdown" class="dropdown hidden"></div>
+	    </div>
+	    <input id="submit-search" type="submit" value="{{find}}">
+	</form>
+</script>
+
+
+<script id="recently-viewed-dropdown" type="text/html">
+	<div id="search-dropdown" class="dropdown hidden">
+		<h1>{{recently viewed}}</h1>
+		<div id="dropdown-elements-container">
+
+		</div>
+	</div>
+</script>
+
+<script id="recently-viewed-elem" type="text/html">
+	<div class="search-recently-viewed">
+		<div>{{location}}</div>
+		<div>{{additional info}}</div>	
+	</div>
+</script>
+
+<script id="calendar-dropdown" type="text/html">
+	<div id="calendar-dropdown" class="dropdown hidden">
+		<h1>{{calendar.header}}</h1>
+		<div id="calendar_dropdown_content">
+			<h2></h2>
+			<button id="left_arrow_icon">
+				<i></i>
+			</button>
+			<div id="calendar_days">
+			</div>
+			<button id="right_arrow_icon">
+				<i></i>
+			</button>
+			<div id="calendar_legend">
+				<div class="legend_elem">
+					<div></div>
+					<span>{{calendar.calendar legend.0}}</span>
+				</div>
+				<div class="legend_elem">
+					<div></div>
+					<span>{{calendar.calendar legend.1}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<script id="other-filter-dropdown-elem" type="text/html">
+	<div class="other-filter-dropdown-elem">
+		<span>{{parameter}}</span>
+		<button class="minus_icon">
+			<i></i>
+		</button>
+		<button class="plus_icon">
+			<i></i>
+		</button>
+	</div>
+</script>
+
+<!-- OVERALL NAVIGATION PAGES TEMPLATES -->
+<script id="navigation-page" type="text/html">
+	<section id="cover" class="hotels-background"></section>
+	<section id="additionals-container"></section>
+	<section id="browse">
+		<div class="filler">
+
+		</div>
+	</section>
+</script>
+
+<!-- NAVIGATION FOR DESTINATIONS SEARCH -->
+<script id="destinations-navigation-page" type="text/html">
+	<!-- <section id="cover" class="hotels-background"></section> -->
+	<section id="browse">
+			<div class="filler">
+	
+			</div>
+		</section>
+	<section id="additionals-container"></section>
+</script>
+
+<!-- ADDITIONALS SECTION -->
+<script id="additionals-template" type="text/html">
+
+    <div id="services-heading">
+        <h2>Our Services</h2>
+    </div>
+	
+	<div id="services-container">
+
+	</div>
+</script>
+
+<script id="service-template">
+	<div class="service-container">
+		<i></i>
+		<h4>{{heading}}</h4>
+		<p>{{content}}</p>
+	</div>
+</script>
+
+<!-- BROWSE SECTION -->
+<script id="browse-template" type="text/html">
+	<div class="browse-section">
+		<div class="browse-header">
+			<h3>{{header}}</h3>
+			<a href="#">
+				See All
+			</a>	
+		</div>
+		<ul>
+		</ul>
+	</div>
+</script>
+
+
+<script id="section-element-template" type="text/html">
+	<li>
+		<div class="section-element" draggable="true">
+			<a href="#{{section}}={{name}}">
+				<img src="{{url}}">
+			</a>
+			<div class="section-element-description">
+				<a href="#{{section}}={{name}}">
+					<span>
+						{{name}}	
+					</span>
+				</a>
+				<a href="#reviews={{name}}">
+					<span>
+						{{reviews}}	
+					</span>
+				</a>
+				<a href="#destination={{place}}">
+					<span>
+						{{place}}	
+					</span>
+				</a>
+			</div>
+		</div>
+	</li>
+</script>
+
+<!-- FOOTER -->
+<script id="home-footer" type="text/html">
+
+	<ul id="socials">
+		<li>
+			<a href="">
+				<i class="socials-facebook-icon"></i>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<i class="socials-twitter-icon"></i>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<i class="socials-gmail-icon"></i>
+			</a>
+		</li>
+		<li>
+			<a href="">
+				<i class="socials-youtube-icon"></i>
+			</a>
+		</li>
+	</ul>
+
+	<div id="copyright">{{copyright}}</div>
+</script>
+
+
+<script id="signup-template" type="text/html">
+	<form id="signup-container">
+		<input type="text" placeholder="Email" required>
+		<input type="text" placeholder="Name" required>
+		<input type="text" placeholder="Age" required>
+		<select>
+			<option>Europe</option>
+			<option>Asia</option>
+			<option>North America</option>
+			<option>South America</option>
+			<option>Africa</option>
+			<option>Australia</option>
+		</select>
+		<input type="password" placeholder="password">
+		<button type="submit">Sign up</button>
+	</form>
+</script>
+
+<script id="rentals-search-bar-template" type="text/html">
+	<form id="search-bar">
+		<div id="rentals-search">
+			<button class="location"><i></i></button>
+			<input id="search-input" type="text" placeholder="{{rentals.search.destinations}}" autocomplete="off"></input>
+			<div id="rentals-search-dropdown" class="dropdown hidden">
+				<h1>Recently Viewed</h1>
+
+				<div id="dropdown-elements-container">
+
+				</div>
+			</div>
+
+		</div>
+
+		<div id="calendar-container">
+			<input class="date" type="date"></input>
+			<input class="date" type="date"></input>
+		</div>
+		<input id="submit-search" type="submit" value="{{find}}">
+	</form>
+</script>
+
+
+
+<script id="restaurant-header" type="text/html">
+    <section id="cover" class="hotels-background">
+        <div id="restaurant-name">{{name}}</div>
+    </section>
+
+    <section id="inner-nav-menu">
+        <ul>
+            <a href="#overview"><li>{{headings.0}}</li></a>
+            <a href="#details"><li>{{headings.1}}</li></a>
+            <a href="#nearby"><li>{{headings.2}}</li></a>
+            <a href="#qna"><li>{{headings.3}}</li></a>
+        </ul>
+    </section>
+
+</script>
+
+<script id="restaurant-overview" type="text/html">
+    <section id="overview">
+        <div id="overall-overview">
+            <div class="review-container" id="review-bars">
+                <h3>
+                    {{headings.0}}
+                </h3>
+            </div>
+            <div class="review-container" id="rating-bars">
+                <h3>
+                    {{headings.4}}
+                </h3>
+            </div>
+        </div>
+
+        <div id="overview-comments">
+            <h3>
+                {{headings.5}}
+            </h3>
+            <div id="comments-container"></div>
+        </div>
+    </section>
+</script>
+
+<script id="review-bar" type="text/html">
+    <div class="progress-bar">
+            <span>{{type}}</span>
+            <progress max="100" value="80"></progress>
+            <span>{{value}}</span>
+        </div>
+</script>
+
+<script id="comment-section" type="text/html">
+    <div class="comment-section">
+        <div class="comment-author">
+            <img src="{{user avatar}}">
+            <span>{{user name}}</span>
+            <span>{{user details}}</span>
+        </div>
+        <div class="comment-content">
+            <h4>{{review heading}}</h4>
+            <p>{{review preview}}</p>
+            <span>{{review date}}</span>
+            <span>{{review response}}</span>
+        </div>
+    </div>
+</script>
+
+<script id="restaurant-details" type="text/html">
+    <section id="details">
+        <h2>{{headings.15}}</h2>
+        <div id="details-info">
+            <h3>{{headings.9}}</h3>
+        </div>
+
+        <div id="details-open-hours">
+            <h3>{{headings.10}}</h3>
+        </div>
+
+        <div id="details-features">
+            <h3>{{headings.11}}</h3>
+            <span>{{details.restaurant features.0}}</span>
+            <span>{{details.restaurant features.1}}</span>
+            <span>{{details.restaurant features.2}}</span>
+            <span>{{details.restaurant features.3}}</span>
+            <span>{{details.restaurant features.4}}</span>
+            <span>{{details.restaurant features.5}}</span>
+            <span>{{details.restaurant features.6}}</span>
+            <span>{{details.restaurant features.7}}</span>
+        </div>
+
+        <div id="details-description">
+            <h3>{{headings.12}}</h3>
+            <p>{{details.description}}</p>
+        </div>
+    </section>
+</script>
+
+<script id="details-contact-info" type="text/html">
+    <div>
+        <span>{{type}}:</span>
+        <span>{{value}}</span>
+    </div>
+</script>
+
+<script id="restaurant-nearby" type="text/html">
+    <section id="nearby">
+
+    </section>
+</script>
+
+<script id="restaurants-nearby" type="text/html">
+    <section class="nearby">
+        <h3>{{headings.6}}</h3>
+        <ul id="nearby-restaurants-container">
+        </ul>
+    </section>
+</script>
+    
+<script id="hotels-nearby" type="text/html">
+    <section class="nearby">
+        <h3>{{headings.7}}</h3>
+        <ul id="nearby-hotels-container">
+        </ul>
+    </section>
+</script>
+
+<script id="attractions-nearby" type="text/html">
+    <section class="nearby">
+        <h3>{{headings.8}}</h3>
+        <ul id="nearby-attractions-container">
+        </ul>
+    </section>
+</script>
+
+<script id="nearby-section" type="text/html">
+    <li>
+        <img src="{{image}}">
+        <div>
+            <span>{{name}}</span>
+            <span>{{distance}}</span>
+            <span>{{reviews}}</span>
+        </div>
+    </li>
+</script>
+
+<script id="restaurant-qna" type="text/html">
+    <section id="qna">
+
+        <div id="qna-header">
+            <h3>{{headings.13}}</h3>
+            <button>
+                {{q&n data.0}}
+            </button>
+        </div>
+
+        <div id="qna-questions">
+
+        </div>
+    </section>
+</script>
+
+<script id="restaurant-qna-comment" type="text/html">
+    <div class="comment-section">
+        <div class="comment-author">
+            <img src="{{author avatar}}">
+            <span>{{author}}</span>
+        </div>
+        <div class="comment-content">
+            <p>{{question}}</p>
+        </div>
+        <div class="answer-content">
+            <span>Response From {{top response author}}</span>
+            <p>{{top response}}</p>
+        </div>
+    </div>
+</script>
+<script id="restaurants-search-bar-template" type="text/html">
+
+	<form id="search-bar" onsubmit="return false;">
+
+		<div id="maxlength-search">
+			<button class="location"><i></i></button>	
+			<input type="text" placeholder="{{restaurants.search.find}}"></input>
+			<div id="todo-search-dropdown" class="dropdown hidden">
+				<h1>Recently Viewed</h1>
+
+				<div id="dropdown-elements-container">
+
+				</div>
+			</div>
+		</div>
+		<input id="submit-search" type="submit" placeholder="{{restaurants.search.submit}}"></input>
+	</form>
+</script>
+<script id="thingstodo-search-bar-template" type="text/html">
+    <form id="search-bar" onsubmit="return false;">
+			<div id="maxlength-search">
+				<button class="location"><i></i></button>	
+				<input type="text" placeholder="Find thing to do"></input>
+				<div id="todo-search-dropdown" class="dropdown hidden">
+					<h1>Recently Viewed</h1>
+	
+					<div id="dropdown-elements-container">
+	
+					</div>
+				</div>
+
+			</div>
+			<input id="submit-search" type="submit" placeholder="{{restaurants.search.submit}}"></input>
+    </form>
+</script>

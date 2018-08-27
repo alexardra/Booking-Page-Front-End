@@ -45,19 +45,19 @@
 }
 
 .service-discover-icon {
-    background: url('/services-icons.png') no-repeat 0px 0px;
+    background: url('/resources/services-icons.png') no-repeat 0px 0px;
 }
 
 .service-reviews-icon {
-    background: url('/services-icons.png') no-repeat -53px 0px;
+    background: url('/resources/services-icons.png') no-repeat -53px 0px;
 }
 
 .service-money-icon {
-    background: url('/services-icons.png') no-repeat -106px 0px;
+    background: url('/resources/services-icons.png') no-repeat -106px 0px;
 }
 
 .service-booking-icon {
-    background: url('/services-icons.png') no-repeat -158px 0px;
+    background: url('/resources/services-icons.png') no-repeat -158px 0px;
 }
 
 .service-container h4 {

@@ -68,7 +68,7 @@ header {
 
 #logo {
 	float:left;
-	background: url('/logo1.png');
+	background: url('/resources/logo1.png');
 	width:40px;
 	height:40px;
 	margin:5px;
@@ -76,7 +76,7 @@ header {
 
 .hamburger {
 	float:right;
-	background: url('/header_sprites.png') no-repeat 0 -5px;
+	background: url('/resources/header_sprites.png') no-repeat 0 -5px;
 	width:40px;
 	height:30px;
 	margin:10px 5px 0 0;
@@ -143,7 +143,7 @@ header {
 }
 
 #facebook-sign-in i {
-	background:url('/logo-sprites.png') no-repeat 0 -1px;
+	background:url('/resources/logo-sprites.png') no-repeat 0 -1px;
 	float:left;
 	width:16px;
 	height:16px;
@@ -166,7 +166,7 @@ header {
 }
 
 #google-sign-in i {
-	background:url('/logo-sprites.png') no-repeat 0 -18px;
+	background:url('/resources/logo-sprites.png') no-repeat 0 -18px;
 	float:left;
 	width:18px;
 	height:18px;
@@ -265,19 +265,19 @@ ul{
 }
 
 #bookings-icon{
-	background: url('/books.png') no-repeat;
+	background: url('/resources/books.png') no-repeat;
 }
 
 #favourites-icon{
-	background: url('/favourites.png') no-repeat -2px -2px;
+	background: url('/resources/favourites.png') no-repeat -2px -2px;
 }
 
 #settings-icon{
-	background: url('/settings.png') no-repeat;
+	background: url('/resources/settings.png') no-repeat;
 }
 
 #weak-deals-icon{
-	background: url('/deals.png') no-repeat;	
+	background: url('/resources/deals.png') no-repeat;	
 }
 
 #logout{
@@ -289,7 +289,7 @@ ul{
 /**********   NOTES **********/
 .notes-icon {
 	float:right;
-	background: url('/notes-icon.png') no-repeat -2px -2px;
+	background: url('/resources/notes-icon.png') no-repeat -2px -2px;
 	height:26px;
 	width:26px;
 	margin:12px;
@@ -385,7 +385,7 @@ ul{
 
 
 .notes-section-container i {
-	background: url('/delete-icon.png') no-repeat 0 0;
+	background: url('/resources/delete-icon.png') no-repeat 0 0;
 	width:30px;
 	height:30px;
 	float:right;
@@ -521,7 +521,7 @@ ul{
 }
 
 .user_icon {
-	background:url('../resources/user_icon.png') no-repeat 0 0;
+	background:url('../public/resources/user_icon.png') no-repeat 0 0;
 	width:30px;
 	height:30px;
 	display:block;
@@ -618,15 +618,15 @@ section {
 
 }
 .rentals-background{
-	background: url('/beach-house.jpg') no-repeat;
+	background: url('/resources/beach-house.jpg') no-repeat;
 	
 }
 .hotels-background{
-	background: url('/beach.jpg') no-repeat;
+	background: url('/resources/beach.jpg') no-repeat;
 }
 
 .flights-background{
-	background: url('/aerial.jpg') no-repeat;	
+	background: url('/resources/aerial.jpg') no-repeat;	
 }
 
 .restaurants-background{
@@ -663,7 +663,7 @@ section {
 }
 
 .location i {
-	background: url('/loc.png') no-repeat;
+	background: url('/resources/loc.png') no-repeat;
 	/*background:url('/search_icons.png') no-repeat -99px -4px;*/
 	width:32px;
 	height:32px;
@@ -777,7 +777,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
   
 .human_icon {
-	background: url("/hotel_icon.png") no-repeat;
+	background: url("/resources/hotel_icon.png") no-repeat;
 	/*background: url("/search_icons.png") no-repeat -5px 0;*/
 	width: 30px;
 	height: 40px;
@@ -815,7 +815,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
   
 .arrow_icon {
-	background: url("/arrow.png") no-repeat;
+	background: url("/resources/arrow.png") no-repeat;
 	/*background: url("/search_icons.png") no-repeat -137px -5px;*/
 	width:16px;
 	height:16px;
@@ -890,19 +890,19 @@ footer {
 }
 
 .socials-facebook-icon {
-	background: url('/socials-icons.png') no-repeat 0px 0px;
+	background: url('/resources/socials-icons.png') no-repeat 0px 0px;
 }
 
 .socials-twitter-icon {
-	background: url('/socials-icons.png') no-repeat -58px 0;
+	background: url('/resources/socials-icons.png') no-repeat -58px 0;
 }
 
 .socials-gmail-icon {
-	background: url('/socials-icons.png') no-repeat -116px 0;
+	background: url('/resources/socials-icons.png') no-repeat -116px 0;
 }
 
 .socials-youtube-icon {
-	background: url('/socials-icons.png') no-repeat -174px 0;
+	background: url('/resources/socials-icons.png') no-repeat -174px 0;
 }
 
 #copyright {
