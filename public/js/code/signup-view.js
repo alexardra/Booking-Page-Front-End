@@ -1,14 +1,14 @@
 let lib = require("./library.js");
 let View = require("./view.js");
 
-class SignupView extends View{
+class SignupView extends View { 
+
 	constructor(){
 		super();
 	}
 
 	constructView(viewRenderer){
 		this._viewRenderer = viewRenderer;
-
 	}
 
 	listen(button){
@@ -16,7 +16,6 @@ class SignupView extends View{
 		button.addEventListener("click", function() {
 			signupView.buttonOnClick(this);
 		});
-
 	}
 
 	buttonOnClick(button) {
@@ -43,7 +42,8 @@ class SignupView extends View{
 	listenToSubmit(signupForm) {
 		let signupView = this;
 		let submitButton = signupForm.getElementsByTagName("button")[0];
-		submitButton.addEventListener("click", function() {
+		submitButton.addEventListener("click", function(evt) {
+			evt.preventDefault();
 			signupView.parse(signupForm);
 		});
 
@@ -66,16 +66,19 @@ class SignupView extends View{
 		let name = inputFields[1].value;
 		let age = inputFields[2].value;
 		let password = inputFields[3].value;
+		let password2 = inputFields[4].value;
+
+		// password validation TODO
 
 		let jsonToSend = {
 			"email" : email, 
 			"name" : name,
 			"age" : age,
 			"location" : selectedContinent,
-			"password" : password
+			"password" : password, 
 		}
 
-		lib.sendJson(jsonToSend, "/signup.json", function(json) {
+		lib.sendJson(jsonToSend, "/users/register", function(json) {
 			if (json["status"] == "success") {
 				lib.getJsonWithFetch("/users.json", function(response) {
 					let userSpace = new View(signupView._viewRenderer, "user-settings", "authentication-dropdown");

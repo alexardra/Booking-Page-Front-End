@@ -4,5 +4,6 @@ node_modules/
 package-lock.json
 dist/
 css/bundle.css
+public/css/bundle.css
 html/templates.html
 old-server.js

@@ -7,30 +7,30 @@ const concat = require('gulp-concat');
 
 
 gulp.task('babel', () =>
-    gulp.src('dist/app.js')
+    gulp.src('public/dist/app.js')
         .pipe(babel({
             presets: ['env']
         }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('public/dist'))
 );
 
 gulp.task('browserify', function() {
-    return browserify({ entries: ['js/code/main.js'] })
+    return browserify({ entries: ['public/js/code/main.js'] })
         .bundle()
         .pipe(source('app.js'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('public/dist'));
 });
 
 gulp.task('combineStyles', function () {
-    return gulp.src('css/*.css')
+    return gulp.src('public/css/*.css')
       .pipe(concatCss("bundle.css"))
-      .pipe(gulp.dest('css/')); 
+      .pipe(gulp.dest('public/css/')); 
 });
 
 gulp.task('combineHtmls', function() {
-    return gulp.src('views/*.html')
+    return gulp.src('public/views/*.html')
       .pipe(concat('templates.html')) 
-      .pipe(gulp.dest('html/'));
+      .pipe(gulp.dest('public/html/'));
 });
 
 gulp.task('default', ['combineHtmls', 'combineStyles', 'browserify', 'babel']);

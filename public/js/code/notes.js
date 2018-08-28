@@ -19,7 +19,6 @@ module.exports = {
                     
                     let usernamePlaceholder = document.querySelector("#user-pages ul li a");
                     if (usernamePlaceholder == undefined) {
-                        console.log("a");
                         popView = new SignupView();
                         popView.constructView(viewRenderer);
                         popView.buttonOnClick(this);
@@ -139,16 +138,13 @@ function addBookmark(renderJson) {
 }
 
 function removeBookmarksListener() {
-    console.log("---=");
     let bookmarks = document.getElementsByClassName("note-dropdown");
     let numBookmarks = bookmarks.length;
-    console.log(numBookmarks);
 
 
     for (let i = 0; i < numBookmarks; i++) {
         let removeButton = bookmarks[i].getElementsByTagName("button")[0];
         removeButton.addEventListener("click", function() {
-            console.log(this.parentNode.parentNode);
             let elementToRemove = this.parentNode.parentNode.parentNode;
             elementToRemove.parentNode.removeChild(elementToRemove);
         });
